@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+// breakpoints
+$breakpoints:  (
+  "xs": 25em, // 400px
+  "sm": 34em, // 544px
+  "md": 48em, // 768px
+  "lg": 60em, // 960px
+  "xl": 80em, // 1280px
+  "xxl": 90em // 1440px
+);
+
+$screen-sm: 640px; // > mobile
+$screen-lg: 1024px; // > tablet
+$screen-xl: 1280px; // > desktop
+
+// colours
+$clr-primary: #FFFAE0;
+$clr-secondary: #607BDA;
+$clr-accent-1: #FF96C3;
+$clr-accent-2: #FF4E4E;
+$clr-text: #282A2F;
+
+$font-primary: 'Lexend', sans-serif;

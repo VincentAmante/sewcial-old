@@ -1,0 +1,40 @@
+// @mixin media ($breakpoint) {
+//     @if map-has-key($breakpoints, $breakpoint) {
+//         $breakpoint-value: map-get($breakpoints, $breakpoint);
+//         @media (min-width: $breakpoint-value){
+//             @content;
+//         }
+//     }
+//     @else {
+//         @warn 'Invalid breakpoint provided';
+//     }
+// }
+
+// Media Query - min-width for mobile-first design
+@mixin media($breakpoint){
+    @media (min-width: $breakpoint) {
+        @content
+    }
+};
+
+@mixin base-margin {
+
+    margin-inline: 50px;
+    margin-block: 35px;
+
+    @include media($screen-sm) {
+        margin-inline: 250px;
+        margin-block: 50px;
+    }
+};
+
+
+// general mixins for ease-of-use
+@mixin flex-col {
+    display: flex;
+    flex-direction: column;
+}
+@mixin flex {
+    display: flex;
+    flex-direction: row;
+}
