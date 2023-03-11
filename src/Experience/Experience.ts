@@ -12,6 +12,9 @@ import assets from './Utils/assets'
 let instance: Experience | null = null
 
 export default class Experience {
+
+    // * Ignore all these, these type-declarations are just so errors can go away in the editor
+    // * The ! indicates these were fixed via defintive assignments
     canvas!: HTMLCanvasElement 
     sizes!: Sizes
     scene!: THREE.Scene
@@ -22,16 +25,22 @@ export default class Experience {
     world!: World
     raycaster!: Raycaster
 
+    // * Type declarations were added to this parameter to account for the possibility that this could be either an HTMLCanvasElement or null
+    // * If you hover over querySelector, you can see that it returns HTMLCanvasElement or null, which is why the parameter has to include it 
     constructor(canvas: HTMLCanvasElement | null = document.querySelector('#canvas')) {
+
         // Singleton Set-up
         if (instance){ 
             return instance
         }
         instance = this
 
+        // * guard clauses like these prevent any error that would occur if `canvas` were null, this encourages type safety and removes
+        // * errors caused due to a type not having functionality of another (errors like using '.tolowercase()' on a number variable)
         if (canvas === null) return;
         
         this.canvas = canvas;
+        // * (window as any) is a special case fix, `any` is a magical keyword that handwaives a lot of issues in typescript
         (window as any).experience = this;
 
         this.sizes = new Sizes()

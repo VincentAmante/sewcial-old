@@ -5,6 +5,9 @@ import gsap from 'gsap'
 import { PerspectiveCamera } from 'three'
 
 export default class Camera {
+
+    // * Defining some as being capable of being `null` or `undefined` erases typescript's worries that the values aren't initialised
+
     experience: Experience
     scene: THREE.Scene
     sizes: import("d:/Projects/sewcial/src/Experience/Utils/Sizes").default

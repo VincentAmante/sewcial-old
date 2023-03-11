@@ -2,6 +2,10 @@ import * as THREE from 'three'
 import Experience from '../Experience'
 
 export default class Floor {
+    // * This file isn't set-up to be TypeScript friendly
+    // * You can see that right now it doesn't matter at all
+    // * Most of these fixes are simply for increased stability
+
     constructor(){
         this.experience = new Experience()
         this.scene = this.experience.scene

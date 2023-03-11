@@ -2,6 +2,12 @@ import * as THREE from 'three'
 import Experience from '../Experience'
 
 export default class Room {
+    experience: Experience
+    scene: any
+    resources: any
+    room: any
+    actualRoom: any
+
     constructor() {
         this.experience = new Experience()
         this.scene = this.experience.scene
@@ -14,7 +20,7 @@ export default class Room {
     }
 
     setModel(){
-        this.actualRoom.children.forEach((child) => {
+        this.actualRoom.children.forEach((child: any) => {
             child.castShadow = true
             child.receiveShadow = true
 
