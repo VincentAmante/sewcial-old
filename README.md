@@ -4,11 +4,13 @@ Sewcial App, please read this README file for information on how to navigate thi
 For fellow developers, everything from [MANUALLY WRITTEN CONTENT] is self-made to give you some hints on how to start navigating this repo.
 It's not enough, so feel free to ask for help or for better guides so you can get a better understanding of the project
 
-## Recommended IDE Setup
+## Recommended VSCode Plugins
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+- [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-[SCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss)
+- [SCSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-scss)
+
+- [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments)
 
 ## Type Support for `.vue` Imports in TS
 
@@ -53,37 +55,33 @@ Most styling are scoped within `.vue` files, re-usable content will be found pri
 ### Structure
 
 ```txt
-`assets/sass`
+[assets/sass]
 
-    L `main.scss` - imports everything
+    L abstracts - all base re-usables
 
-    L `abstracts` - [all base re-usables]
-
-        L `_functions.scss` - meant to store any complex scss calculations
-
-        L `_mixins.scss` - breakpoints and re-usable styles for ease-of-use
-
-        L `_variables.scss` - colours and such can be found here
+        L [_functions.scss] - meant to store any complex scss calculations
+        L [_mixins.scss] - breakpoints and re-usable styles for ease-of-use
+        L [_variables.scss] - colours and such can be found here
 
     L base
-
-        L `_reset.scss` - simply resets the css for more consistent styling
-
-        L `_typography.scss` - [contains global text stylings]
+        L [_reset.scss] - simply resets the css for more consistent styling
+        L [_typography.scss] - [contains global text stylings]
         
     L themes - ignore for now
+
+    L [main.scss] - imports everything under sass, is itself imported in the app via [vite.config.json]
 ```
 
 ## Three.JS
 
-Due to TypeScript being applied to this Vue project (for good reasons), ThreeJS content has unfortunately been forcibly converted to TypeScript to run properly.
-Please ask Icen for any help on ThreeJS as documentation in this field is lacking.
+Due to TypeScript being applied to this Vue project (for good reasons), ThreeJS content has been forcibly converted to TypeScript to address marked errors.
+Feel free to ask regarding this matter as documentation about Vite/ThreeJS/TypeScript online seems lacking
 
 A lot of the additions you may find that are not in the tutorial you've been provided is just so the error can go away.
 If you see errors in the vscode editor, simply hover/click on any of the errors, and apply Quick-Fixes `(ctrl + .)`.
 Usually you can get away with `add all missing initializers` as well as `add definitive assignment`.
 There's also `infer type parameter` for parameter-issues, or simply adding `: any` as the type (e.g. `variableName: any`).
-Most of these is just TypeScript wanting to make sure you understand
+Most of these is just TypeScript wanting to ensure type safety
 
 ### Tip
 
@@ -97,7 +95,7 @@ Assets are defined in `public/Experience`, where models and textures can be foun
 The code for everything ThreeJS-related is found in `src/Experience`.
 `Experience/World/World.ts` and `Experience/World/Room.ts` is an insight into how objects are added into the world.
 `Experience/Utils/assets.ts` and `Experience/Utils/Resources.ts` will show you how the assets are loaded.
-A lot of the underlying infrastructure is still to be added, please contact Icen for any requests or questions
+A lot of the underlying infrastructure is still to be added, please ask for any requests or questions.
 
 ## Vue
 
