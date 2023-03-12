@@ -52,6 +52,7 @@ Most styling are scoped within `.vue` files, re-usable content will be found pri
 
 ### Structure
 
+```txt
 `assets/sass`
 
     L `main.scss` - imports everything
@@ -71,6 +72,7 @@ Most styling are scoped within `.vue` files, re-usable content will be found pri
         L `_typography.scss` - [contains global text stylings]
         
     L themes - ignore for now
+```
 
 ## Three.JS
 
