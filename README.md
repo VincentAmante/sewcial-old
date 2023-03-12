@@ -53,14 +53,23 @@ Most styling are scoped within `.vue` files, re-usable content will be found pri
 ### Structure
 
 `assets/sass`
+
     L `main.scss` - imports everything
+
     L `abstracts` - [all base re-usables]
+
         L `_functions.scss` - meant to store any complex scss calculations
+
         L `_mixins.scss` - breakpoints and re-usable styles for ease-of-use
+
         L `_variables.scss` - colours and such can be found here
+
     L base
+
         L `_reset.scss` - simply resets the css for more consistent styling
+
         L `_typography.scss` - [contains global text stylings]
+        
     L themes - ignore for now
 
 ## Three.JS
