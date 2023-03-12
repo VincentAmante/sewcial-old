@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { computed, ref } from 'vue';
+    import { computed, ref, watch } from 'vue';
     import { useRoute } from 'vue-router';
 
     const props = defineProps({
@@ -7,22 +7,35 @@
             type: Boolean,
             required: true,
             default: false
+        },
+        page: {
+            type: String,
+            required: true,
+            default: '/'
+        }, 
+        colour: {
+            type: String,
+            required: true,
+            default: 'primary'
         }
     })
 
     // Defines what colour to use based on page
-    const route = useRoute()
-    const burgerColour = computed(() => {
-        console.log(route.path)
-
-        switch(route.path){
+    // TODO: Improve efficiency
+    const setBurgerColour = (page: String) => {
+        switch(page){
             case '/home':
+            case '/':
                 return 'primary'
             case '/test':
                 return 'secondary'
             default:
                 return 'primary'
         }
+    }
+    const burgerColour = ref(setBurgerColour(props.page))
+    watch(props, (newPage, oldPage) => {
+        burgerColour.value = setBurgerColour(newPage.page)
     })
 
     // Allows a child component to send an update to the parent via emits aka events
@@ -69,6 +82,7 @@
         justify-content: space-between;
         height: 45px;
         cursor: pointer;
+        pointer-events: visible;
 
         div {
             width: 52px;

@@ -3,35 +3,52 @@
 // import TheWelcome from '../components/TheWelcome.vue'
 import LogoWhite from '@/components/icons/LogoWhite.vue';
 import Experience from '@/Experience/Experience'
-import { onMounted } from 'vue';
+import { onMounted, ref, onBeforeUnmount } from 'vue';
 
+const experience = ref<Experience>()
 onMounted(() => {
   const appElem: HTMLCanvasElement | null = document.querySelector('#canvas')
-  console.log(appElem)
   if (appElem != null){
-    const experience = new Experience(appElem)
+    experience.value = new Experience(appElem)
   }
+})
+
+// FIXME: Improve canvas unmount handling
+/** Currently, this code is done because when you switch pages and then go back to home, the canvas is lost
+ *  ideally, we don't want the Experience to load a long time, so if canvas-loading is getting too long, then consider alternatives */
+onBeforeUnmount(() => {
+  if (experience.value != null)
+    experience.value.unmount()
 })
 </script>
 
 <template>
   <main>
     <LogoWhite class="logo-white"></LogoWhite>
-    <canvas id="canvas"></canvas>
+    <div class="canvas-wrapper">
+      <canvas id="canvas"></canvas>
+    </div>
   </main>
-  
 </template>
 
-<style lang="scss">
-  canvas {
+<style scoped lang="scss">
+
+  main {
+    overflow: hidden;
+  }
+  .canvas-wrapper {
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    overflow: hidden;
     position: absolute;
-    width: 100%;
-    height: 100%;
     z-index: -100;
   }
-
-  body {
+  canvas {
+    width: 100%;
+    height: 100%;
     background-color: $clr-secondary;
+    pointer-events: initial;
   }
 
   .logo-white {

@@ -24,7 +24,7 @@ export default class Camera {
         this.scene = this.experience.scene
         this.sizes = this.experience.sizes
         this.canvas = this.experience.canvas
-        console.log(this.experience, this.sizes, this.scene, this.canvas)
+        
         this.setInstance()
         this.setControls()
     }
@@ -39,11 +39,7 @@ export default class Camera {
         this.instance.position.z = -10
 
         this.instance
-        console.log(this.instance.rotation)
         this.scene.add(this.instance)
-
-        console.log('Camera instance')
-        console.log(this.instance)
     }
 
     createPerspectiveCamera(){
@@ -69,7 +65,6 @@ export default class Camera {
             this.perspectiveCamera.updateProjectionMatrix()   
         }
         
-        console.log(this.instance.rotation)
         // this.orthographicCamera.left = (-this.sizes.aspect * this.sizes.frustrum) / 2
         // this.orthographicCamera.right =  (this.sizes.aspect * this.sizes.frustrum) / 2
         // this.orthographicCamera.top = this.sizes.frustrum / 2

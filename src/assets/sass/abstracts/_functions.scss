@@ -1,0 +1,5 @@
+
+//  strip units helper function
+@function _num($input){ 
+    @return $input/($input * 0 + 1); 
+  }

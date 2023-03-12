@@ -10,7 +10,7 @@ h1, .text-h1 {
 
 // Heading 2
 h2, .text-h2 {
-    font-size: 25px;
+    @include font-size(20px, 25px);
     font-weight: 700;
     text-transform: uppercase;
 }

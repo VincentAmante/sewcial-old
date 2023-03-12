@@ -9,7 +9,7 @@ export default class Sizes extends EventEmitter {
 
     constructor(){
         super()
-        const canvasElem: HTMLCanvasElement | null = document.querySelector('canvas#app')
+        const canvasElem: HTMLCanvasElement | null = document.querySelector('canvas#canvas')
 
         // Sets initial values
         this.width = window.innerWidth
@@ -18,7 +18,6 @@ export default class Sizes extends EventEmitter {
         this.pixelRatio = Math.min(window.devicePixelRatio, 2)
 
         window.addEventListener('resize', () => {
-
             // Guard Clause
             if (canvasElem === null) return;
 

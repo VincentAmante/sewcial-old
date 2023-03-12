@@ -24,7 +24,7 @@ export default class Experience {
     resources!: Resources
     world!: World
     raycaster!: Raycaster
-
+    
     // * Type declarations were added to this parameter to account for the possibility that this could be either an HTMLCanvasElement or null
     // * If you hover over querySelector, you can see that it returns HTMLCanvasElement or null, which is why the parameter has to include it 
     constructor(canvas: HTMLCanvasElement | null = document.querySelector('#canvas')) {
@@ -75,5 +75,9 @@ export default class Experience {
     update(){
         this.camera.update()
         this.renderer.update()
+    }
+
+    unmount(){
+        instance = null
     }
 }
