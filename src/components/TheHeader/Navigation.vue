@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    import { computed, watch } from 'vue';
+    import { computed, watch, ref} from 'vue';
     import AppButton from '../AppButton.vue';
     import LogoTwitter from '../icons/LogoTwitter.vue'
     import LogoFacebook from '../icons/LogoFacebook.vue'
@@ -10,6 +10,11 @@
             type: Boolean,
             required: true,
             default: false
+        },
+        colour: {
+            type: String,
+            required: true,
+            default: 'primary'
         }
     })
     
@@ -17,16 +22,17 @@
         console.log(props.isToggled)
         return (props.isToggled) ? 'toggled': '';
     })
+
 </script>
 
 <template>
-    <nav :class="navStyle">
+    <nav :class="[navStyle, colour]">
         <ul class="routes">
             <li>
                 <RouterLink to="/">Map</RouterLink>
             </li>
             <li>
-                <RouterLink to="/">About Us</RouterLink>
+                <RouterLink to="/about">About Us</RouterLink>
             </li>
             <li>
                 <RouterLink to="/">Discover</RouterLink>
@@ -43,7 +49,7 @@
         </ul>
 
         <div class="other">
-            <AppButton>Book</AppButton>
+            <AppButton class="btn">Book</AppButton>
             <div class="social-media-btns">
                 <LogoTwitter></LogoTwitter>
                 <LogoFacebook></LogoFacebook>
@@ -56,14 +62,17 @@
 <style lang="scss" scoped>
     nav {
         @include flex-col;
-        justify-content: end;
-        z-index: 100;
+        @include conditional-bg;
+        @include conditional-text-alt('a');
+        @include conditional-text('.btn');
+        @include conditional-bg-alt('.btn');
 
+        padding-top: clamp(100px, 10vmax, 200px);
+        z-index: 100;
         top: 0;
         right: 0;
-        background-color: $clr-primary;
         height: 100vh;
-        width: clamp(300px, 70vw, 500px);
+        width: 100vw;
         transition: all ease-out .15s;
         transform: translateX(100%);
 
@@ -71,6 +80,11 @@
             transform: translateX(0);
         }
         pointer-events: initial;
+
+        
+        @include media("xs"){
+            width: clamp(400px, 70vw, 500px);
+        }
     }
 
     .routes {
@@ -78,17 +92,18 @@
         list-style: none;
         padding-inline: 50px;
         gap: clamp(5px, 4vh, 44px);
-        margin-top: 200px;
-
+        
         li {
             display: flex;
             position: relative;
+
             a {
                 @extend .text-h2;
                 width: 100%;
-                color: $clr-secondary;
                 text-decoration: none;
             }
+
+            // TODO: change this to something else
             a:after {
                 position: absolute;
                 content: '>';
@@ -102,11 +117,9 @@
         align-items: center;
         justify-content: center;
         padding-inline: clamp(5px, 7.5vmax, 95px);
-        padding-bottom: 3em;
         gap: clamp(5px, 4vmax, 2.5em);
-        margin-top: clamp(10px, 5vmax, 120px);
-        
-        button {
+        padding-block: clamp(5px, 5vmax, 40px);
+        .btn {
             width: 100%;
         }
 

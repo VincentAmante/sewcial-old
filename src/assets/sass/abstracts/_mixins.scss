@@ -1,21 +1,24 @@
-// @mixin media ($breakpoint) {
-//     @if map-has-key($breakpoints, $breakpoint) {
-//         $breakpoint-value: map-get($breakpoints, $breakpoint);
-//         @media (min-width: $breakpoint-value){
-//             @content;
-//         }
-//     }
-//     @else {
-//         @warn 'Invalid breakpoint provided';
-//     }
-// }
+
+@use "sass:string";
+
+@mixin media ($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        $breakpoint-value: map-get($breakpoints, $breakpoint);
+        @media (min-width: $breakpoint-value){
+            @content;
+        }
+    }
+    @else {
+        @warn 'Invalid breakpoint provided';
+    }
+}
 
 // Media Query - min-width for mobile-first design
-@mixin media($breakpoint){
-    @media (min-width: $breakpoint) {
-        @content
-    }
-};
+// @mixin media($breakpoint){
+//     @media (min-width: $breakpoint) {
+//         @content
+//     }
+// };
 
 @mixin base-margin {
 
@@ -52,7 +55,6 @@
     display: $display;
     position: $pos;
 }
-
 // Idk, I kinda wanna see if this is usable for speech bubbles
 @mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false){
     @include pseudo($pos: $position);
@@ -84,35 +86,68 @@
     }
 }
 
-// ==============================
-// Font size mixin
-// ==============================
+// Applies bg colour based on class name
+@mixin conditional-bg ($selector: ''){
 
-//  default font scale bounding
-$font-lock-min:  400px !default; 
-$font-lock-max: 1000px !default;
+    @if (string.length($selector) != 0){
+        &.primary #{$selector} { background-color: $clr-primary;}
+        &.secondary #{$selector} { background-color: $clr-secondary; }
+        &.accent-1 #{$selector} { background-color: $clr-accent-1; }
+        &.accent-2 #{$selector} { background-color: $clr-accent-2; }
 
-//  font-size 
-@mixin font-size(
-  $min,                         // font-size 
-  $max: null,                   // optional maximum font size
-  $lock-min: $font-lock-min,  // optional minimum viewport width 
-  $lock-max: $font-lock-max   // optional maximum viewport width 
-  ){
-    & { font-size: $min; }
-    @if $max {
-      @media (min-width: $lock-min) { 
-        & { 
-          font-size: calc(
-            #{$min} + 
-            #{num($max) - _num($min)} * 
-            (100vw - #{$lock-min}) / 
-            #{num($lock-max) - num($lock-min)}
-          ); 
-        } 
-      }
-      @media (min-width: $lock-max){ 
-        & { font-size: $max; } 
-      }
+    } @else {
+
+        &.primary { background-color: $clr-primary;}
+        &.secondary { background-color: $clr-secondary; }
+        &.accent-1 { background-color: $clr-accent-1; }
+        &.accent-2 { background-color: $clr-accent-2; }
+    }
+}
+
+@mixin conditional-bg-alt ($selector: ''){
+    @if (string.length($selector) != 0){
+        &.primary #{$selector} { background-color: $clr-secondary; }
+        &.secondary #{$selector} { background-color: $clr-primary; }
+        &.accent-1 #{$selector} { background-color: $clr-accent-2; }
+        &.accent-2 #{$selector}{ background-color: $clr-accent-1; }
+    } @else {
+        &.primary { background-color: $clr-secondary; }
+        &.secondary { background-color: $clr-primary;}
+        &.accent-1 { background-color: $clr-accent-2; }
+        &.accent-2 { background-color: $clr-accent-1; }
+    }
+}
+
+@mixin conditional-text ($selector: ''){
+
+    @if (string.length($selector) != 0){
+        &.primary #{$selector} { color: $clr-primary;}
+        &.secondary #{$selector} { color: $clr-secondary; }
+        &.accent-1 #{$selector} { color: $clr-accent-1; }
+        &.accent-2 #{$selector} { color: $clr-accent-2; }
+
+    } @else {
+
+        &.primary { color: $clr-primary;}
+        &.secondary { color: $clr-secondary; }
+        &.accent-1 { color: $clr-accent-1; }
+        &.accent-2 { color: $clr-accent-2; }
+    }
+}
+
+// Alternates bg-colour based on class name
+// e.g. primary colour switches to secondary
+
+@mixin conditional-text-alt ($selector: '') {
+    @if (string.length($selector) != 0){
+        &.primary #{$selector}  { color: $clr-secondary; }
+        &.secondary #{$selector} { color: $clr-primary;}
+        &.accent-1 #{$selector} { color: $clr-accent-2; }
+        &.accent-2 #{$selector} { color: $clr-accent-1; }
+    } @else {
+        &.primary { color: $clr-secondary; }
+        &.secondary { color: $clr-primary;}
+        &.accent-1 { color: $clr-accent-2; }
+        &.accent-2 { color: $clr-accent-1; }
     }
 }
