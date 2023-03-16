@@ -1,10 +1,16 @@
 <script setup lang="ts">
-    import { computed, watch, ref} from 'vue';
+    import { computed, watch, ref} from 'vue'
+
+    // imports other vue components 
     import AppButton from '../AppButton.vue';
     import LogoTwitter from '../icons/LogoTwitter.vue'
     import LogoFacebook from '../icons/LogoFacebook.vue'
     import LogoInstagram from '../icons/LogoInstagram.vue'
 
+    // Defines props in TypeScript
+    /**
+     *  Note that when using in the <script> tag, the components are tagged 'props.propName'
+     */
     const props = defineProps({
         isToggled: {
             type: Boolean,
@@ -18,8 +24,8 @@
         }
     })
     
+    // Computed property, should theoretically update if any element inside changes
     const navStyle = computed(() => {
-        console.log(props.isToggled)
         return (props.isToggled) ? 'toggled': '';
     })
 
