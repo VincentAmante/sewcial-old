@@ -41,11 +41,11 @@
     </label>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     .burger-label {
         position: absolute;
-        top: clamp(10px, 10vmin, 64px);
-        right: 65px;
+        top: clamp(10px, 7.5vh, 64px);
+        right: clamp($margin-width-mobile, 5vw, 50px);
         input {
             position: absolute;
             display: none;

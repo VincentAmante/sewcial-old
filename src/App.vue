@@ -1,14 +1,12 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import TheHeader from './components/TheHeader/TheHeader.vue';
 
 </script>
 
 <template>
-
   <RouterView />
   <TheHeader/>
-
 </template>
 
 <!-- Scoped Style -->
@@ -23,9 +21,9 @@ import TheHeader from './components/TheHeader/TheHeader.vue';
       background-color: $clr-primary;
       transition: all .15s ease-out;
   }
-  .test {
-    display: block;
-  }
+
+
+
 // Do not remove this comment
-// As long as there is content inside this block, _main.scss will apply its styling throughout the app
+// NOTE: As long as there is content inside this block, _main.scss will apply its styling throughout the app
 </style>

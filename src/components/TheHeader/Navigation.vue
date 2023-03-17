@@ -24,7 +24,7 @@
         }
     })
     
-    // Computed property, should theoretically update if any element inside changes
+    // Computed property, should theoretically react if any element inside changes
     const navStyle = computed(() => {
         return (props.isToggled) ? 'toggled': '';
     })
@@ -41,7 +41,7 @@
                 <RouterLink to="/about">About Us</RouterLink>
             </li>
             <li>
-                <RouterLink to="/">Discover</RouterLink>
+                <RouterLink to="/test">Discover (Test)</RouterLink>
             </li>
             <li>
                 <RouterLink to="/">Contact Us</RouterLink>
@@ -49,9 +49,9 @@
             <li>
                 <RouterLink to="/">Donate</RouterLink>
             </li>
-            <li>
+            <!-- <li>
                 <RouterLink to="/test">Test</RouterLink>
-            </li>
+            </li> -->
         </ul>
 
         <div class="other">
@@ -65,7 +65,7 @@
     </nav>
 </template>
 
-<style lang="scss" scoped>
+<style scoped lang="scss">
     nav {
         @include flex-col;
         @include conditional-bg;
@@ -73,7 +73,8 @@
         @include conditional-text('.btn');
         @include conditional-bg-alt('.btn');
 
-        padding-top: clamp(100px, 10vmax, 200px);
+        padding-top: clamp(50px, 6vh, 200px);
+        gap: 5px;
         z-index: 100;
         top: 0;
         right: 0;
@@ -81,6 +82,8 @@
         width: 100vw;
         transition: all ease-out .15s;
         transform: translateX(100%);
+
+        justify-content: center;
 
         &.toggled {
             transform: translateX(0);
@@ -97,7 +100,7 @@
         @include flex-col;
         list-style: none;
         padding-inline: 50px;
-        gap: clamp(5px, 4vh, 44px);
+        gap: clamp(5px, 5.5vh, 44px);
         
         li {
             display: flex;
@@ -123,8 +126,8 @@
         align-items: center;
         justify-content: center;
         padding-inline: clamp(5px, 7.5vmax, 95px);
-        gap: clamp(5px, 4vmax, 2.5em);
-        padding-block: clamp(5px, 5vmax, 40px);
+        gap: clamp(5px, 6vh, 2.5em);
+        padding-block: clamp(5px, 5vh, 40px);
         .btn {
             width: 100%;
         }

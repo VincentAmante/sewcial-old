@@ -1,4 +1,9 @@
 <script setup lang="ts">
+    /**
+     * TheHeader.vue  
+     * 
+     */
+
     import { ref, watch} from 'vue';
     import BurgerButton from './BurgerButton.vue';
     import Navigation from './Navigation.vue'
@@ -46,5 +51,6 @@
         right: 0;
         overflow-x: hidden;
         pointer-events: none;
+
     }
 </style>

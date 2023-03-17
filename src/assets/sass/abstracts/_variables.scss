@@ -10,6 +10,7 @@ $breakpoints:  (
   "xxl": 90em // 1440px
 );
 
+// Not being used rn
 $screen-sm: 640px; // > mobile
 $screen-lg: 1024px; // > tablet
 $screen-xl: 1280px; // > desktop
@@ -23,3 +24,13 @@ $clr-text: #282A2F;
 
 // fonts
 $font-primary: 'Lexend', sans-serif;
+
+// TODO: Figure these out
+$margin-width-mobile: 30px;
+$margin-width-desktop: 250px;
+// Clamps between the two
+$margin-width: clamp($margin-width-mobile, 10vw, $margin-width-desktop); 
+
+$margin-height-mobile: 25px;
+$margin-height-desktop: 50px;
+$margin-height: clamp($margin-height-mobile, 10vh, $margin-height-desktop);
