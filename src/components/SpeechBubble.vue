@@ -1,6 +1,5 @@
 <script setup lang="ts">
-
-    // Defined props
+    // Variables passed to this component are props
     const props = defineProps({
         alignment: {
             type: String,
