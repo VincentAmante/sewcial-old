@@ -33,7 +33,7 @@
         width: fit-content;
         position: relative;
 
-        max-width: 30ch;
+        max-width: 50ch;
         word-wrap: break-word;
         &.left {
             align-self: flex-start;

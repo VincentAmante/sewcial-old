@@ -1,7 +1,15 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import TheHeader from './components/TheHeader/TheHeader.vue';
+import router from './router';
 
+
+window.addEventListener(
+  "triggerMessage", 
+  (event) => {
+    router.push('/about')
+  }
+)
 </script>
 
 <template>

@@ -4,6 +4,6 @@ export default [
     {
         name: 'room',
         type: 'glbModel',
-        path: '/Experience/models/sample-room.glb'
+        path: '/Experience/models/placeholder-scene.gltf'
     }
 ]

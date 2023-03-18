@@ -31,6 +31,6 @@ export default class Room {
             }
         })
 
-        this.scene.add(this.actualRoom)
+        this.scene.add(this.actualRoom);
     }
 }

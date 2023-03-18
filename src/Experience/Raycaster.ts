@@ -11,6 +11,7 @@ export default class Raycaster {
     chairHitBox!: THREE.Mesh<THREE.BoxGeometry, any>
     plantHitBox!: THREE.Mesh<THREE.BoxGeometry, any>
     windowHitBox!: THREE.Mesh<THREE.BoxGeometry, any>
+    giftHitBox!: THREE.Mesh<THREE.BoxGeometry, any>
     raycaster!: THREE.Raycaster
     cursorDown!: THREE.Vector2
     cursor!: THREE.Vector2
@@ -44,7 +45,7 @@ export default class Raycaster {
             this.chairHitBox.position.set(.3, .25, .7)
             this.chairHitBox.rotation.y = Math.PI * .4
             this.chairHitBox.visible = false
-            this.scene.add(this.chairHitBox)
+            // this.scene.add(this.chairHitBox)
 
             this.plantHitBox = new THREE.Mesh(
                 new THREE.BoxGeometry(.35, .55, .35),
@@ -52,7 +53,7 @@ export default class Raycaster {
             )
             this.plantHitBox.position.set(-2.2, .35, 1)
             this.plantHitBox.visible = false
-            this.scene.add(this.plantHitBox)
+            // this.scene.add(this.plantHitBox)
 
 
             this.windowHitBox = new THREE.Mesh(
@@ -61,7 +62,15 @@ export default class Raycaster {
             )
             this.windowHitBox.position.set(-.45, .61, -.35)
             this.windowHitBox.visible = false
-            this.scene.add(this.windowHitBox)
+            // this.scene.add(this.windowHitBox)
+
+            this.giftHitBox = new THREE.Mesh(
+                new THREE.BoxGeometry(.5, .5, .5),
+                this.hitBoxMaterial
+            )
+            this.giftHitBox.position.set(1.85, .25, .5)
+            this.giftHitBox.visible = false
+            this.scene.add(this.giftHitBox)
 
             // raycaster
             this.raycaster = new THREE.Raycaster()
@@ -72,13 +81,14 @@ export default class Raycaster {
             this.objectsToTest = [
                 this.chairHitBox,
                 this.plantHitBox,
-                this.windowHitBox
+                this.windowHitBox,
+                this.giftHitBox
             ]
 
             /// These eventListeners came from jZhou's code, don't know what it does yet though
             this.touchedPoints = []
             window.addEventListener('pointerdown', (event) =>
-            {
+            {   
                 this.touchedPoints.push(event.pointerId)
 
                 this.cursorXMin = Math.abs((event.clientX / this.sizes.width * 2 - 1)*0.9)
@@ -88,6 +98,7 @@ export default class Raycaster {
                 this.cursorYMax = Math.abs((event.clientY / this.sizes.height * 2 - 1)*1.1)
 
             })
+
             // Click listener
             window.addEventListener('pointerup', (event) =>
             {
@@ -126,18 +137,21 @@ export default class Raycaster {
                 return
             }
 
-            let messagElem = document.querySelector('#message'); 
-            if (messagElem === null) return;
+            // let messagElem = document.querySelector('#message'); 
+            // if (messagElem === null) return;
 
             switch(this.selectedModel){
-                case this.chairHitBox:
-                    messagElem.innerHTML = "Chair has been tapped"
-                    break;
-                case this.plantHitBox:
-                    messagElem.innerHTML = "Plant has been tapped"
-                    break;
-                case this.windowHitBox:
-                    messagElem.innerHTML = "Window has been tapped"
+                // case this.chairHitBox:
+                //     messagElem.innerHTML = "Chair has been tapped"
+                //     break;
+                // case this.plantHitBox:
+                //     messagElem.innerHTML = "Plant has been tapped"
+                //     break;
+                // case this.windowHitBox:
+                //     messagElem.innerHTML = "Plant has been tapped"
+                //     break;
+                case this.giftHitBox:
+                    window.dispatchEvent(new Event('triggerMessage'))
                     break;
             }
         }

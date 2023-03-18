@@ -7,7 +7,6 @@
         <!-- Just test divs, don't mind -->
         <div class="test">
             <div class="test-wrapper">
-
                 <!-- A component with slots in action -->
                 <SpeechBubble>
                     <h2>Hey!</h2>
@@ -21,7 +20,7 @@
                     <h2>Also</h2>
                     <p>Since it uses vue slots, it's fully capable of inserting any HTML content inside</p>
                     <div>
-                        <img src="../../public/images/logo-white.svg" alt="">
+                        <img src="/images/logo-white.svg" alt="">
                         <div class="caption">Look at that!</div>
                     </div>
                     <p>Though it seems I need to configure the spacing for text elements</p>

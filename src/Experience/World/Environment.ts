@@ -28,7 +28,7 @@ export default class Environment {
         this.scene.add(this.sunLight)
 
         // Adds soft light to everything, most affects shadow light
-        this.ambientLight = new THREE.AmbientLight('#FF9999', .5)
+        this.ambientLight = new THREE.AmbientLight('#FF9999', 1.5)
         this.scene.add(this.ambientLight)
     }
 }
