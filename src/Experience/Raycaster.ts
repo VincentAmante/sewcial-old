@@ -137,19 +137,8 @@ export default class Raycaster {
                 return
             }
 
-            // let messagElem = document.querySelector('#message'); 
-            // if (messagElem === null) return;
-
             switch(this.selectedModel){
-                // case this.chairHitBox:
-                //     messagElem.innerHTML = "Chair has been tapped"
-                //     break;
-                // case this.plantHitBox:
-                //     messagElem.innerHTML = "Plant has been tapped"
-                //     break;
-                // case this.windowHitBox:
-                //     messagElem.innerHTML = "Plant has been tapped"
-                //     break;
+
                 case this.giftHitBox:
                     window.dispatchEvent(new Event('triggerMessage'))
                     break;

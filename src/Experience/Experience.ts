@@ -24,6 +24,7 @@ export default class Experience {
     resources!: Resources
     world!: World
     raycaster!: Raycaster
+    isActive: Boolean = true
     
     // * Type declarations were added to this parameter to account for the possibility that this could be either an HTMLCanvasElement or null
     // * If you hover over querySelector, you can see that it returns HTMLCanvasElement or null, which is why the parameter has to include it 
@@ -31,6 +32,7 @@ export default class Experience {
 
         // Singleton Set-up
         if (instance){ 
+            console.log(instance)
             return instance
         }
         instance = this
@@ -78,6 +80,13 @@ export default class Experience {
     }
 
     unmount(){
-        instance = null
+        if (instance != null){
+            instance = null
+        }
+        (window as any).experience = null
+
+        console.log('unmounting..')
+        console.log('instance: ', instance)
+        console.log('window.experience: ', (window as any).experience)
     }
 }

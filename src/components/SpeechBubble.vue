@@ -3,7 +3,6 @@
     const props = defineProps({
         alignment: {
             type: String,
-            required: true,
             default: 'left'
         }
     })
