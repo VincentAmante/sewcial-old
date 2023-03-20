@@ -34,55 +34,7 @@
                     </div>
                     <p>Though it seems I need to configure the spacing for text elements</p>
                 </SpeechBubble>
-                <p>-------------------------------------------------</p>
-                <SpeechBubble>
-                <h2>FRANKIE</h2>
-                <p>This bubble contains all the icons created during my session!</p>
-                <div>
-                    <ButtonDownload class="icon"></ButtonDownload>
-                    <ButtonFullscreen class="icon"></ButtonFullscreen>
-                    <ButtonLikedPage class="icon"></ButtonLikedPage>
-                </div>
-                </SpeechBubble>
-
-                <SpeechBubble alignment="right">
-                <h2>FRANKIE</h2>
-                <p>Below, there are some big boy assets, like cards and buttons:)</p>
-                <div>
-                    
-                </div>
-                </SpeechBubble>
-                <p>-------------------------------------------------</p>
-                <LikeMeButton></LikeMeButton>
-                <LikedButton></LikedButton>
-                <DownloadButton></DownloadButton>
-                <TemplateCard :image="'https://i.pinimg.com/564x/e1/cf/a1/e1cfa1a284fb717a0ef3023d7ee3e924.jpg'">
-                    <template #item-name>ITEM NAME</template>
-                    <template #owner>OWNER</template>
-                    <template #description>Short description</template>
-                </TemplateCard>
-                <DropDownTab>
-                    <h1>SHOP BY</h1>
-                </DropDownTab>
-                <DropDownTab>
-                    <h1>STYLE</h1>
-                </DropDownTab>
-                <DropDownTab>
-                    <h1>PRICE</h1>
-                </DropDownTab>
-                <CatalogueCard :image="'https://i.pinimg.com/564x/e1/cf/a1/e1cfa1a284fb717a0ef3023d7ee3e924.jpg'">
-                    <template #item-name>JACKET</template>
-                    <template #price>60 AED</template>
-                    <template #description>Lorem ipsum dolor sit amet consectet. Faucibus mattis sceleris.</template>
-                </CatalogueCard>
-
-                <CatalogueCard :image="'https://i.pinimg.com/564x/e1/cf/a1/e1cfa1a284fb717a0ef3023d7ee3e924.jpg'" available="notavailable">
-                    <template #item-name>JACKET</template>
-                    <template #price>60 AED</template>
-                    <template #description>Lorem ipsum dolor sit amet consectet. Faucibus mattis sceleris.</template>
-                </CatalogueCard>
             </div>
-
         </div>
     </main>
 </template>

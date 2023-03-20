@@ -27,6 +27,11 @@ const router = createRouter({
       path: '/test-icen',
       name: 'test-icen',
       component: () => import('../views/testViews/TestViewIcen.vue')
+    },
+    {
+      path: '/test-kie',
+      name: 'test-kie',
+      component: () => import('../views/testViews/TestViewKie.vue')
     }
   ]
 })
