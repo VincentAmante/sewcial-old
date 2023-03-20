@@ -3,9 +3,9 @@
 
     // imports other vue components 
     import AppButton from '../AppButton.vue';
-    import LogoTwitter from '../icons/LogoTwitter.vue'
-    import LogoFacebook from '../icons/LogoFacebook.vue'
-    import LogoInstagram from '../icons/LogoInstagram.vue'
+    import ButtonTwitter from '../icons/ButtonTwitter.vue'
+    import ButtonFacebook from '../icons/ButtonFacebook.vue'
+    import ButtonInstagram from '../icons/ButtonInstagram.vue'
 
     // Defines props in TypeScript
     /**
@@ -57,9 +57,9 @@
         <div class="other">
             <AppButton class="btn">Book</AppButton>
             <div class="social-media-btns">
-                <LogoTwitter></LogoTwitter>
-                <LogoFacebook></LogoFacebook>
-                <LogoInstagram></LogoInstagram>
+                <ButtonTwitter></ButtonTwitter>
+                <ButtonFacebook></ButtonFacebook>
+                <ButtonInstagram></ButtonInstagram>
             </div>
         </div>
     </nav>
