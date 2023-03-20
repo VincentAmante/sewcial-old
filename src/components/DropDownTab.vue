@@ -1,5 +1,5 @@
 <script setup lang="ts">
-    // Import heart
+    // Import Plus
     import IconPlus from '@/components/icons/IconPlus.vue';
 
     // Variables passed to this component are props
@@ -14,7 +14,7 @@
 
 <!-- Template with default text and icon -->
 <template lang="">
-    <div class="speech-bubble" :class="alignment">
+    <div class="dropdown-tab" :class="alignment">
         <slot class="text"></slot>
         <IconPlus class="icon"></IconPlus>
     </div>
@@ -22,7 +22,7 @@
 
 <!-- Scoped Styling -->
 <style scoped lang="scss">
-    .speech-bubble {
+    .dropdown-tab {
         color: $clr-secondary;
         margin: 5px;
         padding: .75em;

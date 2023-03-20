@@ -4,12 +4,6 @@
     
     // Variables passed to this component are props
     const props = defineProps({
-        alignment: {
-            type: String,
-            required: true,
-            default: 'left'
-        },
-
         image: {
           type: String,
           required: true
@@ -17,12 +11,12 @@
     })
 </script>
 
-<!-- Image Search Card -->
+<!-- Card -->
 <template>
     <div class="cards" onclick="location.href='html/image.html'">
         <div class="card">
           <div class="card-image" :style="{ backgroundImage: `url(${image})` }"></div>
-        <div class="card-info" :class="alignment">
+        <div class="card-info">
             <h1>
               <slot name="item-name"></slot>
             </h1>

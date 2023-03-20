@@ -14,14 +14,14 @@
 
 <!-- Template with default text and icon -->
 <template lang="">
-    <div class="speech-bubble" :class="alignment">
+    <div class="download" :class="alignment">
         <p>DOWNLOAD</p>
     </div>
 </template>
 
 <!-- Scoped Styling -->
 <style scoped lang="scss">
-    .speech-bubble {
+    .download {
         border-radius: 10px;
         color: $clr-primary;
         background-color: $clr-accent-2;

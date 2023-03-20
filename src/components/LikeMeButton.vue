@@ -14,7 +14,7 @@
 
 <!-- Template with default text and icon -->
 <template lang="">
-    <div class="speech-bubble" :class="alignment">
+    <div class="like-me" :class="alignment">
         <p>LIKE ME!</p>
         <IconHeart class="icon"></IconHeart>
         <div class="arrow"></div>
@@ -23,7 +23,7 @@
 
 <!-- Scoped Styling -->
 <style scoped lang="scss">
-    .speech-bubble {
+    .like-me {
         border-radius: 25px;
         color: $clr-primary;
         background-color: $clr-accent-1;
