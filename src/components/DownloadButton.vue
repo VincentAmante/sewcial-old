@@ -1,0 +1,47 @@
+<script setup lang="ts">
+    // Import heart
+    import IconHeart from '@/components/icons/IconHeart.vue';
+
+    // Variables passed to this component are props
+    const props = defineProps({
+        alignment: {
+            type: String,
+            required: true,
+            default: 'left'
+        }
+    })
+</script>
+
+<!-- Template with default text and icon -->
+<template lang="">
+    <div class="speech-bubble" :class="alignment">
+        <p>DOWNLOAD</p>
+    </div>
+</template>
+
+<!-- Scoped Styling -->
+<style scoped lang="scss">
+    .speech-bubble {
+        border-radius: 10px;
+        color: $clr-primary;
+        background-color: $clr-accent-2;
+        padding-inline: auto;
+        width: 100%; //adjusts according to the size of container
+        position: relative;
+
+        display: flex;
+        flex-direction: row;
+
+        align-self: flex-start;
+        justify-content: center;
+        
+        max-width: 100%; //remove if not wide enough, was added for tests
+
+        .icon {
+            justify-self: center;
+            align-self: center;
+            margin-inline: 1vw;
+        }
+
+    }
+</style>
