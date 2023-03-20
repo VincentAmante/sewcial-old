@@ -34,3 +34,5 @@ $margin-width: clamp($margin-width-mobile, 10vw, $margin-width-desktop);
 $margin-height-mobile: 25px;
 $margin-height-desktop: 50px;
 $margin-height: clamp($margin-height-mobile, 10vh, $margin-height-desktop);
+
+$nav-link-icon-size: clamp(30px, 10vw, 50px);
