@@ -30,7 +30,6 @@
     </div>
 </template>
 
-
 <!-- Scoped Styling -->
 <style scoped lang="scss">
 .cards {
@@ -63,6 +62,10 @@
       flex-direction: column;
       padding: 1rem;
       text-align: left;
+
+      &:deep(h1 h3){
+        margin:0;
+      }
     }
   
     // Images

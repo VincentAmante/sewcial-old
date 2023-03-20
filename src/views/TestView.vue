@@ -8,6 +8,7 @@
     import LikedButton from '@/components/LikedButton.vue';
     import TemplateCard from '@/components/TemplateCard.vue';
     import DownloadButton from '@/components/DownloadButton.vue';
+    import DropDownTab from '@/components/DropDownTab.vue';
 </script>
 <template>
     <main>
@@ -61,7 +62,15 @@
                         <p>Short description.</p>
                     </template>
                 </TemplateCard>
-                
+                <DropDownTab>
+                    <h1>SHOP BY</h1>
+                </DropDownTab>
+                <DropDownTab>
+                    <h1>STYLE</h1>
+                </DropDownTab>
+                <DropDownTab>
+                    <h1>PRICE</h1>
+                </DropDownTab>
             </div>
 
         </div>
