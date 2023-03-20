@@ -23,7 +23,15 @@
         <div class="card">
           <div class="card-image" :style="{ backgroundImage: `url(${image})` }"></div>
         <div class="card-info" :class="alignment">
-            <slot name="text"></slot>
+            <h1>
+              <slot name="item-name"></slot>
+            </h1>
+            <h3>
+              <slot name="owner"></slot>
+            </h3>
+            <p>
+              <slot name="description"></slot>
+            </p>
             <DownloadButton></DownloadButton>
         </div>
         </div>
@@ -63,8 +71,8 @@
       padding: 1rem;
       text-align: left;
 
-      &:deep(h1 h3){
-        margin:0;
+      h1, h3 {
+        margin: 0;
       }
     }
   

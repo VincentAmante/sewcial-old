@@ -136,6 +136,11 @@
             @include flex;
             justify-content: space-between;
             width: 100%;
+
+
+            & > * {
+                color: $clr-accent-1;
+            }
         }
     }
 </style>

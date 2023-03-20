@@ -55,36 +55,46 @@
     .burger {
         @include flex-col;
         justify-content: space-between;
-        height: 45px;
+        height: 25px;
+        aspect-ratio: 1;
         cursor: pointer;
         pointer-events: visible;
 
         div {
-            width: 52px;
-            height: 7.26px;
+            width: 30px;
+            height: 16%;
             border-radius: 5px;
-            transition: all ease-out .15s;
+            transition: all ease-in .15s;
 
             @include conditional-bg;
         }
         
-    
+        @include media (md){
+            height: 45px;
+
+            div {
+                width: 50px;
+            }
+        }
         &.toggled {
+            div {
+                @include conditional-bg-alt;
+            }
+
             div:nth-child(1){
-                // position: absolute;
-                transform: scaleX(1) translateX(-1px) translateY(19px) rotate(45deg) ;
-                // top: 50%;
+                transform: scaleX(1) translateX(-1px) translateY(5px) rotate(45deg);
+                @include media(md) {
+                    transform: scaleX(1) translateX(-1px) translateY(19px) rotate(45deg);
+                }
             }
             div:nth-child(2){
                 opacity: 0;
             }
             div:nth-child(3){
-                // position: absolute;
-                transform: scaleX(1) translateX(0px) translateY(-19px) rotate(-45deg) ;
-            }
-
-            div {
-                @include conditional-bg-alt;
+                transform: scaleX(1) translateX(0px) translateY(-16px) rotate(-45deg);
+                @include media(md) {
+                    transform: scaleX(1) translateX(0px) translateY(-19px) rotate(-45deg);
+                }
             }
         }
     }
