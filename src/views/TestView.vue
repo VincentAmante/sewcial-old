@@ -56,11 +56,9 @@
                 <LikedButton></LikedButton>
                 <DownloadButton></DownloadButton>
                 <TemplateCard :image="'https://i.pinimg.com/564x/e1/cf/a1/e1cfa1a284fb717a0ef3023d7ee3e924.jpg'">
-                    <template #text>
-                        <h1>ITEM NAME</h1>
-                        <h3>OWNER'S NAME</h3>
-                        <p>Short description.</p>
-                    </template>
+                    <template #item-name>ITEM NAME</template>
+                    <template #owner>OWNER'S NAME</template>
+                    <template #description>Short description</template>
                 </TemplateCard>
                 <DropDownTab>
                     <h1>SHOP BY</h1>
