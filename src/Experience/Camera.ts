@@ -1,8 +1,8 @@
 import * as THREE from 'three'
 import Experience from './Experience'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
-import gsap from 'gsap'
 import { PerspectiveCamera } from 'three'
+import type Sizes from './Utils/Sizes'
 
 export default class Camera {
 
@@ -10,7 +10,7 @@ export default class Camera {
 
     experience: Experience
     scene: THREE.Scene
-    sizes: import("d:/Projects/sewcial/src/Experience/Utils/Sizes").default
+    sizes: Sizes
     canvas: HTMLCanvasElement | null
     instance: any
     perspectiveCamera: THREE.PerspectiveCamera | undefined
