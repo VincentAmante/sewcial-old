@@ -1,0 +1,85 @@
+<script setup lang="ts">
+
+// Import download button icon
+import ButtonDownload from './icons/ButtonDownload.vue';
+
+// Variables passed to this component are props
+const props = defineProps({
+    alignment: {
+        type: String,
+        required: true,
+        default: 'left'
+    },
+
+    image: {
+        type: String,
+        required: true
+    }
+})
+</script>
+
+<!-- Browse Image Card Templates -->
+<template>
+        <div class="cards-container">
+        <div class="card">
+          <div class="card-image" :style="{ backgroundImage: `url(${image})` }"></div>
+        <div class="card-info" :class="alignment">
+            <div class="card-text">
+                <slot name="text"></slot>
+            </div>
+                <ButtonDownload></ButtonDownload>
+        </div>
+        </div>
+    </div>
+</template>
+
+<!-- Scoped Styling -->
+<style scoped lang="scss">
+    .cards-container {
+        padding: .75em;
+        margin:5px;
+        width: 70%;
+    }
+    .card {
+        position:relative;
+    }
+    .icon{
+        width: 20px;
+        height: 20px;
+    }
+    .card-info {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: #fff;
+        color: $clr-text;
+        padding: 0 1.5rem;
+        border-radius: 0px 0px 20px 20px;
+        overflow: hidden; /* hide content that overflows */
+        transition: height 0.3s ease-in-out; /* animate height change */
+    }
+    // Images
+    .card-image{
+        aspect-ratio: 1.1 / 1;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 20px;
+        width: 100%;
+        vertical-align: middle;
+    }
+    .card-image:hover{
+        opacity: 0.8;
+        box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+    }
+    .card:hover .card-info{
+        height: 6rem;
+        transform: translateY(0);
+    }
+</style>
