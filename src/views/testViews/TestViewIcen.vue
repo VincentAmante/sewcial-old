@@ -3,8 +3,8 @@
     import DescriptionSlider from '@/components/DescriptionSlider.vue';
     import AppButton from '@/components/AppButton.vue';
 
+    // This creates an app-wide event to toggle the description slider 
     function toggleTestSlider(){
-        console.log('hello')
         window.dispatchEvent(new Event('toggle-test'))
     }
 </script>
@@ -41,9 +41,8 @@
         padding-block: 10vmin;
 
         .test-wrapper {
-            max-width: 600px;
-            width: 50%;
             @include flex-col;
+            min-width: 80%;
             align-items: center;
             justify-content: center;
 

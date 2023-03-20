@@ -2,26 +2,33 @@
     import { ref, computed } from 'vue';
     import ButtonClose from './icons/ButtonClose.vue';
 
-    const isOpen = ref(true)
+    const isOpen = ref(false)
     const props = defineProps({
+        // Name of the area the desc is about
         name: {
             type: String,
             required: true
         },
+
+        // source for thumbnail, should be path from public
         imgSrc: {
             type: String,
             required: true
         }
     })
 
-    // Listens for the prop's name to trigger
+    // Listens for an event based on the prop<name> to open
+    // See TestViewIcen to see how that operates
     window.addEventListener(`toggle-${props.name}`, () => {
+
         isOpen.value = true
     })
+
     function close(){
         isOpen.value = false
     }
 
+    // Computed variables will watch for certain variables inside its code
     const toggledStyle = computed(() => {
         if (isOpen.value){
             return 'toggled'
