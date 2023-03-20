@@ -2,6 +2,11 @@ import * as THREE from 'three'
 import Experience from '../Experience'
 
 export default class Floor {
+    experience: Experience
+    scene: any
+    geometry!: THREE.PlaneGeometry
+    material!: THREE.MeshStandardMaterial
+    plane!: THREE.Mesh<any, any>
     // * This file isn't set-up to be TypeScript friendly
 
     constructor(){
