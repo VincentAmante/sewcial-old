@@ -32,7 +32,6 @@ export default class Experience {
 
         // Singleton Set-up
         if (instance){ 
-            console.log(instance)
             return instance
         }
         instance = this
