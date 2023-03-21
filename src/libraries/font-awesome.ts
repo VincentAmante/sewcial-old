@@ -14,11 +14,16 @@ import {
     faFacebook
 } from '@fortawesome/free-brands-svg-icons'
 
+import {
+    faXmark
+} from '@fortawesome/free-solid-svg-icons'
+
 // Define icons to be used here
 const icons = [
     faInstagram,
     faTwitter,
-    faFacebook
+    faFacebook,
+    faXmark
 ]
 
 library.add(...icons)
