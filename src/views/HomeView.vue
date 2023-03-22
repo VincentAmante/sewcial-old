@@ -1,10 +1,9 @@
 <script setup lang="ts">
 
-// import TheWelcome from '../components/TheWelcome.vue'
-import LogoWhite from '@/components/icons/LogoWhite.vue';
 import Experience from '@/Experience/Experience'
-import { onMounted, ref, onBeforeUnmount } from 'vue';
-import router from '@/router';
+import { onMounted, ref, onBeforeUnmount } from 'vue'
+import router from '@/router'
+
 // Listens for a certain event where it then redirects to /about
 // So far this seems to be the best way to handle ThreeJS -> Vue interactions
 window.addEventListener(
@@ -34,7 +33,6 @@ onBeforeUnmount(() => {
 
 <template>
   <main>
-    <LogoWhite class="logo-white"></LogoWhite>
     <div class="canvas-wrapper">
       <canvas id="canvas"></canvas>
     </div>
