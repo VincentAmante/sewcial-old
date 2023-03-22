@@ -42,7 +42,8 @@
     <div class="description-slider-wrapper" :class="toggledStyle">
         <div class="description-slider">
             <div class="button-close">
-                <ButtonClose @close="close"></ButtonClose>
+                <!-- DEV: ButtonClose has a function for when the 'close-btn-clicked' emit is triggered -->
+                <ButtonClose @close-btn-clicked="close"></ButtonClose>
             </div>
             <div class="slider-content">
                 <div class="img-wrapper">
