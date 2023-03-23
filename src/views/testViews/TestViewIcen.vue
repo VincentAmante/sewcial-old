@@ -34,12 +34,12 @@
                     </template>
                 </DescriptionSlider>
 
-                <TextField name="Text" v-model="textFieldModel" is-required>
+                <TextField name="Text" v-model="textFieldModel" is-required placeholder="placeholder">
                     <template #label>Sample Text</template>
                 </TextField>
                 <div>
-                    <p>Text Field Content:</p>
-                    <p>{{ textFieldModel }}</p>
+                    <p>Text Field Content: <span>{{ textFieldModel }}</span></p>
+                    <p>IsRequired, so there is a * on the side</p>
                 </div>
             </div>
         </div>
