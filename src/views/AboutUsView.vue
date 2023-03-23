@@ -1,7 +1,7 @@
 <script setup lang="ts">
     // Import of a speechbubble
     import SpeechBubble from '@/components/SpeechBubble.vue';
-    import LogoWhite from '@/components/icons/LogoWhite.vue';
+    import LogoWhite from '@/components/TheHeader/HeaderLogo.vue';
 </script>
 <template>
     <main>

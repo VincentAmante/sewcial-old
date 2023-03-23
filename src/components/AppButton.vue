@@ -6,7 +6,7 @@
     </button>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     button {
         background-color: $clr-secondary;
         color: $clr-primary;

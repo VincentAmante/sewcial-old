@@ -15,7 +15,7 @@
     })
 
     const headerToggled = ref(false)
-    // Resets header
+    // Resets headerI
     const route = useRoute()
     const page = ref(route.path)
 
@@ -67,9 +67,10 @@
 
 <style scoped lang="scss">
 // TODO: Fix mobile responsiveness
+// TODO: Make this into a singular fixed container, instead of what it is now
 
     header {
-        display: flex;
+        display: fixed;
         justify-content: center;
         position: relative;
         z-index: 100;
@@ -79,14 +80,17 @@
         }
 
         &.shop {
-            padding-bottom: 2vh;
+            // padding-bottom: 2vh;
             border-bottom: 5px dashed $clr-secondary;
 
+            
             height: clamp(50px, 20vh, 180px);
         }
 
         .btn-container {
             @include flex;
+            // justify-content: center;
+            align-items: center;
             gap: 1em;
             position: absolute;
             top: clamp(33px, 5.5vw, 65px);
@@ -106,6 +110,15 @@
             // top: 0;
             // left: 0;
             color: $clr-secondary;
+
+            height: 30px;
+            @include media(md){
+                height: 50px;
+
+                div {
+                    width: 50px;
+                }
+            }
         }
 
         .logo-white {
@@ -113,12 +126,20 @@
             display: flex;
             transition: all ease-in-out .15s;
             left: 0;
-            padding: clamp(25px, 5.5vw, 50px);
+            padding: clamp(25px, 5.5vh, 50px);
+            align-self: flex-start;
 
-            // transform: translateX(-20%);
             &.shop {
-                left: 45vw;
+                @include media(md){
+                    left: 45vw;
+                }
             }
         }
-    }
+
+        &:not(.shop){
+            .btn-liked-page {
+                visibility: hidden;
+            }
+        }
+    }    
 </style>

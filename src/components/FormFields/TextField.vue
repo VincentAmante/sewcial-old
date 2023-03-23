@@ -1,0 +1,33 @@
+<script setup lang="ts">
+    import { computed } from 'vue';
+    const props = defineProps({
+        modelValue: {
+            type: String,
+            required: true
+        },
+        name: {
+            type: String,
+            required: true
+        },
+        placeholder: {
+            type: String,
+            required: false
+        }
+    })
+
+    const emit = defineEmits(['update:modelValue'])
+    const textInput = computed({
+        get(){
+            return props.modelValue
+        },
+        set(value){
+            emit('update:modelValue', value)
+        }
+    })
+</script>
+
+<template>
+    <label :for="name">
+        <input type="text" :name="name" id="" :placeholder="placeholder" v-model="textInput">
+    </label>
+</template>

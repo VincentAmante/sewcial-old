@@ -1,12 +1,17 @@
 <script setup lang="ts">
+    import { ref } from 'vue';
+
     import SpeechBubble from '@/components/SpeechBubble.vue';
     import DescriptionSlider from '@/components/DescriptionSlider.vue';
     import AppButton from '@/components/AppButton.vue';
+    import TextField from '@/components/FormFields/TextField.vue';
 
     // This creates an app-wide event to toggle the description slider 
     function toggleTestSlider(){
         window.dispatchEvent(new Event('toggle-test'))
     }
+
+    const textFieldModel = ref("");
 </script>
 <template>
     <main>
@@ -28,6 +33,12 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod et ad illum, vero debitis dignissimos totam minima eligendi eveniet quisquam?</p>
                     </template>
                 </DescriptionSlider>
+
+                <TextField name="Text" v-model="textFieldModel"></TextField>
+                <div>
+                    <p>Text Field Content:</p>
+                    <p>{{ textFieldModel }}</p>
+                </div>
             </div>
         </div>
     </main>

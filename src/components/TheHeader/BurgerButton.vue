@@ -69,7 +69,7 @@
             @include conditional-bg;
         }
         
-        @include media (md){
+        @include media(md){
             height: 45px;
 
             div {
