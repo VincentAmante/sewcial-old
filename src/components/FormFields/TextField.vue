@@ -12,6 +12,10 @@
         placeholder: {
             type: String,
             required: false
+        },
+        isRequired: {
+            type: Boolean,
+            default: false
         }
     })
 
@@ -28,6 +32,7 @@
 
 <template>
     <label :for="name">
+        <p><slot name="label">Label</slot></p>
         <input type="text" :name="name" id="" :placeholder="placeholder" v-model="textInput">
     </label>
 </template>

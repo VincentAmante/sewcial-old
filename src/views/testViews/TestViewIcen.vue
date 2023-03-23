@@ -34,7 +34,9 @@
                     </template>
                 </DescriptionSlider>
 
-                <TextField name="Text" v-model="textFieldModel"></TextField>
+                <TextField name="Text" v-model="textFieldModel" is-required>
+                    <template #label>Sample Text</template>
+                </TextField>
                 <div>
                     <p>Text Field Content:</p>
                     <p>{{ textFieldModel }}</p>
