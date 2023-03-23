@@ -23,12 +23,14 @@ const props = defineProps({
         <div class="cards-container">
         <div class="card">
           <div class="card-image" :style="{ backgroundImage: `url(${image})` }"></div>
-        <div class="card-info" :class="alignment">
-            <div class="card-text">
-                <slot name="text"></slot>
+            <div class="card-info-container">
+                <div class="card-info" :class="alignment">
+                    <div class="card-text">
+                        <slot name="text"></slot>
+                    </div>
+                    <ButtonDownload></ButtonDownload>
+                </div>
             </div>
-                <ButtonDownload></ButtonDownload>
-        </div>
         </div>
     </div>
 </template>
@@ -48,20 +50,13 @@ const props = defineProps({
         height: 20px;
     }
     .card-info {
-        position: absolute;
-        bottom: 0;
         width: 100%;
-        height: 0;
-        box-sizing: border-box;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background-color: #fff;
-        color: $clr-text;
-        padding: 0 1.5rem;
-        border-radius: 0px 0px 20px 20px;
-        overflow: hidden; /* hide content that overflows */
-        transition: height 0.3s ease-in-out; /* animate height change */
+        background-color: $clr-primary;
+        padding-block: 0;
+        padding-inline: 1.5rem;
     }
     // Images
     .card-image{
@@ -86,5 +81,30 @@ const props = defineProps({
         border-top: 3px dashed $clr-primary;
         // outline: dashed 3px $clr-primary;
         // outline-offset: 1px;
+    }
+
+    // Moved styling to a container here
+    .card-info-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // background-color: #fff;
+        color: $clr-text;
+        // padding: 0 1.5rem;
+        border-radius: 0px 0px 20px 20px;
+        overflow: hidden; /* hide content that overflows */
+        transition: height 0.3s ease-in-out; /* animate height change */
+    }
+
+    .card:hover .card-info-container {
+        height: 6rem;
+        transform: translateY(0);
+        cursor: pointer;
+        border-top: 3px dashed $clr-primary;
     }
 </style>
