@@ -65,7 +65,7 @@ const props = defineProps({
     }
     // Images
     .card-image{
-        aspect-ratio: 1.1 / 1;
+        aspect-ratio: 1 / 1;
         overflow: hidden;
         background-size: cover;
         background-position: center;
@@ -77,9 +77,15 @@ const props = defineProps({
     .card-image:hover{
         opacity: 0.8;
         box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+        filter: brightness(80%);
+        cursor: pointer;
     }
     .card:hover .card-info{
         height: 6rem;
         transform: translateY(0);
+        cursor: pointer;
+        border-top: 3px dashed $clr-primary;
+        // outline: dashed 3px $clr-primary;
+        // outline-offset: 1px;
     }
 </style>
