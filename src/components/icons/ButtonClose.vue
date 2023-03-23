@@ -3,9 +3,13 @@
 
 </script>
 
+<!-- 
+    $emit('close-btn-clicked') creates an event that can be used to execute code
+    see '../DescriptionSlider.vue for an implementation of the 'close-btn-clicked' emit
+-->
 <template>
     <font-awesome-icon 
-        @click = "$emit('close')"
+        @click = "$emit('close-btn-clicked')"
         class="close-button"
         :icon="['fas', 'xmark']"/>
 </template>

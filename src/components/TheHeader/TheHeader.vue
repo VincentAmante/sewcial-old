@@ -1,13 +1,18 @@
 <script setup lang="ts">
-    /**
-     * TheHeader.vue  
-     * 
-     */
+    import HeaderLogo from '@/components/TheHeader/HeaderLogo.vue'
+    import ButtonLikedPage from '../icons/ButtonLikedPage.vue';
 
-    import { ref, watch} from 'vue';
+    import { ref, watch, computed } from 'vue';
     import BurgerButton from './BurgerButton.vue';
     import Navigation from './Navigation.vue'
     import { useRoute } from 'vue-router';
+
+    const props = defineProps({
+        format: {
+            type: String,
+            default: 'base'
+        }
+    })
 
     const headerToggled = ref(false)
     // Resets header
@@ -17,40 +22,103 @@
     // Defines what colour to use based on page
     // TODO: Improve efficiency
     const setColour = (page: String) => {
-        console.log('set')
+        page = page.substring(1)
+
+        // Decides colours for the header
         switch(page){
-            case '/home':
-            case '/':
+            case 'home':
+            case '':
                 return 'primary'
-            case '/test':
-                return 'secondary'
-            default:
+            case 'test':
+            case 'about':
                 return 'secondary'
         }
     }
     const navColour = ref(setColour(page.value))
-
     watch(route, async (newPath, oldPath) => {
         headerToggled.value = false
         page.value = newPath.path
         navColour.value = setColour(page.value)
     })
-    
+
+
+    const formatStyle = computed(() => {
+        let pageName = page.value.substring(1)
+        switch (pageName){
+            case 'home':
+                return ''
+            case 'about':
+                return 'shop'
+        }
+    })
 </script>
 <template>
-    <header>
-        <Navigation :is-toggled="headerToggled" :colour="navColour"/>
-        <BurgerButton v-model:is-toggled-model='headerToggled' :colour="navColour"/>
+    <header :class="formatStyle">
+        <HeaderLogo class="logo-white" :class="formatStyle" :colour="navColour"></HeaderLogo>
+        <div class="btn-container">
+            <ButtonLikedPage class="btn-liked-page"></ButtonLikedPage>
+            <BurgerButton class="burger-btn" v-model:is-toggled-model='headerToggled' :colour="navColour"/>
+        </div>
+        <aside>
+            <Navigation :is-toggled="headerToggled" :colour="navColour"/>
+        </aside>
     </header>
 </template>     
 
 <style scoped lang="scss">
-    header {
-        position: fixed;
-        top: 0;
-        right: 0;
-        overflow-x: hidden;
-        pointer-events: none;
+// TODO: Fix mobile responsiveness
 
+    header {
+        display: flex;
+        justify-content: center;
+        position: relative;
+        z-index: 100;
+
+        .burger-btn {
+            z-index: 125;
+        }
+
+        &.shop {
+            padding-bottom: 2vh;
+            border-bottom: 5px dashed $clr-secondary;
+
+            height: clamp(50px, 20vh, 180px);
+        }
+
+        .btn-container {
+            @include flex;
+            gap: 1em;
+            position: absolute;
+            top: clamp(33px, 5.5vw, 65px);
+            right: clamp($margin-width-mobile, 5vw, 50px);
+        }
+
+        aside {
+            position: fixed;
+            top: 0;
+            right: 0;
+            overflow-x: hidden;
+            pointer-events: none;
+        }
+
+        .btn-liked-page {
+            // position: absolute;
+            // top: 0;
+            // left: 0;
+            color: $clr-secondary;
+        }
+
+        .logo-white {
+            position: absolute;
+            display: flex;
+            transition: all ease-in-out .15s;
+            left: 0;
+            padding: clamp(25px, 5.5vw, 50px);
+
+            // transform: translateX(-20%);
+            &.shop {
+                left: 45vw;
+            }
+        }
     }
 </style>

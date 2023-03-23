@@ -1,15 +1,23 @@
 <script setup lang="ts">
     // Import of a speechbubble
     import SpeechBubble from '@/components/SpeechBubble.vue';
+
     import ButtonDownload from '@/components/icons/ButtonDownload.vue';
     import ButtonFullscreen from '@/components/icons/ButtonFullscreen.vue';
     import ButtonLikedPage from '@/components/icons/ButtonLikedPage.vue';
+    import IconHeart from '@/components/icons/IconHeart.vue';
+    import IconCreditCard from '@/components/icons/IconCreditCard.vue';
+    import IconPlus from '@/components/icons/IconPlus.vue';
+    import IconUser from '@/components/icons/IconUser.vue';
+
     import LikeMeButton from '@/components/LikeMeButton.vue';
     import LikedButton from '@/components/LikedButton.vue';
     import TemplateCard from '@/components/TemplateCard.vue';
     import DownloadButton from '@/components/DownloadButton.vue';
-    import DropDownTab from '@/components/DropDownTab.vue';
+    import DropdownTab from '@/components/DropdownTab.vue';
     import CatalogueCard from '@/components/CatalogueCard.vue';
+    import ItemDescription from '@/components/ItemDescription.vue';
+    import BookingSummary from '@/components/BookingSummary.vue';
 </script>
 <template>
     <main>
@@ -18,36 +26,29 @@
             <div class="test-wrapper">
                 <!-- A component with slots in action -->
                 <SpeechBubble>
-                    <h2>Hey!</h2>
-                    <p>This speech bubble adapts to anything</p>
-                    <p>Still needs some more tweaks though to adapt to all possible options 
-                        (placing of this marker on the left for example)</p>
-                </SpeechBubble>
-
-                <!-- Component with a prop, the one above uses a default -->
-                <SpeechBubble alignment="right">
-                    <h2>Also</h2>
-                    <p>Since it uses vue slots, it's fully capable of inserting any HTML content inside</p>
-                    <div>
-                        <img src="/images/logo-white.svg" alt="">
-                        <div class="caption">Look at that!</div>
-                    </div>
-                    <p>Though it seems I need to configure the spacing for text elements</p>
-                </SpeechBubble>
-                <p>-------------------------------------------------</p>
-                <SpeechBubble>
                 <h2>FRANKIE</h2>
-                <p>This bubble contains all the icons created during my session!</p>
+                <p>This bubble contains all the blue and cream icons created during my session!</p>
                 <div>
                     <ButtonDownload class="icon"></ButtonDownload>
                     <ButtonFullscreen class="icon"></ButtonFullscreen>
                     <ButtonLikedPage class="icon"></ButtonLikedPage>
+                    <IconHeart class="icon"></IconHeart>
+                    <IconPlus class="icon"></IconPlus>
+                    <IconCreditCard class="icon"></IconCreditCard>
+                </div>
+                </SpeechBubble>
+                <!-- Component with a prop, the one above uses a default -->
+                <SpeechBubble alignment="right">
+                <h2>FRANKIE</h2>
+                <p>Some pink icons from the same sessions :)</p>
+                <div>
+                    <IconUser class="icon"></IconUser>
                 </div>
                 </SpeechBubble>
 
-                <SpeechBubble alignment="right">
+                <SpeechBubble>
                 <h2>FRANKIE</h2>
-                <p>Below, there are some big boy assets, like cards and buttons:)</p>
+                <p>Below, there are some big boy assets, like cards and buttons.</p>
                 <div>
                     
                 </div>
@@ -61,15 +62,15 @@
                     <template #owner>OWNER</template>
                     <template #description>Short description</template>
                 </TemplateCard>
-                <DropDownTab>
+                <DropdownTab>
                     <h1>SHOP BY</h1>
-                </DropDownTab>
-                <DropDownTab>
+                </DropdownTab>
+                <DropdownTab>
                     <h1>STYLE</h1>
-                </DropDownTab>
-                <DropDownTab>
+                </DropdownTab>
+                <DropdownTab>
                     <h1>PRICE</h1>
-                </DropDownTab>
+                </DropdownTab>
                 <CatalogueCard :image="'https://i.pinimg.com/564x/e1/cf/a1/e1cfa1a284fb717a0ef3023d7ee3e924.jpg'">
                     <template #item-name>JACKET</template>
                     <template #price>60 AED</template>
@@ -81,6 +82,25 @@
                     <template #price>60 AED</template>
                     <template #description>Lorem ipsum dolor sit amet consectet. Faucibus mattis sceleris.</template>
                 </CatalogueCard>
+
+                <ItemDescription>
+                    <template #item-name>PATCHWORK JACKET</template>
+                    <template #owner-name>BY JOHN DOE</template>
+                    <template #description>Lorem ipsum dolor sit amet consectetur. At et venenatis ac adipiscing. Cum at pharetra feugiat sagittis egestas bibendum.</template>
+                    <template #sizing>XS</template>
+                    <template #chest-size>34</template>
+                    <template #neck-size>14.5</template>
+                    <template #waist-size>27</template>
+                    <template #arm-size>30.5</template>
+                </ItemDescription>
+                <BookingSummary>
+                    <template #date>Saturday, 18 March 2023</template>
+                    <template #name>Kids & Teens Sewing Club</template>
+                    <template #time>10:00am - 11:00am</template>
+                    <template #code>SW898LVMB4</template>
+                    <template #price>70 AED</template>
+                    <template #count>2</template>
+                </BookingSummary>
             </div>
 
         </div>
