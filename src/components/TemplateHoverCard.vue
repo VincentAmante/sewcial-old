@@ -37,11 +37,11 @@ const props = defineProps({
 <style scoped lang="scss">
     .cards-container {
         padding: .75em;
-        margin:5px;
+        margin: 5px;
         width: 70%;
     }
     .card {
-        position:relative;
+        position: relative;
     }
     .icon{
         width: 20px;
@@ -75,9 +75,8 @@ const props = defineProps({
         vertical-align: middle;
     }
     .card-image:hover{
-        opacity: 0.8;
         box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-        filter: brightness(80%);
+        filter: brightness(70%);
         cursor: pointer;
     }
     .card:hover .card-info{
