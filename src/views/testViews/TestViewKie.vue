@@ -9,6 +9,8 @@
     import IconCreditCard from '@/components/icons/IconCreditCard.vue';
     import IconPlus from '@/components/icons/IconPlus.vue';
     import IconUser from '@/components/icons/IconUser.vue';
+    import IconChevronLeft from '@/components/icons/IconChevronLeft.vue';
+    import IconChevronRight from '@/components/icons/IconChevronRight.vue';
 
     import LikeMeButton from '@/components/LikeMeButton.vue';
     import LikedButton from '@/components/LikedButton.vue';
@@ -18,6 +20,7 @@
     import CatalogueCard from '@/components/CatalogueCard.vue';
     import ItemDescription from '@/components/ItemDescription.vue';
     import BookingSummary from '@/components/BookingSummary.vue';
+    import Pagination from '@/components/Pagination.vue';
 </script>
 <template>
     <main>
@@ -40,9 +43,11 @@
                 <!-- Component with a prop, the one above uses a default -->
                 <SpeechBubble alignment="right">
                 <h2>FRANKIE</h2>
-                <p>Some pink icons from the same sessions :)</p>
+                <p>Some pink and cream icons from the same sessions :)</p>
                 <div>
                     <IconUser class="icon"></IconUser>
+                    <IconChevronLeft class="icon"></IconChevronLeft>
+                    <IconChevronRight class="icon"></IconChevronRight>
                 </div>
                 </SpeechBubble>
 
@@ -101,6 +106,9 @@
                     <template #price>70 AED</template>
                     <template #count>2</template>
                 </BookingSummary>
+
+                <Pagination :total-items="100" :items-per-page="10" :current-page="1">
+                </Pagination>
             </div>
 
         </div>

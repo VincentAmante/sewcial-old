@@ -75,7 +75,7 @@
       }
 
       .price {
-        margin: 0 0 0 -20px;
+        margin: 0 0 0 0px;
         color: $clr-accent-1;
       }
     }
