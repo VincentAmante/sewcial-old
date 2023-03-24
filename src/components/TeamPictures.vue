@@ -1,0 +1,52 @@
+<script setup lang="ts">
+
+// Variables passed to this component are props
+const props = defineProps({
+    alignment: {
+        type: String,
+        default: 'center'
+    },
+    
+    imgSrc: {
+        type: String,
+        required: true
+    }
+})
+</script>
+
+<!-- Team Member Card -->
+<template>
+<div class="team-container">
+    <div class="member-card">
+        <div class="member-image">
+            <img :src="imgSrc">
+        </div>
+        <div class="member-details">
+            <div class="member-name" :class="alignment"> 
+            <h3><slot name="name"></slot></h3>
+            </div>
+
+            <div class="member-role">
+            <p><slot name="role"></slot></p>
+            </div>
+        </div>
+    </div>
+</div>
+</template>
+
+<!-- Scoped Styling -->
+<style scoped lang="scss">
+
+.team-container{
+    @include flex;
+    justify-content: center;
+    align-items: center;
+}
+.member-card{
+    @include flex-col;
+    align-items: center;
+}
+.member-details{
+    @extend .member-card;
+}
+</style>
