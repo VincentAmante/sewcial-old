@@ -2,6 +2,7 @@
     // Import of a speechbubble
     import SpeechBubble from '@/components/SpeechBubble.vue';
     import TemplateHoverCard from '@/components/TemplateHoverCard.vue';
+    import TeamPictures from '@/components/TeamPictures.vue';
 </script>
 
 <template>
@@ -12,9 +13,7 @@
                 <!-- A component with slots in action -->
                 <SpeechBubble>
                     <h2>Hey!</h2>
-                    <p>This speech bubble adapts to anything</p>
-                    <p>Still needs some more tweaks though to adapt to all possible options 
-                        (placing of this marker on the left for example)</p>
+                    <p>These are all components by nehan! Feel free to drop thoughts and suggestions.</p>
                 </SpeechBubble>
 
                 <!-- Component with a prop, the one above uses a default -->
@@ -27,7 +26,7 @@
                     </div>
                     <p>Though it seems I need to configure the spacing for text elements</p>
                 </SpeechBubble>
-                <p>-------------------------------------------------</p>
+                <p>---------------------------------------------------------------</p>
                 <TemplateHoverCard :image="'https://i.pinimg.com/originals/81/fb/e1/81fbe1c31719a0bd6258fec7a34ad20c.jpg'">
                 <template #text>
                     <h1>ITEM NAME</h1>
@@ -40,11 +39,26 @@
                     <h3>OWNER'S NAME</h3>
                 </template>
                 </TemplateHoverCard>
+                <p>---------------------------------------------------------------</p>
+                <h1>Meet the Team!</h1>
+                <TeamPictures img-src="/images/team-icons/bie.png">
+                    <template #name>Princelle Abbie</template>
+                    <template #role>Role</template>
+                </TeamPictures>
+                <TeamPictures img-src="/images/team-icons/nehan.png">
+                    <template #name>Nehan Tariq</template>
+                    <template #role>Role</template>
+                </TeamPictures>
+                <TeamPictures img-src="/images/team-icons/icen.png">
+                    <template #name>Vincent Amante</template>
+                    <template #role>Role</template>
+                </TeamPictures>
+                <p>---------------------------------------------------------------</p>
             </div>
-
         </div>
     </main>
 </template>
+
 <style scoped lang="scss">
     .test {
         max-width: 100%;
@@ -64,5 +78,4 @@
             }
         }
     }
-
 </style>
