@@ -38,6 +38,8 @@
                     <IconHeart class="icon"></IconHeart>
                     <IconPlus class="icon"></IconPlus>
                     <IconCreditCard class="icon"></IconCreditCard>
+                    <IconChevronLeft class="icon"></IconChevronLeft>
+                    <IconChevronRight class="icon"></IconChevronRight>
                 </div>
                 </SpeechBubble>
                 <!-- Component with a prop, the one above uses a default -->
@@ -46,8 +48,6 @@
                 <p>Some pink and cream icons from the same sessions :)</p>
                 <div>
                     <IconUser class="icon"></IconUser>
-                    <IconChevronLeft class="icon"></IconChevronLeft>
-                    <IconChevronRight class="icon"></IconChevronRight>
                 </div>
                 </SpeechBubble>
 

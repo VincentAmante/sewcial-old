@@ -4,6 +4,11 @@ import IconChevronLeft from './icons/IconChevronLeft.vue';
 import IconChevronRight from './icons/IconChevronRight.vue';
 
 export default {
+  components: {
+    IconChevronLeft,
+    IconChevronRight
+  },
+
   name: 'Pagination',
   props: {
     totalItems: {
@@ -60,8 +65,8 @@ export default {
   <nav>
     <ul class="pagination">
       <li class="page-item" :class="{ disabled: currentPage === 1 }">
-        <a href="#" @click="changePage(currentPage - 1)">
-          <IconChevronLeft class = "icon"></IconChevronLeft>
+        <a class = "chevron" href="#" @click="changePage(currentPage - 1)">
+          <IconChevronLeft></IconChevronLeft>
         </a>
       </li>
       <li class="page-item" v-if="pages[0] !== 1">
@@ -78,8 +83,8 @@ export default {
         </a>
       </li>
       <li class="page-item" :class="{ disabled: currentPage === totalPages }">
-        <a href="#" @click="changePage(currentPage + 1)">
-          <IconChevronRight class = "icon"></IconChevronRight>
+        <a class = "chevron" href="#" @click="changePage(currentPage + 1)">
+          <IconChevronRight></IconChevronRight>
         </a>
       </li>
     </ul>
@@ -90,7 +95,8 @@ export default {
 .pagination {
   display: flex;
   justify-content: center;
-  margin-top: 20px;
+  align-content: center;
+  margin-top: 0.75em;
   list-style: none;
 }
 
@@ -100,21 +106,19 @@ export default {
 }
 
 .page-link {
-  padding: 0.25em;
-  padding-inline: 0.6em;
+  padding: 0.5em;
+  padding-inline: 0.9em;
   border-radius: 50%;
   color: $clr-secondary;
   text-decoration: none;
 }
 
-.icon {
-  background-color: $clr-secondary;
-  margin:10px;
-  color: $clr-secondary;
+.chevron {
+  margin: 1em;
 }
 
 .page-link:hover {
-  background-color: #f5f5f5;
+  color: $clr-accent-1;
 }
 
 .page-item.disabled .page-link,
