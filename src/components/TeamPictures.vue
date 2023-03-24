@@ -37,16 +37,23 @@ const props = defineProps({
 <!-- Scoped Styling -->
 <style scoped lang="scss">
 
-.team-container{
-    @include flex;
-    justify-content: center;
-    align-items: center;
-}
 .member-card{
-    @include flex-col;
-    align-items: center;
+    text-align: center;
+    margin: 10px;
 }
-.member-details{
-    @extend .member-card;
+.member-role{
+    margin-top: -10px;
 }
+// .team-container{
+//     @include flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+// .member-card{
+//     @include flex-col;
+//     align-items: center;
+// }
+// .member-details{
+//     @extend .member-card;
+// }
 </style>
