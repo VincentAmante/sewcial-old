@@ -8,3 +8,15 @@
 // - base
 @import 'base/reset';
 @import 'base/typography';
+
+// Global stylings
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: $clr-primary;
+    transition: all .15s ease-out;
+}
