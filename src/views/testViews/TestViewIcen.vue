@@ -1,10 +1,10 @@
 <script setup lang="ts">
-    import { ref } from 'vue';
+    import { ref, watch } from 'vue';
 
     import SpeechBubble from '@/components/SpeechBubble.vue';
     import DescriptionSlider from '@/components/DescriptionSlider.vue';
     import AppButton from '@/components/AppButton.vue';
-    import TextField from '@/components/FormFields/TextField.vue';
+    import ContactField from '@/components/FormFields/ContactField.vue';
 
     // This creates an app-wide event to toggle the description slider 
     function toggleTestSlider(){
@@ -12,6 +12,13 @@
     }
 
     const textFieldModel = ref("");
+
+    // This watches the textFieldModel
+    watch(textFieldModel, (newText, oldText) => {
+        // Try typing while having console pulled up to see how fast
+        // it changes
+        console.log(newText)
+    })
 </script>
 <template>
     <main>
@@ -34,9 +41,9 @@
                     </template>
                 </DescriptionSlider>
 
-                <TextField name="Text" v-model="textFieldModel" is-required placeholder="placeholder">
+                <ContactField name="Text" v-model="textFieldModel" is-required placeholder="placeholder">
                     <template #label>Sample Text</template>
-                </TextField>
+                </ContactField>
                 <div>
                     <p>Text Field Content: <span>{{ textFieldModel }}</span></p>
                     <p>IsRequired, so there is a * on the side</p>
