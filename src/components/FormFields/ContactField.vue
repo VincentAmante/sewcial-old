@@ -31,8 +31,8 @@
 </script>
 
 <template>
-    <label :for="name">
-        <p><slot name="label">Label</slot><span v-if="isRequired">*</span></p>
+    <label :for="name" class="error">
+        <p><slot name="label">Label</slot></p>
         <input type="text" :name="name" id="" :placeholder="placeholder" v-model="textInput">
     </label>
 </template>
@@ -53,6 +53,7 @@
         input {
             border-radius: 5px;
             border: 1px solid $clr-secondary;
+            background: none;
             padding-block: .5em;
             padding-inline: .25em;
         }
