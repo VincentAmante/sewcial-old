@@ -3,6 +3,15 @@
     import SpeechBubble from '@/components/SpeechBubble.vue';
     import TemplateHoverCard from '@/components/TemplateHoverCard.vue';
     import TeamPictures from '@/components/TeamPictures.vue';
+    import PageCounter from '@/components/PageCounter.vue';
+    import Incrementor from '@/components/Incrementor.vue';
+
+    import { defineComponent } from 'vue';
+    export default defineComponent({
+        components: {
+        Incrementor,
+        }
+    });
 </script>
 
 <template>
@@ -54,6 +63,11 @@
                     <template #role>Role</template>
                 </TeamPictures>
                 <p>---------------------------------------------------------------</p>
+                <template>
+                    <div>
+                        <Incrementor />
+                    </div>
+                </template>
             </div>
         </div>
     </main>
