@@ -1,24 +1,55 @@
 <script setup lang="ts">
-    import { ref, watch } from 'vue';
+    import { ref, watch, computed } from 'vue';
 
     import SpeechBubble from '@/components/SpeechBubble.vue';
     import DescriptionSlider from '@/components/DescriptionSlider.vue';
     import AppButton from '@/components/AppButton.vue';
     import ContactField from '@/components/FormFields/ContactField.vue';
+    import StartTimePicker from '@/components/FormFields/StartTimePicker.vue';
+    import EndTimePicker from '@/components/FormFields/EndTimePicker.vue';
+    import { Calendar, DatePicker } from 'v-calendar';
 
     // This creates an app-wide event to toggle the description slider 
     function toggleTestSlider(){
         window.dispatchEvent(new Event('toggle-test'))
     }
 
-    const textFieldModel = ref("");
-
-    // This watches the textFieldModel
-    watch(textFieldModel, (newText, oldText) => {
-        // Try typing while having console pulled up to see how fast
-        // it changes
-        console.log(newText)
+    const name = ref('')
+    const email = ref('')
+    const message = ref('')
+    const telNumber = ref('')
+    
+    // Returns an object with the form values
+    const object = computed(() => {
+        return {
+            name: name.value,
+            email: email.value,
+            telNumber: telNumber.value,
+            message: message.value,
+        }
     })
+
+    function showContactObject() {
+        console.log(object.value)
+    }
+
+    const date = ref(new Date())
+    const startTime = ref(new Date())
+    const endTime = ref(new Date())
+    
+    watch(date, (newDate, oldDate) => {
+        startTime.value = new Date(newDate.getTime())
+        console.log('start time changed in testView', startTime.value)
+    })
+    watch(startTime, (newTime, oldTime) => {
+        console.log('start time changed in testView', newTime)
+        endTime.value = new Date(newTime.getTime())
+    })
+    watch(endTime, (newEndTime, oldEndTime) => {
+        console.log('startTime now:', startTime.value)
+    })
+
+    // TODO: Set it so endTime is disabled if startTime hasn't been set
 </script>
 <template>
     <main>
@@ -40,13 +71,48 @@
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod et ad illum, vero debitis dignissimos totam minima eligendi eveniet quisquam?</p>
                     </template>
                 </DescriptionSlider>
+                <form class="contact-field" action="">
+                    <ContactField name="name" v-model="name" is-required>
+                        <template #label>Name</template>
+                    </ContactField>
+                    <ContactField name="email" v-model="email" is-required>
+                        <template #label>Email</template>
+                    </ContactField>
+                    
+                    <ContactField name="telNumber" v-model="telNumber" is-required type="tel">
+                        <template #label>Phone Number</template>
+                    </ContactField>
+                    
+                    <ContactField name="message" v-model="message" is-required>
+                        <template #label>Message</template>
+                    </ContactField>
 
-                <ContactField name="Text" v-model="textFieldModel" is-required placeholder="placeholder">
-                    <template #label>Sample Text</template>
-                </ContactField>
-                <div>
-                    <p>Text Field Content: <span>{{ textFieldModel }}</span></p>
-                    <p>IsRequired, so there is a * on the side</p>
+                    <AppButton @click="() => showContactObject()">Send Message</AppButton>
+                    <div>
+                        <p>
+                            Output:
+                        </p>
+                        <div>
+                            {{ object }}
+                        </div>
+                    </div>
+                </form>
+
+                <div class="booking-sample">
+                    <DatePicker v-model="date"/>
+                    <div class="booking-input">
+                        <StartTimePicker :date="date" v-model="startTime"/>
+                        <EndTimePicker :is-disabled="false" :start-time="startTime" v-model="endTime"/>
+                    </div>
+                    <p>
+                        {{ date }}
+                    </p>
+                    <p>
+                        {{ startTime }}
+                    </p>
+                    <p>
+                        {{ endTime }}
+                    </p>
                 </div>
             </div>
         </div>
@@ -70,5 +136,34 @@
                 margin:10px;
             }
         }
+    }
+
+    .booking-sample {
+        @include flex-col;
+        align-items: center;
+        padding: 3vw;
+        border-radius: 10px;
+        background-color: $clr-secondary;
+        gap: 1em;
+        width: 100%;
+
+        .booking-input {
+            @include flex;
+            width: 100%;
+            justify-content: stretch;
+            gap: 1em;
+        }
+    }
+
+    .contact-field {
+        @include flex-col;
+        gap: 1.5em;
+        border: 6px dashed $clr-secondary;
+        border-radius: 45px;
+        margin-block: 1em;
+
+        width: 100%;
+        max-width: 800px;
+        padding: 5vw;
     }
 </style>

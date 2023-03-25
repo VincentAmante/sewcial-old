@@ -16,10 +16,12 @@
     "@fortawesome/free-regular-svg-icons": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/vue-fontawesome": "^3.0.3",
+    "@popperjs/core": "^2.11.7",
     "events": "^3.3.0",
     "gsap": "^3.11.4",
     "pinia": "^2.0.32",
     "three": "^0.150.1",
+    "v-calendar": "^3.0.1",
     "vue": "^3.2.47",
     "vue-router": "^4.1.6"
   },

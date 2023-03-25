@@ -15,7 +15,8 @@ import {
 } from '@fortawesome/free-brands-svg-icons'
 
 import {
-    faXmark
+    faXmark,
+    faChevronRight
 } from '@fortawesome/free-solid-svg-icons'
 
 // Define icons to be used here
@@ -23,7 +24,8 @@ const icons = [
     faInstagram,
     faTwitter,
     faFacebook,
-    faXmark
+    faXmark,
+    faChevronRight
 ]
 
 library.add(...icons)

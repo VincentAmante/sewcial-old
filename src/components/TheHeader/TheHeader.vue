@@ -31,6 +31,9 @@
                 return 'primary'
             case 'test':
             case 'about':
+            case 'test-icen':
+            case 'test-kie':
+            case 'test-nehan':
                 return 'secondary'
         }
     }
@@ -60,10 +63,10 @@
             <BurgerButton class="burger-btn" v-model:is-toggled-model='headerToggled' :colour="navColour"/>
         </div>
         <aside>
-            <Navigation :is-toggled="headerToggled" :colour="navColour"/>
+            <Navigation :is-toggled="headerToggled" :colour="navColour" :page="page"/>
         </aside>
     </header>
-</template>     
+</template>      
 
 <style scoped lang="scss">
 // TODO: Fix mobile responsiveness
@@ -103,6 +106,7 @@
             right: 0;
             overflow-x: hidden;
             pointer-events: none;
+            height: 100%;
         }
 
         .btn-liked-page {

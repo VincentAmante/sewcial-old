@@ -21,6 +21,10 @@
             type: String,
             required: true,
             default: 'primary'
+        },
+        page: {
+            type: String,
+            required: true
         }
     })
     
@@ -28,26 +32,36 @@
     const navStyle = computed(() => {
         return (props.isToggled) ? 'toggled': '';
     })
+    // computed(() => {
+    //     let pageQuery = 'nav-' + props.page.substring(1)
+    //     let elem = document.getElementById(pageQuery)
+    //     elem?.classList.add('activePage')
+    // })
 
 </script>
 
 <template>
     <nav :class="[navStyle, colour]">
         <ul class="routes">
-            <li>
+            <li id="nav-home">
                 <RouterLink to="/">Map</RouterLink>
+                <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
             </li>
-            <li>
+            <li id="nav-about">
                 <RouterLink to="/about">About Us</RouterLink>
+                <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
             </li>
-            <li>
-                <RouterLink to="/test">Discover (Test)</RouterLink>
+            <li id="nav-discover">
+                <RouterLink to="/test-icen">Discover (Test-Icen)</RouterLink>
+                <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
             </li>
-            <li>
-                <RouterLink to="/">Contact Us</RouterLink>
+            <li id="nav-contact-us">
+                <RouterLink to="/test-kie">Contact Us (Test-Kie)</RouterLink>
+                <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
             </li>
-            <li>
-                <RouterLink to="/">Donate</RouterLink>
+            <li id="nav-donate">
+                <RouterLink to="/test-nehan">Donate (Test-Nehan)</RouterLink>
+                <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
             </li>
             <!-- <li>
                 <RouterLink to="/test">Test</RouterLink>
@@ -70,6 +84,7 @@
         @include flex-col;
         @include conditional-bg;
         @include conditional-text-alt('a');
+        @include conditional-text-alt('.right');
         @include conditional-text('.btn');
         @include conditional-bg-alt('.btn');
 
@@ -78,9 +93,9 @@
         z-index: 100;
         top: 0;
         right: 0;
-        height: 100vh;
         width: 100vw;
-        transition: all ease-out .15s;
+        height: 100%;
+        transition: all ease-out .25s;
         transform: translateX(100%);
 
         justify-content: center;
@@ -89,9 +104,8 @@
             transform: translateX(0);
         }
         pointer-events: initial;
-
         
-        @include media("xs"){
+        @include media(xs){
             width: clamp(400px, 70vw, 500px);
         }
     }
@@ -100,23 +114,43 @@
         @include flex-col;
         list-style: none;
         padding-inline: 50px;
-        gap: clamp(5px, 5.5vh, 44px);
+        // gap: clamp(5px, 5.5vh, 44px);
         
         li {
             display: flex;
+            // justify-content: center;
+            align-items: center;
+            justify-content: center;
             position: relative;
+            opacity: .5;
+            transition: all ease-out .15s;
 
-            a {
-                @extend .text-h2;
-                width: 100%;
-                text-decoration: none;
+            &:hover {
+                opacity: .9;
             }
 
-            // TODO: change this to something else
-            a:after {
-                position: absolute;
-                content: '>';
-                right: 0;
+            .right {
+                display: none;
+                visibility: hidden;
+                height: 1.25em;
+            }
+            a {
+                @extend .text-h2;
+                text-decoration: none;
+                text-align: center;
+            }
+
+
+            @include media(xs) {
+                justify-content: space-between;
+                .right {
+                    display: initial;
+                    visibility: visible
+                }
+
+                a {
+                    text-align: left;
+                }
             }
         }
     }
@@ -127,7 +161,7 @@
         justify-content: center;
         padding-inline: clamp(5px, 7.5vmax, 95px);
         gap: clamp(5px, 6vh, 2.5em);
-        padding-block: clamp(5px, 5vh, 40px);
+        // padding-block: clamp(5px, 5vh, 40px);
         .btn {
             width: 100%;
         }
@@ -142,5 +176,9 @@
                 color: $clr-accent-1;
             }
         }
+    }
+
+    li:has(.router-link-active) {
+        opacity: 1;
     }
 </style>

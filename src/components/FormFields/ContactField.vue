@@ -16,6 +16,10 @@
         isRequired: {
             type: Boolean,
             default: false
+        },
+        type: {
+            type: String,
+            default: 'text'
         }
     })
 
@@ -32,8 +36,8 @@
 
 <template>
     <label :for="name" class="error">
-        <p><slot name="label">Label</slot></p>
-        <input type="text" :name="name" id="" :placeholder="placeholder" v-model="textInput">
+        <p><slot name="label">MISSING LABEL</slot></p>
+        <input :type="type" :name="name" id="" :placeholder="placeholder" v-model.lazy="textInput" :required="isRequired">
     </label>
 </template>
 
@@ -41,9 +45,12 @@
     label {
         @include flex-col;
         gap: 0;
+        color: $clr-secondary;
+        width: 100%;
 
         p {
             margin: 0;
+            padding-bottom: .25em;
 
             span {
                 padding-left: .1em;
@@ -51,11 +58,16 @@
         }
 
         input {
-            border-radius: 5px;
-            border: 1px solid $clr-secondary;
+            border-radius: 10px;
+            border: 3px solid $clr-secondary;
             background: none;
             padding-block: .5em;
             padding-inline: .25em;
+
+            &:focus {
+                outline: none;
+                // border: 4px solid $clr-secondary;
+            }
         }
     }
 </style>
