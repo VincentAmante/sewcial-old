@@ -1,64 +1,57 @@
-<script lang = "ts">
-import { computed } from 'vue';
+<script setup lang = "ts">
+// Computed Property
+import {computed, defineProps, getCurrentInstance} from 'vue';
+
+// Import Chevrons
 import IconChevronLeft from './icons/IconChevronLeft.vue';
 import IconChevronRight from './icons/IconChevronRight.vue';
 
-export default {
-  components: {
-    IconChevronLeft,
-    IconChevronRight
-  },
+const name = "Pagination";
 
-  name: 'Pagination',
-  props: {
+const props = defineProps({
     totalItems: {
-      type: Number,
-      required: true,
+        type: Number,
+        required: true,
     },
     itemsPerPage: {
-      type: Number,
-      required: true,
+        type: Number,
+        required: true,
     },
-    currentPage: {
-      type: Number,
-      required: true,
+        currentPage: {
+        type: Number,
+    required: true,
     },
-  },
-  setup(props, { emit }) {
-    const totalPages = computed(() => Math.ceil(props.totalItems / props.itemsPerPage));
-    const visiblePages = computed(() => {
-      const pageRange = 2; // Number of pages to show on either side of the current page
-      const minPage = Math.max(1, props.currentPage - pageRange);
-      const maxPage = Math.min(totalPages.value, props.currentPage + pageRange);
-      const pages = [];
-      for (let i = minPage; i <= maxPage; i++) {
-        pages.push(i);
-      }
-      return pages;
-    });
-    const pages = computed(() => {
-      const pageRange = 2; // Number of pages to show on either side of the current page
-      const minPage = Math.max(1, props.currentPage - pageRange);
-      const maxPage = Math.min(totalPages.value, props.currentPage + pageRange);
-      const pages = [];
-      for (let i = minPage; i <= maxPage; i++) {
-        pages.push(i);
-      }
-      return pages;
-    });
+})
 
-    function changePage(pageNumber: number) {
-      emit('page-changed', pageNumber);
+const totalPages = computed(() => Math.ceil(props.totalItems / props.itemsPerPage));
+
+const visiblePages = computed(() => {
+    const pageRange = 2; // Number of pages to show on either side of the current page
+    const minPage = Math.max(1, props.currentPage - pageRange);
+    const maxPage = Math.min(totalPages.value, props.currentPage + pageRange);
+    const pages = [];
+    for (let i = minPage; i <= maxPage; i++) {
+    pages.push(i);
     }
+    return pages;
+});
 
-    return {
-      totalPages,
-      visiblePages,
-      pages,
-      changePage,
-    };
-  },
-};
+const pages = computed(() => {
+    const pageRange = 2; // Number of pages to show on either side of the current page
+    const minPage = Math.max(1, props.currentPage - pageRange);
+    const maxPage = Math.min(totalPages.value, props.currentPage + pageRange);
+    const pages = [];
+    for (let i = minPage; i <= maxPage; i++) {
+    pages.push(i);
+    }
+    return pages;
+});
+
+const emit = getCurrentInstance()?.emit;
+
+function changePage(pageNumber: number) {
+    emit?.('page-changed', pageNumber);
+}
 </script>
 
 <template>
