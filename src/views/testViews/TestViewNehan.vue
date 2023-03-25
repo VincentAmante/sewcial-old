@@ -6,12 +6,6 @@
     import PageCounter from '@/components/PageCounter.vue';
     import Incrementor from '@/components/Incrementor.vue';
 
-    import { defineComponent } from 'vue';
-    export default defineComponent({
-        components: {
-        Incrementor,
-        }
-    });
 </script>
 
 <template>
@@ -63,11 +57,10 @@
                     <template #role>Role</template>
                 </TeamPictures>
                 <p>---------------------------------------------------------------</p>
-                <template>
-                    <div>
-                        <Incrementor />
-                    </div>
-                </template>
+                <h2>Booking Counter!</h2>
+                <Incrementor>
+                    <template #count></template>
+                </Incrementor>
             </div>
         </div>
     </main>
