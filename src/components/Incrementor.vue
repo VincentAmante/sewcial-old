@@ -1,30 +1,27 @@
-<script lang="ts">
+<script setup lang="ts">
 
 import { ref } from 'vue';
 
-export default {
-  setup() {
-    const count = ref(0);
+const initialValue = 0;
+const currentValue = ref(initialValue);
 
-    const increment = () => {
-      count.value++;
-    };
+// function increments count
+function increment() {
+  currentValue.value++;
+}
 
-    const decrement = () => {
-      if (count.value > 0) {
-        count.value--;
-      }
-    };
-
-    return { count, increment, decrement };
+// function decrements count
+function decrement() {
+  if (currentValue.value > 0){
+  currentValue.value--;
   }
-};
+}
 </script>
 
 <template>
     <div class="main">
       <button @click="decrement">-</button>
-      <span> {{ count }}</span>
+      <h3><slot name="count"> {{ currentValue }}</slot></h3>
       <button @click="increment">+</button>
     </div>
   </template>
@@ -37,17 +34,17 @@ export default {
     justify-content: center;
 }
 button {
-    padding: 5px 10px;
-    font-size: 18px;
+  padding: 10px 25px;
+    font-size: 25px;
     background-color: $clr-accent-1;
     color: $clr-primary;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
-span{
-   padding: 5px 10px;
-    font-size: 18px;
+h3{
+   padding: 10px 25px;
+    font-size: 25px;
     background-color: white;
     color: $clr-secondary;
     border: none;
