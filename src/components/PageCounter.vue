@@ -7,7 +7,7 @@
 
 </template>
 
-<style scoped lang="ts">
+<style scoped lang="scss">
 
 
 </style>
