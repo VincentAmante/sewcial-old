@@ -41,6 +41,12 @@ const props = defineProps({
     text-align: center;
     margin: 10px;
 }
+.member-card:hover{
+    transform: scale(1.1);
+    transition: transform 0.5s;
+    transition-timing-function: ease-in-out;
+    cursor: pointer;
+}
 .member-role{
     margin-top: -10px;
 }
