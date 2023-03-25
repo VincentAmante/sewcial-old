@@ -1,5 +1,6 @@
 <script setup lang="ts">
     // TODO: Consider abstracting shared states with EndTimePicker
+    // TODO: FIX THIS FIX THIS FIX THIS!!
     import { computed, watch, reactive } from 'vue';
 
     const props = defineProps({
