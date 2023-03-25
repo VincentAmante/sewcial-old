@@ -5,6 +5,7 @@
     import TeamPictures from '@/components/TeamPictures.vue';
     import PageCounter from '@/components/PageCounter.vue';
     import Incrementor from '@/components/Incrementor.vue';
+    import Fields from '@/components/Fields.vue';
 
 </script>
 
@@ -57,10 +58,15 @@
                     <template #role>Role</template>
                 </TeamPictures>
                 <p>---------------------------------------------------------------</p>
+                <!-- <PageCounter :total-pages="5" @change-page="handlePageChange" ></PageCounter>  -->
+                <!-- <p>---------------------------------------------------------------</p> -->
                 <h2>Booking Counter!</h2>
                 <Incrementor>
                     <template #count></template>
                 </Incrementor>
+                <p>---------------------------------------------------------------</p>
+                <h2>Text Fields</h2>
+                <Fields></Fields>
             </div>
         </div>
     </main>
