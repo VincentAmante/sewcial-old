@@ -18,8 +18,6 @@
     })
 
     function toTimeFormat(time: number){
-
-      
       return new Intl.DateTimeFormat('en-GB', 
       { 
         timeStyle: 'short', 
@@ -59,7 +57,7 @@
       }[] = []
       
       const originalHour = props.startTime.getHours()
-      for (let hour = new Date(props.startTime).getHours() + 1; hour < openingHours.end + 1; hour++){
+      for (let hour = new Date(props.startTime).getHours() + 1; hour <= openingHours.end; hour++){
         
         let time = new Date(props.startTime).setHours(hour);
         let timeValue = new Date(time);
