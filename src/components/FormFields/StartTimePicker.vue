@@ -42,29 +42,16 @@
     }
 
     const startingTimes = computed(() => {
-      const { start, end } = openingHours; 
-
-      let availableTimesList: {
-        timeValue: Date,
-        timeFormat: string
-      }[] = [];
-      const currentDate = props.date
-
-      for (let hour = openingHours.start; hour < openingHours.end; hour++){
-        // TODO: there must be a better way to do this
-
-        let time = new Date(currentDate).setHours(hour, 0, 0);
-        let timeValue = new Date(time);
-        let timeFormat = toTimeFormat(time)
-
-        availableTimesList.push({
-          timeValue,
-          timeFormat
-        })
-      }
-
-      return availableTimesList
-    })
+      const { start, end } = openingHours;
+      const currentDate = props.date;
+      const availableTimesList = Array.from({ length: end - start }, (_, i) => {
+        const time = new Date(currentDate).setHours(start + i, 0, 0);
+        const timeValue = new Date(time);
+        const timeFormat = toTimeFormat(time);
+        return { timeValue, timeFormat };
+      });
+      return availableTimesList;
+});
 </script>
 
 <template>

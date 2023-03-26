@@ -7,7 +7,8 @@
     import ContactField from '@/components/FormFields/ContactField.vue';
     import StartTimePicker from '@/components/FormFields/StartTimePicker.vue';
     import EndTimePicker from '@/components/FormFields/EndTimePicker.vue';
-    import { Calendar, DatePicker } from 'v-calendar';
+    import BookingPeopleCount from '@/components/FormFields/BookingPeopleCount.vue';
+    import { DatePicker } from 'v-calendar';
 
     // This creates an app-wide event to toggle the description slider 
     function toggleTestSlider(){
@@ -36,6 +37,7 @@
     const date = ref(new Date())
     const startTime = ref(new Date())
     const endTime = ref(new Date())
+    const peopleCount = ref(0)
 </script>
 <template>
     <main>
@@ -89,6 +91,7 @@
                     <div class="booking-input">
                         <StartTimePicker :date="date" v-model="startTime"/>
                         <EndTimePicker :is-disabled="false" :start-time="startTime" v-model="endTime"/>
+                        <BookingPeopleCount v-model="peopleCount"/>
                     </div>
                     <p>
                         {{ date }}
@@ -98,6 +101,9 @@
                     </p>
                     <p>
                         {{ endTime }}
+                    </p>
+                    <p> 
+                        {{ peopleCount }}
                     </p>
                 </div>
             </div>
@@ -134,7 +140,8 @@
         width: 100%;
 
         .booking-input {
-            @include flex;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
             width: 100%;
             justify-content: stretch;
             gap: 1em;
