@@ -27,7 +27,6 @@
             return props.modelValue
         },
         set(value){
-          console.log('modelValue changed')
             emit('update:modelValue', value)
         }
     })
@@ -42,7 +41,7 @@
       end: 19
     }
 
-    const availableTimes = computed(() => {
+    const startingTimes = computed(() => {
       const { start, end } = openingHours; 
 
       let availableTimesList: {
@@ -74,7 +73,7 @@
           Start Time
         </caption>
         <select name="start-time" id="booking-start-time" v-model="startTime">
-          <option class="option" v-for="availableTime in availableTimes" :value="availableTime.timeValue">
+          <option class="option" v-for="availableTime in startingTimes" :value="availableTime.timeValue">
             {{ availableTime.timeFormat }}
           </option>
         </select>
