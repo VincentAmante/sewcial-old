@@ -36,20 +36,6 @@
     const date = ref(new Date())
     const startTime = ref(new Date())
     const endTime = ref(new Date())
-    
-    watch(date, (newDate, oldDate) => {
-        startTime.value = new Date(newDate.getTime())
-        console.log('start time changed in testView', startTime.value)
-    })
-    watch(startTime, (newTime, oldTime) => {
-        console.log('start time changed in testView', newTime)
-        endTime.value = new Date(newTime.getTime())
-    })
-    watch(endTime, (newEndTime, oldEndTime) => {
-        console.log('startTime now:', startTime.value)
-    })
-
-    // TODO: Set it so endTime is disabled if startTime hasn't been set
 </script>
 <template>
     <main>
