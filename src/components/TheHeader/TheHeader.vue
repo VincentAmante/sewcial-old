@@ -123,7 +123,16 @@ aside {
 }
 
 .logo {
-    left: clamp($margin-width-mobile, 5vw, 50px);
+    width: 100%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-start;
+    margin-inline: clamp($margin-width-mobile, 5vw, 50px);
     position: absolute;
+
+    @include media(md) {
+        justify-content: center;
+    }
 }
 </style>
