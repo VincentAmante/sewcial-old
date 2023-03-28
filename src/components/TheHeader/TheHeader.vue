@@ -49,7 +49,8 @@
         let pageName = page.value.substring(1)
         switch (pageName){
             case 'home':
-                return ''
+            case '':
+                return 'home'
             case 'about':
                 return 'shop'
         }
@@ -57,93 +58,72 @@
 </script>
 <template>
     <header :class="formatStyle">
-        <HeaderLogo class="logo-white" :class="formatStyle" :colour="navColour"></HeaderLogo>
+        <HeaderLogo class="logo" :class="formatStyle" :colour="navColour"></HeaderLogo>
         <div class="btn-container">
             <ButtonLikedPage class="btn-liked-page"></ButtonLikedPage>
             <BurgerButton class="burger-btn" v-model:is-toggled-model='headerToggled' :colour="navColour"/>
         </div>
-        <aside>
-            <Navigation :is-toggled="headerToggled" :colour="navColour" :page="page"/>
-        </aside>
     </header>
+    
+    <Navigation :is-toggled="headerToggled" :colour="navColour" :page="page"/>
 </template>      
 
 <style scoped lang="scss">
 // TODO: Fix mobile responsiveness
 // TODO: Make this into a singular fixed container, instead of what it is now
 
-    header {
-        display: fixed;
-        justify-content: center;
-        position: relative;
-        z-index: 100;
+header {
+    @include flex;
+    width: 100%;
 
-        .burger-btn {
-            z-index: 125;
+    position: static;
+
+    top: 0;
+    z-index: 105;
+    align-items: center;
+    justify-content: flex-end;
+    padding-inline: clamp($margin-width-mobile, 5vw, 50px);
+    height: clamp(50px, 20vh, 180px);
+    border-bottom: 6px dashed $clr-secondary;
+    &.home {
+        border: none
+    }
+
+    .btn-container {
+        @include flex;
+        align-items: center;
+        gap: 1vw;
+        z-index: 105;
+        position: fixed;
+    }
+    .btn-liked-page {
+        height: 30px;
+        @include media(md){
+            height: 40px;
         }
+    }
 
-        &.shop {
-            // padding-bottom: 2vh;
-            border-bottom: 5px dashed $clr-secondary;
+    &.home { position: fixed; }
 
-            
-            height: clamp(50px, 20vh, 180px);
-        }
-
-        .btn-container {
-            @include flex;
-            // justify-content: center;
-            align-items: center;
-            gap: 1em;
-            position: absolute;
-            top: clamp(33px, 5.5vw, 65px);
-            right: clamp($margin-width-mobile, 5vw, 50px);
-        }
-
-        aside {
-            position: fixed;
-            top: 0;
-            right: 0;
-            overflow-x: hidden;
-            pointer-events: none;
-            height: 100%;
-        }
-
+    
+    &:not(.shop){
         .btn-liked-page {
-            // position: absolute;
-            // top: 0;
-            // left: 0;
-            color: $clr-secondary;
-
-            height: 30px;
-            @include media(md){
-                height: 50px;
-
-                div {
-                    width: 50px;
-                }
-            }
+            display: none;
         }
+    }
+}
 
-        .logo-white {
-            position: absolute;
-            display: flex;
-            transition: all ease-in-out .15s;
-            left: 0;
-            padding: clamp(25px, 5.5vh, 50px);
-            align-self: flex-start;
+aside {
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow-x: hidden;
+    height: 100%;
+    z-index: 95;
+}
 
-            &.shop {
-                @include media(md){
-                    left: 45vw;
-                }
-            }
-        }
-
-        &:not(.shop){
-            .btn-liked-page {
-                visibility: hidden;
-            }
-        }
-    }    
+.logo {
+    left: clamp($margin-width-mobile, 5vw, 50px);
+    position: absolute;
+}
 </style>

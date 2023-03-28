@@ -46,7 +46,7 @@
         // top: clamp(10px, 7.5vh, 64px);
         // right: clamp($margin-width-mobile, 5vw, 50px);
         input {
-            position: absolute;
+            // position: absolute;
             display: none;
         }
     }
@@ -69,10 +69,10 @@
         }
         
         @include media(md){
-            height: 45px;
+            height: 35px;
 
             div {
-                width: 50px;
+                width: 45px;
             }
         }
         &.toggled {
@@ -83,7 +83,7 @@
             div:nth-child(1){
                 transform: scaleX(1) translateX(-1px) translateY(5px) rotate(45deg);
                 @include media(md) {
-                    transform: scaleX(1) translateX(-1px) translateY(19px) rotate(45deg);
+                    transform: scaleX(1) translateX(-1px) translateY(16px) rotate(45deg);
                 }
             }
             div:nth-child(2){
@@ -92,7 +92,7 @@
             div:nth-child(3){
                 transform: scaleX(1) translateX(0px) translateY(-16px) rotate(-45deg);
                 @include media(md) {
-                    transform: scaleX(1) translateX(0px) translateY(-19px) rotate(-45deg);
+                    transform: scaleX(1) translateX(0px) translateY(-16px) rotate(-45deg);
                 }
             }
         }

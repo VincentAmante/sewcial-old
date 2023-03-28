@@ -88,6 +88,7 @@
         @include conditional-text('.btn');
         @include conditional-bg-alt('.btn');
 
+        position: fixed;
         padding-top: clamp(50px, 6vh, 200px);
         gap: 5px;
         z-index: 100;
