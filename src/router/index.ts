@@ -37,6 +37,11 @@ const router = createRouter({
       path: '/test-nehan',
       name: 'test-nehan',
       component: () => import('../views/testViews/TestViewNehan.vue')
+    },
+    {
+      path: '/events/booking',
+      name: 'events-booking',
+      component: () => import('../views/Events/BookingView.vue')
     }
   ]
 })

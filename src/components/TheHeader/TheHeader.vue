@@ -35,6 +35,8 @@
             case 'test-kie':
             case 'test-nehan':
                 return 'secondary'
+            default:
+                return 'secondary'
         }
     }
     const navColour = ref(setColour(page.value))
