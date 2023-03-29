@@ -36,7 +36,7 @@
 
 <template>
     <label :for="name" class="error">
-        <p><slot name="label">MISSING LABEL</slot></p>
+        <p><slot>MISSING LABEL</slot></p>
         <input :type="type" :name="name" id="" :placeholder="placeholder" v-model.lazy="textInput" :required="isRequired">
     </label>
 </template>
