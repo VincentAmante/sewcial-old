@@ -60,7 +60,7 @@
                 <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
             </li>
             <li id="nav-donate">
-                <RouterLink to="/test-nehan">Donate (Test-Nehan)</RouterLink>
+                <RouterLink to="/donate">Donate</RouterLink>
                 <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
             </li>
             <!-- <li>
