@@ -47,13 +47,15 @@
     })
 
 
+    // Sets as to whether the like-button appears
     const formatStyle = computed(() => {
-        let pageName = page.value.substring(1)
-        switch (pageName){
+        let pagePath = page.value.substring(1)
+        switch (pagePath){
             case 'home':
             case '':
                 return 'home'
             case 'about':
+            case 'shop/catalogue':
                 return 'shop'
         }
     })
@@ -77,15 +79,13 @@
 header {
     @include flex;
     width: 100%;
-
     position: static;
-
     top: 0;
     z-index: 105;
     align-items: center;
     justify-content: flex-end;
     padding-inline: clamp($margin-width-mobile, 5vw, 50px);
-    height: clamp(50px, 20vh, 180px);
+    height: clamp(70px, 15vw, 90px);
     border-bottom: 6px dashed $clr-secondary;
     &.home {
         border: none
@@ -94,14 +94,14 @@ header {
     .btn-container {
         @include flex;
         align-items: center;
-        gap: 1vw;
+        gap: .5vw;
         z-index: 105;
         position: fixed;
     }
     .btn-liked-page {
-        height: 30px;
+        height: 25px;
         @include media(md){
-            height: 40px;
+            height: 30px;
         }
     }
 
@@ -130,7 +130,7 @@ aside {
     right: 0;
     display: flex;
     justify-content: flex-start;
-    margin-inline: clamp($margin-width-mobile, 5vw, 50px);
+    padding-inline: clamp($margin-width-mobile, 5vw, 50px);
     position: absolute;
 
     @include media(md) {
