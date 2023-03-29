@@ -44,12 +44,11 @@ const router = createRouter({
       component: () => import('../views/Events/BookingView.vue')
     },
     {
-<<<<<<< HEAD
       path: '/templates',
       name: 'templates',
       component: () => import('../views/TemplatesView.vue')
-    }
-=======
+    },
+    {
       path: '/shop/catalogue',
       name: 'shop-catalogue',
       component: () => import('../views/Shop/CatalogueView.vue')
@@ -58,8 +57,7 @@ const router = createRouter({
       path: '/donate',
       name: 'donate',
       component: () => import('../views/DonateView.vue')
-    },
->>>>>>> 7e76d591b64b8ba97a13d1046ca3f4f2cfef2ef3
+    }
   ]
 })
 
