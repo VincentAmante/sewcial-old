@@ -21,7 +21,9 @@ function decrement() {
 <template>
     <div class="main">
       <button @click="decrement">-</button>
-      <h3><slot name="count"> {{ currentValue }}</slot></h3>
+      <div class="counter">
+        <h3><slot name="count"> {{ currentValue }}</slot></h3>
+      </div>
       <button @click="increment">+</button>
     </div>
   </template>
@@ -43,11 +45,20 @@ button {
     cursor: pointer;
 }
 h3{
-   padding: 10px 25px;
+  //  padding: 10px 25px;
     font-size: 25px;
-    background-color: white;
+    // background-color: white;
     color: $clr-secondary;
     border: none;
-    border-radius: 5px;  
+    // border-radius: 5px;  
+}
+.counter{
+  display: flex;
+  background-color: white;
+  width: 60px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;  
 }
 </style>
