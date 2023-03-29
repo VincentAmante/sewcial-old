@@ -17,9 +17,7 @@
       }
     })
 
-    function toTimeFormat(time: number){
-
-      
+    function toTimeFormat(time: number){ 
       return new Intl.DateTimeFormat('en-GB', 
       { 
         timeStyle: 'short', 
@@ -53,30 +51,27 @@
     }
 
     const endingTimes = computed(() => {
-
-      let endingTimesList: {
-        timeValue: Date,
-        timeFormat: string
-      }[] = []
-      
+      const endingTimesList = new Array()
       const originalHour = props.startTime.getHours()
-      for (let hour = new Date(props.startTime).getHours() + 1; hour < openingHours.end + 1; hour++){
-        let time = new Date(props.startTime).setHours(hour);
-        let timeValue = new Date(time);
-        let timeFormat = toTimeFormat(time)
+      const startDate = new Date(props.startTime)
+
+      for (let hour = originalHour + 1, i = 0; hour <= openingHours.end; hour++, i++){
+        let time = startDate.setHours(hour);
+        let timeValue: Date = new Date(time);
+        let timeFormat: string = toTimeFormat(time)
 
         if (hour - originalHour < 4){
           timeFormat = `${timeFormat} ${getHoursDiff(originalHour, hour)}`
         }
 
-        endingTimesList.push({
+        endingTimesList[i] = {
           timeValue,
           timeFormat
-        })
+        }
       }
-
       return endingTimesList
     })
+
 </script>
 
 <template>
@@ -113,6 +108,10 @@
       padding: .5em;
       // padding-block: 1em;
       border: 1px solid grey;
+
+      option {
+        line-height: 2em;
+      }
     }
   }
 </style>
