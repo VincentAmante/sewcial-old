@@ -77,9 +77,7 @@
 header {
     @include flex;
     width: 100%;
-
     position: static;
-
     top: 0;
     z-index: 105;
     align-items: center;
@@ -130,7 +128,7 @@ aside {
     right: 0;
     display: flex;
     justify-content: flex-start;
-    margin-inline: clamp($margin-width-mobile, 5vw, 50px);
+    padding-inline: clamp($margin-width-mobile, 5vw, 50px);
     position: absolute;
 
     @include media(md) {
