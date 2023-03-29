@@ -83,7 +83,7 @@ header {
     align-items: center;
     justify-content: flex-end;
     padding-inline: clamp($margin-width-mobile, 5vw, 50px);
-    height: clamp(50px, 20vh, 180px);
+    height: clamp(50px, 25vw, 125px);
     border-bottom: 6px dashed $clr-secondary;
     &.home {
         border: none
