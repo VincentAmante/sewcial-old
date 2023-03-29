@@ -1,20 +1,36 @@
 <script setup lang="ts">
 
-import { ref } from 'vue';
+import { computed } from 'vue';
 
-const initialValue = 0;
-const currentValue = ref(initialValue);
 
+const props = defineProps({
+  modelValue: {
+    type: Number,
+    required: true
+  },
+  text: {
+    type: String
+  }
+})
+
+const emit = defineEmits(['update:modelValue'])
+const count = computed({
+        get(){
+            return props.modelValue
+        },
+        set(value){
+            emit('update:modelValue', value)
+        }
+    })
+    
+  
 // function increments count
 function increment() {
-  currentValue.value++;
+  count.value++
 }
-
 // function decrements count
 function decrement() {
-  if (currentValue.value > 0){
-  currentValue.value--;
-  }
+  count.value--
 }
 </script>
 
@@ -22,7 +38,7 @@ function decrement() {
     <div class="main">
       <button @click="decrement">-</button>
       <div class="counter">
-        <h3><slot name="count"> {{ currentValue }}</slot></h3>
+        <h3><slot name="count"> {{ count }}</slot></h3>
       </div>
       <button @click="increment">+</button>
     </div>
