@@ -16,6 +16,12 @@ const decrementPage = () => {
     if (page.value > 1) page.value--;
 }
 
+// Reactive data for form values
+// TODO: Add function to compile data before sending to backend
+// TODO: Abstract each section for cleaner file
+// TODO: Add validation for each section
+
+// Booking 1 - Workshops
 const sampleWorkshops = ref([
     {
         activity: 'Kids & Teens Sewing Club',
@@ -33,7 +39,6 @@ const sampleWorkshops = ref([
         slots: 0,
     }
 ])
-
 const totalSlots = computed(() => {
     let total = 0;
     sampleWorkshops.value.forEach(workshop => {
@@ -42,7 +47,6 @@ const totalSlots = computed(() => {
 
     return total;
 })
-
 const totalCost = computed(() => {
     let total = 0;
     sampleWorkshops.value.forEach(workshop => {
@@ -52,8 +56,10 @@ const totalCost = computed(() => {
     return total;
 })
 
+// Booking 2 - Extra Info
 const extraInfo = ref('');
 
+// Booking 3 - Personal Details
 const personalDetails = ref({
     firstName: {
         value: '',
@@ -77,6 +83,7 @@ const personalDetails = ref({
     }
 })
 
+// Booking 4 - Payment Options
 const cardDetails = ref({
     cardNumber: {
         value: '',
@@ -99,7 +106,6 @@ const cardDetails = ref({
         errorMessage: ''
     }
 })
-
 const paymentOption = ref('');
 function setPaymentOption(option: string) {
     paymentOption.value = option;
@@ -119,6 +125,7 @@ function setPaymentOption(option: string) {
             </div>
             <div class="content-container">
                 <div class="content">
+
                     <!-- TODO: Refactor how pages are decided so transition is smoother -->
                     <section id="workshops" v-if="page === 1">
                         <ul>
@@ -142,7 +149,6 @@ function setPaymentOption(option: string) {
                         <p>Eg: Accessibility (we have a rooftop that hosts the events)</p>
                         <textarea name="extra-info" id="" cols="30" rows="10" v-model="extraInfo"></textarea>
                     </section>
-
 
                     <section id="personal-details" v-if="page === 3">
                         <h3>Add personal details</h3>
