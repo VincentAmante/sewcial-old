@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 
@@ -63,17 +62,3 @@ const props = defineProps({
         z-index: 50;
     }
 </style>
-=======
-   <script setup lang="ts">
-  
-  </script>
-
-  <template>
-
-  </template>
-  
-  <style scoped lang="scss">
-
-  </style>
-  
->>>>>>> Stashed changes
