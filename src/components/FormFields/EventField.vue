@@ -20,6 +20,10 @@
         type: {
             type: String,
             default: 'text'
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
     })
 
@@ -37,7 +41,14 @@
 <template>
     <label :for="name" class="error">
         <p><slot>MISSING LABEL</slot><span v-if="isRequired">*</span></p>
-        <input :type="type" :name="name" id="" :placeholder="placeholder" v-model.lazy="textInput" :required="isRequired">
+        <input 
+        :type="type" 
+        :name="name" 
+        id="" 
+        :placeholder="placeholder" 
+        v-model.lazy="textInput" 
+        :required="isRequired"
+        :disabled="disabled">
     </label>
 </template>
 
@@ -67,6 +78,10 @@
             &:focus {
                 outline: none;
                 // border: 4px solid $clr-secondary;
+            }
+
+            &:disabled {
+                opacity: .45;
             }
         }
     }

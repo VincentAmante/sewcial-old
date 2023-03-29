@@ -23,6 +23,7 @@ import {
 
 import {
     faCircle as farCircle,
+    faCircleDot
 } from '@fortawesome/free-regular-svg-icons'
 
 // Define icons to be used here
@@ -34,7 +35,8 @@ const icons = [
     faChevronRight,
     faChevronLeft,
     fasCircle,
-    farCircle
+    farCircle,
+    faCircleDot
 ]
 
 library.add(...icons)

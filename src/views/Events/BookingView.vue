@@ -99,6 +99,11 @@ const cardDetails = ref({
         errorMessage: ''
     }
 })
+
+const paymentOption = ref('');
+function setPaymentOption(option: string) {
+    paymentOption.value = option;
+}
 </script>
 
 <template>
@@ -131,11 +136,13 @@ const cardDetails = ref({
                         </div>
                     </section>
 
+
                     <section id="extra-info" v-if="page === 2">
                         <h3>If there is any extra information, please note it here</h3>
                         <p>Eg: Accessibility (we have a rooftop that hosts the events)</p>
                         <textarea name="extra-info" id="" cols="30" rows="10" v-model="extraInfo"></textarea>
                     </section>
+
 
                     <section id="personal-details" v-if="page === 3">
                         <h3>Add personal details</h3>
@@ -171,44 +178,67 @@ const cardDetails = ref({
                             </ul>
                         </div>
                     </section>
+
+
                     <section id="payment-info" v-if="page === 4">
-                        
                         <h3>Pay with</h3>
                         <div class="payment-options">
                             <div>
                                 <label class="payment-option" for="credit-debit">
-                                    <input type="radio" name="payment-type" id="" value="credit-debit">
-                                    <p>Credit or Debit Card</p>
+                                    <div>
+                                        <div class="custom-radio" @click="setPaymentOption('credit-debit')">
+                                            <font-awesome-icon :icon="['far', 'circle']" v-if="paymentOption != 'credit-debit'"/>
+                                            <font-awesome-icon :icon="['far', 'circle-dot']" v-else/>
+                                        </div>
+                                        <input type="radio" name="payment-type" id="" value="credit-debit">
+                                        <p>Credit or Debit Card</p>
+                                    </div>
+                                    <svg width="37" height="25" viewBox="0 0 37 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.92361 0C0.861503 0 0.000329486 0.861174 0.000329486 1.92328V4.80787H36.539V1.92328C36.539 0.861174 35.6778 0 34.6157 0H1.92361ZM36.5387 10.5774H0V23.0767C0 24.1388 0.861174 25 1.92328 25H34.6147C35.6769 25 36.538 24.1388 36.538 23.0767L36.5387 10.5774ZM12.0197 21.1539C12.285 21.1539 12.5003 20.9389 12.5003 20.6733V19.7116C12.5003 19.446 12.285 19.231 12.0197 19.231H5.28885C5.02325 19.231 4.8082 19.446 4.8082 19.7116V20.6733C4.8082 20.9389 5.02326 21.1539 5.28885 21.1539H12.0197ZM25.0003 15.3848C25.0003 14.8539 25.4308 14.4231 25.9616 14.4231H30.7695C31.3004 14.4231 31.7308 14.8539 31.7308 15.3848V20.1923C31.7308 20.7235 31.3004 21.1539 30.7695 21.1539H25.9616C25.4308 21.1539 25.0003 20.7235 25.0003 20.1923V15.3848Z" fill="#607BDA"/>
+                                    </svg>
                                 </label>
                                 <div class="card-details">
-                                    <EventField name="card-number" v-model="cardDetails.cardNumber.value">
+                                    <EventField name="card-number" v-model="cardDetails.cardNumber.value" :disabled="!(paymentOption === 'credit-debit')">
                                         Card Number
                                     </EventField>
-                                    <EventField name="card-expiry" v-model="cardDetails.expiryDate.value" type="month">
+                                    <EventField name="card-expiry" v-model="cardDetails.expiryDate.value" type="month" :disabled="!(paymentOption === 'credit-debit')">
                                         Expiry Date
                                     </EventField>
-                                    <EventField name="security-code" v-model="cardDetails.cvv.value">
+                                    <EventField name="security-code" v-model="cardDetails.cvv.value" :disabled="!(paymentOption === 'credit-debit')">
                                         Security Code
                                     </EventField>
-                                    <EventField name="zip-code" v-model="cardDetails.zipCode.value">
+                                    <EventField name="zip-code" v-model="cardDetails.zipCode.value" :disabled="!(paymentOption === 'credit-debit')">
                                         Zip Code
                                     </EventField>  
                                 </div> 
                             </div>
                             <div>
                                 <label class="payment-option" for="paypal">
-                                    <input type="radio" name="payment-type" id="" value="paypal">
-                                    <p>Paypal</p>
+                                    <div>
+                                        <div class="custom-radio" @click="setPaymentOption('paypal')">
+                                            <font-awesome-icon :icon="['far', 'circle']" v-if="paymentOption != 'paypal'"/>
+                                            <font-awesome-icon :icon="['far', 'circle-dot']" v-else/>
+                                        </div>
+                                        <input type="radio" name="payment-type" id="" value="paypal">
+                                        <p>Paypal</p>
+                                    </div>
+                                    <svg width="37" height="25" viewBox="0 0 37 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <rect width="37" height="25" rx="3" fill="#607BDA"/>
+                                        <path d="M17.275 13.825C17.3584 13.825 19.2917 13.9083 20.4417 13.625H20.45C21.775 13.3 23.6167 12.3667 24.0917 9.31667C24.0917 9.31667 25.15 5.5 19.9 5.5H15.3917C14.9834 5.5 14.6334 5.8 14.5667 6.2L12.65 18.3333C12.6084 18.5833 12.8084 18.8167 13.0584 18.8167H15.9167L16.6167 14.3833C16.6667 14.0667 16.9417 13.825 17.275 13.825Z" fill="#FFFAE0"/>
+                                        <path d="M24.8256 9.9082C24.1506 13.0165 22.0256 14.6582 18.6423 14.6582H17.4173L16.5589 20.0915C16.5256 20.3082 16.6923 20.4999 16.9089 20.4999H18.4923C18.7756 20.4999 19.0256 20.2915 19.0673 20.0082C19.1339 19.6749 19.5006 17.2415 19.5756 16.8249C19.6173 16.5415 19.8673 16.3332 20.1506 16.3332H20.5173C22.8673 16.3332 24.7089 15.3749 25.2506 12.6165C25.4673 11.4999 25.3506 10.5832 24.8256 9.9082Z" fill="#FFFAE0"/>
+                                    </svg>
                                 </label>
                             </div>
                         </div>
-                        <div>
-                            <label for="">
-                                <input type="checkbox" name="" id="">
+                        <div class="conditions-container">
+                            <label for="conditions-acceptance">
+                                <input type="checkbox" name="conditions-acceptance" id="">
                                 I accept the <a href="">Terms of Service</a>, <a href="">Community Guidelines</a>, and Privacy Policy
                             </label>
                         </div>
                     </section>
+
+
                     <section id="booking-confirmed" v-if="page === 5">
                         <img src="/images/message-tick.svg" alt="">
                         <div class="text-h1">Booking Confirmed</div>
@@ -402,7 +432,51 @@ const cardDetails = ref({
             .payment-option {
                 @include flex;
                 gap: .5em;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 1em;
+
+                div {
+                    @include flex;
+                    gap: .5em;
+                    align-items: center;
+                }
+
+                svg {
+                    height: 1.15em;
+                }
             }
+
+            & > div{
+                border-bottom: 1px solid $clr-secondary;
+            }
+
+            .custom-radio {
+                color: $clr-secondary;
+            }
+            input[type='radio']{
+                display: none
+            }
+
+            @include media(md) {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 1em;
+
+                & > div {
+                    padding-inline: 1em;
+                    border-bottom: none;
+
+                    &:first-child {
+                        padding-right: 1.5em;
+                        border-right: 1px solid $clr-secondary;
+                    }
+                }
+            }
+        }
+
+        .conditions-container {
+            padding-block: 1em;
         }
 
         .card-details {
