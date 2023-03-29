@@ -2,7 +2,7 @@
 import AppButton from '@/components/AppButton.vue';
 import PageCounter from '@/components/PageCounter.vue';
 import Incrementor from '@/components/Incrementor.vue';
-import ContactField from '@/components/FormFields/ContactField.vue'
+import EventField from '@/components/FormFields/EventField.vue'
 import BookingSummary from '@/components/BookingSummary.vue';
 import { computed, ref } from 'vue';
 
@@ -140,37 +140,96 @@ const cardDetails = ref({
                     <section id="personal-details" v-if="page === 3">
                         <h3>Add personal details</h3>
                         <div class="personal-details-form">
-                            <ContactField class="event-field" name="firstName" v-model="personalDetails.firstName.value">
+                            <EventField class="event-field" name="firstName" v-model="personalDetails.firstName.value">
                                 First Name
-                            </ContactField>
-                            <ContactField class="event-field" name="lastName" v-model="personalDetails.lastName.value">
+                            </EventField>
+                            <EventField class="event-field" name="lastName" v-model="personalDetails.lastName.value">
                                 Last Name
-                            </ContactField>
-                            <ContactField class="event-field" name="email" v-model="personalDetails.email.value" type="email">
+                            </EventField>
+                            <EventField class="event-field" name="email" v-model="personalDetails.email.value" type="email">
                                 Email Address
-                            </ContactField>
-                            <ContactField class="event-field" name="number" v-model="personalDetails.firstName.value" type="tel">
+                            </EventField>
+                            <EventField class="event-field" name="number" v-model="personalDetails.firstName.value" type="tel">
                                 Mobile Number 
-                            </ContactField>
+                            </EventField>
                         </div>
                         <div class="booking-summary-container">
                             <div>
                                 <h3>Booking Summary</h3>
                             </div>
-                            <BookingSummary>
-                                <template #date>Saturday, 18 March 2023</template>
-                                <template #name>Kids & Teens Sewing Club</template>
-                                <template #time>10:00am - 11:00am</template>
-                                <template #code>SW898LVMB4</template>
-                                <template #price>70 AED</template>
-                                <template #count>2</template>
-                            </BookingSummary>
+                            <ul class="booking-list">
+                                <li v-for="workshop in sampleWorkshops">
+                                    <BookingSummary v-if="workshop.slots > 0">
+                                        <template #date>Saturday, 18 March 2023</template>
+                                        <template #name>{{ workshop.activity }}</template>
+                                        <template #time>10:00am - 11:00am</template>
+                                        <template #code>SW898LVMB4</template>
+                                        <template #price>{{ workshop.price * workshop.slots }}</template>
+                                        <template #count>{{ workshop.slots }}</template>
+                                    </BookingSummary>
+                                </li>
+                            </ul>
                         </div>
+                    </section>
+                    <section id="payment-info" v-if="page === 4">
+                        
+                        <h3>Pay with</h3>
+                        <div class="payment-options">
+                            <div>
+                                <label class="payment-option" for="credit-debit">
+                                    <input type="radio" name="payment-type" id="" value="credit-debit">
+                                    <p>Credit or Debit Card</p>
+                                </label>
+                                <div class="card-details">
+                                    <EventField name="card-number" v-model="cardDetails.cardNumber.value">
+                                        Card Number
+                                    </EventField>
+                                    <EventField name="card-expiry" v-model="cardDetails.expiryDate.value" type="month">
+                                        Expiry Date
+                                    </EventField>
+                                    <EventField name="security-code" v-model="cardDetails.cvv.value">
+                                        Security Code
+                                    </EventField>
+                                    <EventField name="zip-code" v-model="cardDetails.zipCode.value">
+                                        Zip Code
+                                    </EventField>  
+                                </div> 
+                            </div>
+                            <div>
+                                <label class="payment-option" for="paypal">
+                                    <input type="radio" name="payment-type" id="" value="paypal">
+                                    <p>Paypal</p>
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="">
+                                <input type="checkbox" name="" id="">
+                                I accept the <a href="">Terms of Service</a>, <a href="">Community Guidelines</a>, and Privacy Policy
+                            </label>
+                        </div>
+                    </section>
+                    <section id="booking-confirmed" v-if="page === 5">
+                        <img src="/images/message-tick.svg" alt="">
+                        <div class="text-h1">Booking Confirmed</div>
+                        <p>Your booking code is SW898LVMB4. We’ve sent you the details in your email.</p>
+                        <ul class="booking-list">
+                            <li v-for="workshop in sampleWorkshops">
+                                <BookingSummary v-if="workshop.slots > 0">
+                                    <template #date>Saturday, 18 March 2023</template>
+                                    <template #name>{{ workshop.activity }}</template>
+                                    <template #time>10:00am - 11:00am</template>
+                                    <template #code>SW898LVMB4</template>
+                                    <template #price>{{ workshop.price * workshop.slots }}</template>
+                                    <template #count>{{ workshop.slots }}</template>
+                                </BookingSummary>
+                            </li>
+                        </ul>
                     </section>
                 </div>
                 <div class="page-btn-container">
                     <div>
-                        <AppButton v-if="page > 1" @click="decrementPage()" class="btn prev-btn">Prev</AppButton>
+                        <AppButton v-if="page > 1 && page != 5" @click="decrementPage()" class="btn prev-btn">Prev</AppButton>
                     </div>
                     <div>
                         <AppButton v-if="page < 5" @click="incrementPage()" class="btn next-btn">Next</AppButton>
@@ -257,6 +316,7 @@ const cardDetails = ref({
         }
 
         ul {
+            @include scrollbar;
             list-style: none;
             overflow: scroll;
             overflow-x: hidden;
@@ -319,10 +379,59 @@ const cardDetails = ref({
         }
 
         .booking-summary-container {
-            @include flex;
+            @include flex-col;
             padding-block: 1em;
             justify-content: space-between;
             border-bottom: 1px solid $clr-secondary;
+
+            @include media(md) {
+                flex-direction: row;
+            }
+
+            ul {
+                @include flex-col;
+                list-style-type: none;
+            }
+        }
+    }
+
+    #payment-info {
+        // @include flex-col;
+
+        .payment-options {
+            .payment-option {
+                @include flex;
+                gap: .5em;
+            }
+        }
+
+        .card-details {
+            @include flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            padding-block: 1em;
+            margin-block: 1em;
+        }
+    }
+
+    #booking-confirmed {
+        @include flex-col;
+        align-items: center;
+        padding-block: 1em;
+        justify-content: space-between;
+        border-bottom: 1px solid $clr-secondary;
+
+        img {
+            max-width: 200px
+        }
+
+        @include media(md) {
+            // flex-direction: row;
+        }
+
+        ul {
+            @include flex-col;
+            list-style-type: none;
         }
     }
 </style>

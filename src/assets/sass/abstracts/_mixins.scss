@@ -156,3 +156,34 @@
         &.accent-2 { color: $clr-accent-1; }
     }
 }
+
+// Taken from PIHSS code
+// Edit how you like
+@mixin scrollbar {
+    /* Custom Scrollbar */
+    -ms-overflow-style: auto; // IE and Edge
+    scrollbar-width: auto; // Firefox
+    
+
+    &::-webkit-scrollbar-track {
+        // scroll-margin-block: 1em;
+        // background-color: rgba($clr-secondary, 0.2);
+        border-radius: 20px;
+        border: solid 3px transparent;
+        margin-block: .75em;
+    }
+
+    &::-webkit-scrollbar {
+        // scroll-margin-block: 1em;
+        width: 3px;
+        // background-color: rgba($clr-secondary, 0.3);
+        border-radius: 10px;
+        display: block;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        // scroll-margin-block: 1em;
+        background-color: rgba($clr-accent-1, 1);
+        border-radius: 10px;
+    }
+}

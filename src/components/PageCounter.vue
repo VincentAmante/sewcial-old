@@ -37,6 +37,7 @@ const props = defineProps({
         font-size: .75em;
 
         li {
+            @include flex;
             @include flex-centered;
             padding-inline: .2em;
             font-size: 1.5em;
