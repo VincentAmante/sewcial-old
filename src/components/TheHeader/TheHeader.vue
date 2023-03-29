@@ -85,7 +85,7 @@ header {
     align-items: center;
     justify-content: flex-end;
     padding-inline: clamp($margin-width-mobile, 5vw, 50px);
-    height: clamp(50px, 25vw, 125px);
+    height: clamp(30px, 15vw, 90px);
     border-bottom: 6px dashed $clr-secondary;
     &.home {
         border: none
@@ -94,14 +94,14 @@ header {
     .btn-container {
         @include flex;
         align-items: center;
-        gap: 1vw;
+        gap: .5vw;
         z-index: 105;
         position: fixed;
     }
     .btn-liked-page {
-        height: 30px;
+        height: 25px;
         @include media(md){
-            height: 40px;
+            height: 30px;
         }
     }
 
