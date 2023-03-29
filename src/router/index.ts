@@ -42,7 +42,12 @@ const router = createRouter({
       path: '/events/booking',
       name: 'events-booking',
       component: () => import('../views/Events/BookingView.vue')
-    }
+    },
+    {
+      path: '/shop/catalogue',
+      name: 'shop-catalogue',
+      component: () => import('../views/Shop/CatalogueView.vue')
+    },
   ]
 })
 
