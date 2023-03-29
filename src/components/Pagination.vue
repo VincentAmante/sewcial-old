@@ -1,6 +1,6 @@
 <script setup lang = "ts">
 // Computed Property
-import {computed, defineProps, getCurrentInstance} from 'vue';
+import {computed, getCurrentInstance} from 'vue';
 
 // Import Chevrons
 import IconChevronLeft from './icons/IconChevronLeft.vue';
