@@ -54,7 +54,7 @@
     .burger {
         @include flex-col;
         justify-content: space-between;
-        height: 25px;
+        height: 20px;
         aspect-ratio: 1;
         cursor: pointer;
         pointer-events: visible;
@@ -69,10 +69,10 @@
         }
         
         @include media(md){
-            height: 35px;
+            height: 25px;
 
             div {
-                width: 45px;
+                width: 35px;
             }
         }
         &.toggled {

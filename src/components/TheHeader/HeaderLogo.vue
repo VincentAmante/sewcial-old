@@ -63,7 +63,7 @@
 
       svg {
         // width: 132px;
-        height: clamp(40px, 7.5vmax, 80px);
+        height: clamp(30px, 7.5vmax, 50px);
         display: block;
       }
     }
