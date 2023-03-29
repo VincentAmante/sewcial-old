@@ -1,27 +1,45 @@
 <script setup lang="ts">
 
-import { ref } from 'vue';
+import { computed } from 'vue';
 
-const initialValue = 0;
-const currentValue = ref(initialValue);
 
+const props = defineProps({
+  modelValue: {
+    type: Number,
+    required: true
+  },
+  text: {
+    type: String
+  }
+})
+
+const emit = defineEmits(['update:modelValue'])
+const count = computed({
+        get(){
+            return props.modelValue
+        },
+        set(value){
+            emit('update:modelValue', value)
+        }
+    })
+    
+  
 // function increments count
 function increment() {
-  currentValue.value++;
+  count.value++
 }
-
 // function decrements count
 function decrement() {
-  if (currentValue.value > 0){
-  currentValue.value--;
-  }
+  count.value--
 }
 </script>
 
 <template>
     <div class="main">
       <button @click="decrement">-</button>
-      <h3><slot name="count"> {{ currentValue }}</slot></h3>
+      <div class="counter">
+        <h3><slot name="count"> {{ count }}</slot></h3>
+      </div>
       <button @click="increment">+</button>
     </div>
   </template>
@@ -43,11 +61,20 @@ button {
     cursor: pointer;
 }
 h3{
-   padding: 10px 25px;
+  //  padding: 10px 25px;
     font-size: 25px;
-    background-color: white;
+    // background-color: white;
     color: $clr-secondary;
     border: none;
-    border-radius: 5px;  
+    // border-radius: 5px;  
+}
+.counter{
+  display: flex;
+  background-color: white;
+  width: 60px;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;  
 }
 </style>
