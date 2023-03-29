@@ -3,9 +3,9 @@
     import SpeechBubble from '@/components/SpeechBubble.vue';
     import TemplateHoverCard from '@/components/TemplateHoverCard.vue';
     import TeamPictures from '@/components/TeamPictures.vue';
-    import PageCounter from '@/components/PageCounter.vue';
     import Incrementor from '@/components/Incrementor.vue';
     import Fields from '@/components/Fields.vue';
+    import BoldHeading from '@/components/BoldHeading.vue';
 
 </script>
 
@@ -67,6 +67,10 @@
                 <p>---------------------------------------------------------------</p>
                 <h2>Text Fields</h2>
                 <Fields></Fields>
+                <p>---------------------------------------------------------------</p>
+                <BoldHeading>
+                    COMMUNITY
+                </BoldHeading>
             </div>
         </div>
     </main>
