@@ -30,11 +30,6 @@
             emit('update:modelValue', value)
         }
     })
-
-    watch(startTime, (newProp, oldProp) => {
-      console.log('prop changed', newProp)
-    })
-
     // TODO: refactor somehow
     const openingHours = {
       start: 6,

@@ -61,18 +61,18 @@
                 </DescriptionSlider>
                 <form class="contact-field" action="">
                     <ContactField name="name" v-model="name" is-required>
-                        <template #label>Name</template>
+                        <template>Name</template>
                     </ContactField>
                     <ContactField name="email" v-model="email" is-required>
-                        <template #label>Email</template>
+                        <template>Email</template>
                     </ContactField>
                     
                     <ContactField name="telNumber" v-model="telNumber" is-required type="tel">
-                        <template #label>Phone Number</template>
+                        <template>Phone Number</template>
                     </ContactField>
                     
                     <ContactField name="message" v-model="message" is-required>
-                        <template #label>Message</template>
+                        <template>Message</template>
                     </ContactField>
 
                     <AppButton @click="() => showContactObject()">Send Message</AppButton>
@@ -116,13 +116,14 @@
         @include flex-col;
         align-items: center;
         justify-content: center;
-        padding-block: 10vmin;
+        // padding: 5vmin;
 
         .test-wrapper {
             @include flex-col;
-            min-width: 80%;
+            // min-width: 80%;
             align-items: center;
             justify-content: center;
+            // padding-inline: 2em;
 
             .icon{
                 margin:10px;
@@ -137,7 +138,7 @@
         border-radius: 10px;
         background-color: $clr-secondary;
         gap: 1em;
-        width: 100%;
+        width: 90%;
 
         .booking-input {
             display: grid;
@@ -155,8 +156,8 @@
         border-radius: 45px;
         margin-block: 1em;
 
-        width: 100%;
-        max-width: 800px;
+        // width: 100%;
+        max-width: 700px;
         padding: 5vw;
     }
 </style>
