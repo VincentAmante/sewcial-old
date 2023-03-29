@@ -47,13 +47,15 @@
     })
 
 
+    // Sets as to whether the like-button appears
     const formatStyle = computed(() => {
-        let pageName = page.value.substring(1)
-        switch (pageName){
+        let pagePath = page.value.substring(1)
+        switch (pagePath){
             case 'home':
             case '':
                 return 'home'
             case 'about':
+            case 'shop/catalogue':
                 return 'shop'
         }
     })
