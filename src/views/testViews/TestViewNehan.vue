@@ -5,7 +5,7 @@
     import TeamPictures from '@/components/TeamPictures.vue';
     import Incrementor from '@/components/Incrementor.vue';
     import EventField from '@/components/FormFields/EventField.vue';
-    import BoldHeading from '@/components/BoldHeading.vue';
+    import TiltedHeading from '@/components/TiltedHeading.vue';
 
     import {ref} from 'vue';
     const incrementorVal = ref(0);
@@ -70,9 +70,9 @@
                 <h2>Text Fields</h2>
                 <!-- <EventField :model-value="" :name="#name"></EventField> -->
                 <p>---------------------------------------------------------------</p>
-                <BoldHeading>
+                <TiltedHeading>
                     COMMUNITY
-                </BoldHeading>
+                </TiltedHeading>
             </div>
         </div>
     </main>
