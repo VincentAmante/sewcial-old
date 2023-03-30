@@ -1,5 +1,4 @@
 <script setup lang = "ts">
-
 </script>
 
 <template lang = "">
@@ -44,26 +43,41 @@
 <!-- Scoped Styling -->
 <style scoped lang="scss">
 .item-description {
-    width: 100%;
     display: flex;
     flex-direction: column;
     color: $clr-secondary;
+    margin-top: 1.5em;
+    width: auto;
+    .item-name, .owner-name, .description {
+        margin-block: 0.25em;
+    }
 
     .sizing {
         display: flex;
         flex-direction: row;
+        margin-top: 1em;
         gap: 0.5em;
     }
 
     table {
         border: 1px solid;
         border-collapse: collapse;
+        margin-bottom: 1em;
 
         th {
             border: 1px solid;
-            padding-inline: 1.75em;
+            padding-inline: 1.49em;
+            padding-block: 0.25em;
             text-align: left;
+
+            p {
+                margin: auto;
+            }
         }
+    }
+
+    @include media (tablet) {
+        margin-top: 0%;
     }
 }
 
