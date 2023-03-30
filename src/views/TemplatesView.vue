@@ -70,9 +70,9 @@ import TemplateCard from '@/components/TemplateCard.vue';
   display: none;
 }
 
-main{
-    // margin: 100px 225px 100px 225px;
-}
+// main{
+//     margin: 100px 225px 100px 225px;
+// }
 .img-1{
     display: none;
 

@@ -2,35 +2,32 @@
 // Import of a speechbubble
 import SpeechBubble from "@/components/SpeechBubble.vue";
 import LogoWhite from "@/components/TheHeader/HeaderLogo.vue";
+import TiltedHeading from "@/components/TiltedHeading.vue";
 </script>
 <template>
     <main>
         <!-- Just test divs, don't mind -->
         <section>
-            <div class="test">
-                <div class="test-wrapper">
-                    <div class="splash-headings">
-                        <span>Support</span>
-                        <span id="the">THE</span>
-                        <span>Community</span>
-                    </div>
-                </div>
+            <div class="splash-headings">
+                <span>Support</span>
+                <TiltedHeading class="the">THE</TiltedHeading>
+                <span>community</span>
             </div>
             <div class="card-section">
                 <div class="info-card">
                     <img src="@/assets/icons/sharelove.png" alt="" />
-                    <h3>Share Love</h3>
-                    <div>Drop off your pre-loved clothes at one of our stores</div>
+                    <h2>Share Love</h2>
+                    <p>Drop off your pre-loved clothes at one of our stores</p>
                 </div>
                 <div class="info-card">
                     <img src="@/assets/icons/getrewards.png" alt="" />
-                    <h3>Get Rewards</h3>
-                    <div>Drop off your pre-loved clothes at one of our stores</div>
+                    <h2>Get Rewards</h2>
+                    <p>Receive a store credit voucher worth 10 AED</p>
                 </div>
                 <div class="info-card">
                     <img src="@/assets/icons/star.png" alt="" />
-                    <h3>Lorem Ipsum</h3>
-                    <div>Drop off your pre-loved clothes at one of our stores</div>
+                    <h2>Lorem Ipsum</h2>
+                    <p>Up-cycle unique pieces from unused clothing</p>
                 </div>
             </div>
         </section>
@@ -83,44 +80,79 @@ import LogoWhite from "@/components/TheHeader/HeaderLogo.vue";
                 </div>
             </div>
         </section>
+        <section>
+            <div class="location-info">
+                <div class="map">
+                    <img src="@/assets/images/donatemap.png" alt="">
+                </div>
+                <div class="location">
+                    <div class="bubble">
+                        <SpeechBubble>
+                            <div class="pink-bubble">
+                                DROP YOUR ITEMS HERE!
+                            </div>
+                        </SpeechBubble>
+                    </div>
+                    <SpeechBubble alignment="right">
+                        <div class="blue-bubble">
+                            LOCATION <br>
+                            Office No. 3002, Al Manara Tower <br>
+                            Dubai Marina <br>
+                            Dubai, UAE
+                        </div>
+                    </SpeechBubble>
+                </div>
+            </div>
+        </section>
     </main>
 </template>
 <style scoped lang="scss">
 .splash-headings {
-    font-size: 90px;
+    font-size: 4.5em;
     display: flex;
     color: $clr-secondary;
-    font-weight: 700;
+    font-weight: bold;
     // background-color: aqua;
     justify-content: center;
     // align-content: center;
-    padding-top: 100px;
+    padding-top: 1.15em;
 }
 
-.splash-headings #the {
-    color: white;
-    font-size: 50px;
-    background-color: $clr-accent-1;
-    height: min-content;
-    padding: 5px;
-    padding-inline: 20px;
-    border-radius: 10px;
-    rotate: -10deg;
+.the {
+    // color: $clr-primary;
+    font-size: 40px;
+    // background-color: $clr-accent-1;
+    // height: min-content;
+    padding-block: 1px;
+    padding-inline: 15px;
+    border-radius: 0.2em;
+    rotate: -15deg;
     margin-inline: 20px;
-    transform: translateY(20px);
+    // transform: translateY(20px);
 }
 
 .card-section {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
-    padding: 100px;
+    column-gap: 9em;
+    padding: 4em;
+    h2 {
+        // font-weight: bold;
+        color: $clr-secondary;
+        // text-transform: capitalize;    
+    }
+    
 }
 
 .info-card {
     // background-color: aqua;
-    width: 300px;
+    width: 12em;
     // margin-inline: 40px;
+    img{
+        width: 11em;
+    }
 }
 
 .donate {
@@ -131,8 +163,40 @@ import LogoWhite from "@/components/TheHeader/HeaderLogo.vue";
     color: white;
     padding: 100px;
     padding-inline: 250px;
+
+    div {
+        padding-bottom: 50px;
+    }
 }
 
-.donate-info div{
-    padding-bottom: 50px;
-}</style>
+.pink-bubble{
+    padding: 1em;
+
+    font-weight: 500;
+}
+
+.blue-bubble{
+    padding: 1em;
+    font-weight: 500;
+}
+
+.bubble{
+    padding-bottom: 2rem;
+}
+
+.map img{
+    width: 37rem;
+}
+
+.location{
+    width: 500px;
+}
+
+.location-info{
+    display: flex;
+    justify-content: center;
+    padding: 10em;
+    gap: 5em;
+    border-top: 4px dashed $clr-secondary;
+}
+</style>
