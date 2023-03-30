@@ -3,7 +3,7 @@ html {
 }
     // Heading 1
 h1, .text-h1 {
-    font-size: clamp(24px, 2.5vmax, 30px);
+    font-size: clamp(24px, 2.5vmax, 20px);
     font-weight: 700;
     text-transform: uppercase;
     margin-block: 1rem;
@@ -11,14 +11,14 @@ h1, .text-h1 {
 
 // Heading 2
 h2, .text-h2 {
-    font-size: clamp(20px, 2.4vw, 25px);
+    font-size: clamp(20px, 2.4vw, 16px);
     font-weight: 700;
     text-transform: uppercase;
     margin-block: 1rem;
 }
 
 h3, .text-h3 {
-    font-size: clamp(16px, 1.95vw, 20px);
+    font-size: clamp(16px, 1.95vw, 13px);
     font-weight: 700;
     margin-block: 1rem;
 }
@@ -26,7 +26,7 @@ h3, .text-h3 {
 // Speech Bubbles
 // Button
 .bubble, .button, button {
-    font-size: clamp(16px, 2vw, 22px);
+    font-size: clamp(16px, 2vw, 14.5px);
     font-weight: 600;
     text-transform: uppercase;
     margin-block: 1rem;
@@ -34,14 +34,14 @@ h3, .text-h3 {
 
 // Body Text
 .body, p {
-    font-size: clamp(15px, 1.085vw, 18px);
+    font-size: clamp(15px, 1.085vw, 12px);
     font-weight: 400;
     margin-block: 1rem;
 }
 
 // Captions
 .caption {
-    font-size: 13px;
+    font-size: 10px;
     font-weight: 400;
     margin-block: 1rem;
 }
