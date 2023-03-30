@@ -15,11 +15,15 @@
         },
         isRequired: {
             type: Boolean,
-            default: false
+            default: true
         },
         type: {
             type: String,
             default: 'text'
+        },
+        disabled: {
+            type: Boolean,
+            default: false
         }
     })
 
@@ -36,8 +40,15 @@
 
 <template>
     <label :for="name" class="error">
-        <p><slot>MISSING LABEL</slot></p>
-        <input :type="type" :name="name" id="" :placeholder="placeholder" v-model.lazy="textInput" :required="isRequired">
+        <p><slot>MISSING LABEL</slot><span v-if="isRequired">*</span></p>
+        <input 
+        :type="type" 
+        :name="name" 
+        id="" 
+        :placeholder="placeholder" 
+        v-model.lazy="textInput" 
+        :required="isRequired"
+        :disabled="disabled">
     </label>
 </template>
 
@@ -45,7 +56,7 @@
     label {
         @include flex-col;
         gap: 0;
-        color: $clr-secondary;
+        // color: $clr-secondary;
         width: 100%;
 
         p {
@@ -59,14 +70,18 @@
 
         input {
             border-radius: 10px;
-            border: 3px solid $clr-secondary;
-            background: none;
+            border: 2px solid $clr-secondary;
+            background-color: white;
             padding-block: .5em;
             padding-inline: .25em;
 
             &:focus {
                 outline: none;
                 // border: 4px solid $clr-secondary;
+            }
+
+            &:disabled {
+                opacity: .45;
             }
         }
     }
