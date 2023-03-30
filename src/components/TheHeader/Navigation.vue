@@ -106,7 +106,7 @@
         }
         pointer-events: initial;
         
-        @include media(xs){
+        @include media(sm){
             width: clamp(400px, 70vw, 500px);
         }
     }
