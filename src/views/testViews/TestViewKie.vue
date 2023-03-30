@@ -27,6 +27,9 @@
         <!-- Just test divs, don't mind -->
         <div class="test">
             <div class="test-wrapper">
+                <ItemImage :image="'https://i.pinimg.com/564x/e1/cf/a1/e1cfa1a284fb717a0ef3023d7ee3e924.jpg'">
+                </ItemImage>
+
                 <!-- A component with slots in action -->
                 <SpeechBubble>
                 <h2>FRANKIE</h2>

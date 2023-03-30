@@ -4,7 +4,6 @@
 
 <template lang = "">
     <div class = "item-description">
-        <p>SHOWCASE > FEATURED</p>
 
         <h1 class = "item-name">
             <slot name = "item-name"></slot>
@@ -45,6 +44,7 @@
 <!-- Scoped Styling -->
 <style scoped lang="scss">
 .item-description {
+    width: 100%;
     display: flex;
     flex-direction: column;
     color: $clr-secondary;

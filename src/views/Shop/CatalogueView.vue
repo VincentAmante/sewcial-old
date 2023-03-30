@@ -1,6 +1,6 @@
 <script setup lang="ts">
     import SpeechBubble from '@/components/SpeechBubble.vue';
-    import DropdownTab from '@/components/DropDownTab.vue';
+    import DropdownTab from '@/components/DropdownTab.vue';
     import CatalogueCard from '@/components/CatalogueCard.vue';
     import IconFilter from '@/components/icons/IconFilter.vue';
     import Pagination from '@/components/Pagination.vue';
@@ -99,7 +99,7 @@
 </template>
 
 <!-- Styling -->
-<style lang = "scss">
+<style scoped lang = "scss">
     .container {
         display: flex;
         flex-direction: column;

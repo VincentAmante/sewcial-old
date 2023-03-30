@@ -24,13 +24,13 @@
 <!-- Scoped Styling -->
 <style scoped lang="scss">
     .like-me {
-        border-radius: 25px;
+        border-radius: 20px;
         color: $clr-primary;
         background-color: $clr-accent-1;
         margin: 5px;
-        padding: .75em;
+        padding: .35em;
         padding-inline: 1.75em;
-        width: 100%; //adjusts according to the size of container
+        width: 80%; //adjusts according to the size of container
         position: relative;
 
         display: flex;
