@@ -11,9 +11,9 @@
 <!-- Template with defined slots -->
 <!-- Currently, content by default goes to the one without a name -->
 <template lang="">
-    <h2 class="heading" :class="alignment">
+    <h1 class="heading" :class="alignment">
         <slot></slot>
-    </h2>
+    </h1>
 </template>
 
 <!-- Scoped Styling -->
