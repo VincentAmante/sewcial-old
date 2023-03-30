@@ -41,23 +41,32 @@
 </script>
 <template>
     <main>
-        <!-- Just test divs, don't mind -->
-        <div class="test">
-            <p>-------------------------------------------------</p>
-                <SpeechBubble>
-                    <h2>ICEN</h2>
-                    <p>This page is my testing ground</p>
-                </SpeechBubble>
+        <section class="banner-wrapper">
+                <div class="sticker-container">
+                    <img class="sticker sticker-1" src="@/assets/images/Sticker_1.png" alt="">
+                    <img class="sticker sticker-2" src="@/assets/images/Sticker_2.png" alt="">
+                </div>
                 
+                <div class="banner">
+                    <SpeechBubble>
+                        <h2>ICEN</h2>
+                        <p>This is a banner container</p>
+                        <p>It contains stickers that are horribly implemented</p>
+                    </SpeechBubble>
+                </div>
+        </section>
+        <!-- Just test divs, don't mind -->
+        <div class="test">  
+
                 <AppButton @click="() => toggleTestSlider()">Test DescriptionSlider</AppButton>
 
-                <DescriptionSlider name="test" img-src="/images/placeholders/studio.png">
+                <!-- <DescriptionSlider name="test" img-src="/images/placeholders/studio.png">
                     <template #title>Test Slider</template>
                     <template #default>
                         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Soluta, totam officia. Repellendus consectetur pariatur ex repudiandae dignissimos ducimus, consequuntur laboriosam! Corporis porro sunt ipsa harum nulla quod rerum voluptatum sint.</p>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod et ad illum, vero debitis dignissimos totam minima eligendi eveniet quisquam?</p>
                     </template>
-                </DescriptionSlider>
+                </DescriptionSlider> -->
                 <form class="contact-field" action="">
                     <ContactField name="name" v-model="name" is-required>
                         <template>Name</template>
@@ -130,7 +139,6 @@
         align-items: center;
         justify-content: center;
         gap: 1em;
-        padding: 1em;
     }
 
     .test {
@@ -144,25 +152,6 @@
         padding-inline: 1em;
         padding-block: .5em;
     }
-    // .test {
-    //     max-width: 100%;
-    //     @include flex-col;
-    //     align-items: center;
-    //     justify-content: center;
-    //     // padding: 5vmin;
-
-    //     .test-wrapper {
-    //         @include flex-col;
-    //         // min-width: 80%;
-    //         align-items: center;
-    //         justify-content: center;
-    //         // padding-inline: 2em;
-
-    //         .icon{
-    //             margin:10px;
-    //         }
-    //     }
-    // }
 
     .booking-sample {
         @include flex-col;
@@ -191,9 +180,59 @@
         border: 6px dashed $clr-secondary;
         border-radius: 45px;
         margin-block: 1em;
-
         // width: 100%;
         max-width: 700px;
         padding: 5vw;
+    }
+
+    .banner-wrapper {
+        position: relative;
+        overflow-x: hidden;
+        border-bottom: 6px dashed $clr-secondary;
+        width: 100%;
+        height: 80svh;
+        z-index: -1;
+        padding-inline: 1em;
+        padding-block: 1em;
+
+        .banner {
+            // padding-inline: 5vw;
+            padding-inline: clamp(.5em, 15vw, 20em);
+            // display: none;
+        }
+
+        
+        .sticker-container {
+            position: absolute;
+            width: 100%;
+            
+
+            // Sets stickers to display only past desktop
+            .sticker {
+                display: none;
+                @include media(desktop){
+                    display: block;
+                }
+            }
+
+            .sticker-1 {
+                position: absolute;
+                z-index: -5;
+                right: 0;
+                top: 0;
+                transform: translateX(15%) translateY(00%);
+
+                width: 12em;
+            }
+            .sticker-2 {
+                position: absolute;
+                z-index: -5;
+                top: 0;
+                left: 0;
+                transform: translateX(-30%) translateY(80%);
+
+                width: 15em;
+            }
+        }
     }
 </style>
