@@ -30,7 +30,9 @@ function increment() {
 }
 // function decrements count
 function decrement() {
-  count.value--
+  if (count.value > 0) {
+    count.value--
+  }
 }
 </script>
 
