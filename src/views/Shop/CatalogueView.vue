@@ -37,7 +37,7 @@
                     <h1>PRICE</h1>
                 </DropdownTab>
                 <button>
-                    <p>APPLY FILTERS</p>
+                    <p class = "button">APPLY FILTERS</p>
                 </button>
             </div>
             <!-- Catalogue Items -->
@@ -172,7 +172,7 @@
             border: none;
             color: $clr-primary;
 
-            p {
+            .button {
                 color: $clr-primary;
             }
         }
