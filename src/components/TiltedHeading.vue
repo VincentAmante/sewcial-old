@@ -24,7 +24,8 @@
         // padding: 5px 10px 5px 10px;
         // border-radius: 5px;
         border-radius: 5px;
-        padding: 5px 10px 5px 10px;
+        padding-block: 5px;
+        padding-inline: 10px;
         color: $clr-primary;
         width: fit-content;
         position: relative;
