@@ -15,7 +15,7 @@
 <!-- Template with default text and icon -->
 <template lang="">
     <div class="download" :class="alignment">
-        <p>DOWNLOAD</p>
+        <p style="font-weight: 500">DOWNLOAD</p>
     </div>
 </template>
 
@@ -24,7 +24,7 @@
     .download {
         border-radius: 10px;
         color: $clr-primary;
-        background-color: $clr-accent-2;
+        background-color: $clr-secondary;
         padding-inline: auto;
         width: 100%; //adjusts according to the size of container
         position: relative;
