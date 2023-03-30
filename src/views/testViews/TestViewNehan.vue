@@ -4,9 +4,11 @@
     import TemplateHoverCard from '@/components/TemplateHoverCard.vue';
     import TeamPictures from '@/components/TeamPictures.vue';
     import Incrementor from '@/components/Incrementor.vue';
-    import Fields from '@/components/Fields.vue';
+    import EventField from '@/components/FormFields/EventField.vue';
     import BoldHeading from '@/components/BoldHeading.vue';
 
+    import {ref} from 'vue';
+    const incrementorVal = ref(0);
 </script>
 
 <template>
@@ -61,12 +63,12 @@
                 <!-- <PageCounter :total-pages="5" @change-page="handlePageChange" ></PageCounter>  -->
                 <!-- <p>---------------------------------------------------------------</p> -->
                 <h2>Booking Counter!</h2>
-                <Incrementor>
+                <Incrementor v-model="incrementorVal">
                     <template #count></template>
                 </Incrementor>
                 <p>---------------------------------------------------------------</p>
                 <h2>Text Fields</h2>
-                <Fields></Fields>
+                <!-- <EventField :model-value="" :name="#name"></EventField> -->
                 <p>---------------------------------------------------------------</p>
                 <BoldHeading>
                     COMMUNITY
