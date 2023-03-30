@@ -105,7 +105,7 @@
         flex-direction: column;
         border-bottom: 4px dashed $clr-secondary;
 
-        @include media (tablet) {
+        @include media (mobile) {
             flex-direction: row;
         }
 
@@ -113,7 +113,7 @@
             width: 100%;
             height: auto;
 
-            @include media (tablet) {
+            @include media (mobile) {
                 width: 50%;
             }
         }
@@ -190,7 +190,7 @@
             align-self: center;
             justify-content: center;
             
-            @include media (tablet) {
+            @include media (mobile) {
                     grid-template-columns: 45% 45%;
                 }
 
