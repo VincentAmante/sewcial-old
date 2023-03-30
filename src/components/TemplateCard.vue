@@ -36,25 +36,23 @@
 <style scoped lang="scss">
 .cards {
     padding: .75em;
-    margin:5px;
-    width: 50%;
-  
+    margin: 5px;
+    
     .card {
       flex-direction: column;
       color: $clr-text;
       background-color: $clr-primary;
       width: 100%; // change this depending on the thign
       border-radius: 20px;
-      box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-      transition: transform 0.5s;
-      -webkit-transition: transform 0.5s;
+      transition: transform 300ms linear;
   
       &:hover {
         cursor: pointer;
-        transform: scale(1.1);
-        -webkit-transform: scale(1.1);
+        transform: scale(1);
+        box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+        
         .card-image {
-          opacity: 1;
+          filter: brightness(100%);
         }
       }
     }
@@ -80,6 +78,8 @@
       border-radius: 20px 20px 0px 0px;
       width: 100%;
       vertical-align: middle;
+      filter: brightness(90%);
+
     }
   }
   
