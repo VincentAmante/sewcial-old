@@ -43,8 +43,7 @@
     <main>
         <!-- Just test divs, don't mind -->
         <div class="test">
-            <div class="test-wrapper">
-                <p>-------------------------------------------------</p>
+            <p>-------------------------------------------------</p>
                 <SpeechBubble>
                     <h2>ICEN</h2>
                     <p>This page is my testing ground</p>
@@ -88,48 +87,82 @@
 
                 <div class="booking-sample">
                     <DatePicker v-model="date"/>
+                    <div class="value-display">
+                        <h2>Date Value</h2>
+                        <h3>
+                            {{ date }}
+                        </h3>
+                    </div>
                     <div class="booking-input">
                         <StartTimePicker :date="date" v-model="startTime"/>
                         <EndTimePicker :is-disabled="false" :start-time="startTime" v-model="endTime"/>
                         <BookingPeopleCount v-model="peopleCount"/>
                     </div>
-                    <p>
-                        {{ date }}
-                    </p>
-                    <p>
-                        {{ startTime }}
-                    </p>
-                    <p>
-                        {{ endTime }}
-                    </p>
-                    <p> 
-                        {{ peopleCount }}
-                    </p>
+                    <div class="value-display">
+                        <h2>Start Time</h2>
+                        <h3>
+                            {{ startTime }}
+                        </h3>
+                    </div>
+
+                    <div class="value-display">
+                        <h2>End Time</h2>
+                        <h3>
+                            {{ endTime }}
+                        </h3>
+                    </div>
+
+                    <div class="value-display">
+                        <h2>
+                            People Count
+                        </h2>
+                        <h3> 
+                            {{ peopleCount }}
+                        </h3>
+                    </div>
                 </div>
-            </div>
         </div>
     </main>
 </template>
 <style scoped lang="scss">
-    .test {
-        max-width: 100%;
+    main {
         @include flex-col;
         align-items: center;
         justify-content: center;
-        // padding: 5vmin;
-
-        .test-wrapper {
-            @include flex-col;
-            // min-width: 80%;
-            align-items: center;
-            justify-content: center;
-            // padding-inline: 2em;
-
-            .icon{
-                margin:10px;
-            }
-        }
+        gap: 1em;
+        padding: 1em;
     }
+
+    .test {
+        max-width: 100%;
+        @include flex-col;
+        @include flex-centered;
+    }
+
+    .value-display {
+        width: 100%;
+        padding-inline: 1em;
+        padding-block: .5em;
+    }
+    // .test {
+    //     max-width: 100%;
+    //     @include flex-col;
+    //     align-items: center;
+    //     justify-content: center;
+    //     // padding: 5vmin;
+
+    //     .test-wrapper {
+    //         @include flex-col;
+    //         // min-width: 80%;
+    //         align-items: center;
+    //         justify-content: center;
+    //         // padding-inline: 2em;
+
+    //         .icon{
+    //             margin:10px;
+    //         }
+    //     }
+    // }
 
     .booking-sample {
         @include flex-col;
@@ -139,10 +172,13 @@
         background-color: $clr-secondary;
         gap: 1em;
         width: 90%;
+        
+        h2, h3 {
+            margin: .1em;
+            color: white;
+        }
 
         .booking-input {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
             width: 100%;
             justify-content: stretch;
             gap: 1em;

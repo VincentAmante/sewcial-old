@@ -14,7 +14,7 @@
         :icon="['fas', 'xmark']"/>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     .close-button {
         transition: all ease-out .15s;
         color: $clr-secondary;

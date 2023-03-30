@@ -40,7 +40,9 @@
 
 <template>
     <label :for="name" class="error">
-        <p><slot>MISSING LABEL</slot><span v-if="isRequired">*</span></p>
+        <p>
+            <span><slot>MISSING LABEL</slot></span>
+            <span v-if="isRequired">*</span></p>
         <input 
         :type="type" 
         :name="name" 
@@ -69,7 +71,7 @@
         }
 
         input {
-            border-radius: 10px;
+            border-radius: 5px;
             border: 2px solid $clr-secondary;
             background-color: white;
             padding-block: .5em;
