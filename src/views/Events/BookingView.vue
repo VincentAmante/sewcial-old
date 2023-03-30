@@ -329,7 +329,7 @@ function setPaymentOption(option: string) {
             @include flex-centered;
         }
 
-        @include media(md){
+        @include media(laptop){
             @include flex;
             flex-direction: row;
             justify-content: flex-end;
@@ -372,7 +372,7 @@ function setPaymentOption(option: string) {
                 }
             }
 
-            @include media(md){
+            @include media(laptop){
                 li {
                     flex-direction: row;
                     justify-content: space-between;
@@ -409,7 +409,7 @@ function setPaymentOption(option: string) {
             padding-block: 1em;
             border-bottom: 1px solid $clr-secondary;
 
-            @include media(md){
+            @include media(laptop){
                 grid-template-columns: 1fr 1fr;
             }
         }
@@ -420,7 +420,7 @@ function setPaymentOption(option: string) {
             justify-content: space-between;
             border-bottom: 1px solid $clr-secondary;
 
-            @include media(md) {
+            @include media(laptop) {
                 flex-direction: row;
             }
 
@@ -464,7 +464,7 @@ function setPaymentOption(option: string) {
                 display: none
             }
 
-            @include media(md) {
+            @include media(laptop) {
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 gap: 1em;
@@ -505,7 +505,7 @@ function setPaymentOption(option: string) {
             max-width: 200px
         }
 
-        @include media(md) {
+        @include media(laptop) {
             // flex-direction: row;
         }
 

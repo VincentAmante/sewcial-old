@@ -100,7 +100,7 @@ header {
     }
     .btn-liked-page {
         height: 25px;
-        @include media(md){
+        @include media(laptop){
             height: 30px;
         }
     }
@@ -133,7 +133,7 @@ aside {
     padding-inline: clamp($margin-width-mobile, 5vw, 50px);
     position: absolute;
 
-    @include media(md) {
+    @include media(laptop) {
         justify-content: center;
     }
 }
