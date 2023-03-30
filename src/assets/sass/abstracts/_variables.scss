@@ -2,11 +2,11 @@
 
 // breakpoints
 $breakpoints:  (
-  "sm": 640px, // tablet-views
-  "md": 768px, // small screens
-  "lg": 1024px, // large screens
-  "xl": 1280px, // tv screens
-  "xxl": 1536px // cinema screens ig
+  "tablet": 640px, // tablet-views
+  "laptop": 768px, // small screens
+  "desktop": 1024px, // large screens
+  "lg-screen": 1280px, // tv screens
+  "xl-screen": 1536px // cinema screens ig
 );
 
 // colours
