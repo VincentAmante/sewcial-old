@@ -30,7 +30,7 @@
         position: relative;
         max-width: 50ch;
         word-wrap: break-word;
-        rotate: -10deg;
+        rotate: -5deg;
         &.left {
             align-self: flex-start;
             background-color: $clr-accent-1;

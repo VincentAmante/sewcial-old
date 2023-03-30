@@ -63,6 +63,10 @@
                 <RouterLink to="/donate">Donate</RouterLink>
                 <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
             </li>
+            <li id="nav-templates">
+                <RouterLink to="/templates">Templates</RouterLink>
+                <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
+            </li>
             <!-- <li>
                 <RouterLink to="/test">Test</RouterLink>
             </li> -->
@@ -106,7 +110,7 @@
         }
         pointer-events: initial;
         
-        @include media(tablet){
+        @include media(mobile){
             width: clamp(400px, 70vw, 500px);
         }
     }
@@ -142,7 +146,7 @@
             }
 
 
-            @include media(tablet) {
+            @include media(mobile) {
                 justify-content: space-between;
                 .right {
                     display: initial;

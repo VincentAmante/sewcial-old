@@ -68,7 +68,7 @@
             @include conditional-bg;
         }
         
-        @include media(laptop){
+        @include media(tablet){
             height: 25px;
 
             div {
@@ -82,7 +82,7 @@
 
             div:nth-child(1){
                 transform: scaleX(1) translateX(-1px) translateY(5px) rotate(45deg);
-                @include media(laptop) {
+                @include media(tablet) {
                     transform: scaleX(1) translateX(-1px) translateY(16px) rotate(45deg);
                 }
             }
@@ -91,7 +91,7 @@
             }
             div:nth-child(3){
                 transform: scaleX(1) translateX(0px) translateY(-16px) rotate(-45deg);
-                @include media(laptop) {
+                @include media(tablet) {
                     transform: scaleX(1) translateX(0px) translateY(-16px) rotate(-45deg);
                 }
             }

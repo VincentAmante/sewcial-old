@@ -2,8 +2,8 @@
 
 // breakpoints
 $breakpoints:  (
-  "tablet": 640px, // tablet-views
-  "laptop": 768px, // small screens
+  "mobile": 640px, // portrait screens
+  "tablet": 768px, // small landscape screens
   "desktop": 1024px, // large screens
   "lg-screen": 1280px, // tv screens
   "xl-screen": 1536px // cinema screens ig
