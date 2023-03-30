@@ -40,23 +40,12 @@
 .cards {
     padding: .75em;
     margin:5px;
-    width: 50%;
   
     .card {
       color: $clr-text;
       width: 100%; // change this depending on the thign
       border-radius:10px;
       transition: transform 0.5s;
-      -webkit-transition: transform 0.5s;
-  
-      &:hover {
-        cursor: pointer;
-        transform: scale(1.1);
-        -webkit-transform: scale(1.1);
-        .card-image {
-          opacity: 1;
-        }
-      }
     }
   
     // Content
@@ -98,6 +87,17 @@
       border-radius: 10px 10px 10px 10px;
       width: 100%;
       vertical-align: middle;
+
+      transition: transform 0.5s;
+  
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        .card-image {
+          opacity: 1;
+        }
+      }
 
       &.available{
         .sold-text {

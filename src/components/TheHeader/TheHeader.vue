@@ -86,7 +86,7 @@ header {
     justify-content: flex-end;
     padding-inline: clamp($margin-width-mobile, 5vw, 50px);
     height: clamp(70px, 15vw, 90px);
-    border-bottom: 6px dashed $clr-secondary;
+    border-bottom: 4px dashed $clr-secondary;
     &.home {
         border: none
     }

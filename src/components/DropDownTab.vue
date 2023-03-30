@@ -24,9 +24,6 @@
 <style scoped lang="scss">
     .dropdown-tab {
         color: $clr-secondary;
-        margin: 5px;
-        padding: .75em;
-        padding-inline: 1.75em;
         width: 100%; //adjusts according to the size of container
         position: relative;
 
