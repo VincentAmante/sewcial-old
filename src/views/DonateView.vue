@@ -143,6 +143,7 @@ import TiltedHeading from "@/components/TiltedHeading.vue";
         color: $clr-secondary;
         // text-transform: capitalize;    
     }
+    
 }
 
 .info-card {
