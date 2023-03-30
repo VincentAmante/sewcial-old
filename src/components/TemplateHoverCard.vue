@@ -71,7 +71,7 @@ const props = defineProps({
     }
     .card-image:hover{
         box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-        filter: brightness(70%);
+        filter: brightness(80%);
         cursor: pointer;
     }
     .card:hover .card-info{
