@@ -34,6 +34,7 @@
             case 'test-icen':
             case 'test-kie':
             case 'test-nehan':
+            case 'templates':
                 return 'secondary'
             default:
                 return 'secondary'
@@ -125,6 +126,7 @@ aside {
 }
 
 .logo {
+    // TODO: Set it so nav has its own header
     width: 100%;
     left: 0;
     right: 0;

@@ -111,7 +111,7 @@
         pointer-events: initial;
         
         @include media(mobile){
-            width: clamp(400px, 70vw, 500px);
+            width: clamp(350px, 70vw, 450px);
         }
     }
 
@@ -164,9 +164,8 @@
         @include flex-col;
         align-items: center;
         justify-content: center;
-        padding-inline: clamp(5px, 7.5vmax, 95px);
-        gap: clamp(5px, 6vh, 2.5em);
-        // padding-block: clamp(5px, 5vh, 40px);
+        padding-inline: clamp(50px, 7.5vmax, 95px);
+        gap: clamp(5px, 2svh, 2.5em);
         .btn {
             width: 100%;
         }
