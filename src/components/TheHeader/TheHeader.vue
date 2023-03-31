@@ -23,7 +23,6 @@
     // TODO: Improve efficiency
     const setColour = (page: String) => {
         page = page.substring(1)
-
         // Decides colours for the header
         switch(page){
             case 'home':
@@ -63,10 +62,10 @@
 </script>
 <template>
     <header :class="formatStyle">
-        <HeaderLogo class="logo" :class="formatStyle" :colour="navColour"></HeaderLogo>
+        <HeaderLogo class="logo" :class="formatStyle" :colour="navColour" :header-toggled="headerToggled"></HeaderLogo>
         <div class="btn-container">
             <ButtonLikedPage class="btn-liked-page"></ButtonLikedPage>
-            <BurgerButton class="burger-btn" v-model:is-toggled-model='headerToggled' :colour="navColour"/>
+            <BurgerButton class="burger-btn" v-model='headerToggled' :colour="navColour"/>
         </div>
     </header>
     

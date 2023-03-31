@@ -1,8 +1,9 @@
 <script setup lang="ts">
     import { computed } from 'vue';
+    import { useVModel, useToggle } from '@vueuse/core'
 
     const props = defineProps({
-        isToggledModel: {
+        modelValue: {
             type: Boolean,
             required: true,
             default: false
@@ -15,26 +16,19 @@
     })
 
     // Allows a child component to send an update to the parent via emits aka events
-    const emit = defineEmits(['update:isToggledModel'])
-    const isToggled = computed({
-        get(){
-            return props.isToggledModel
-        },
-        set(value){
-            emit('update:isToggledModel', value)
-        }
-    })
-
+    const emit = defineEmits(['update:modelValue'])
+    const isToggled = useVModel(props, 'modelValue', emit)
+    const toggleBurger = useToggle(isToggled)
     // watches for changes in {isToggled}'s value, makes changes accordingly
     const burgerToggled = computed(() => {
-        return (isToggled.value) ? 'toggled': 'not-toggled';
+        return (isToggled.value) ? 'toggled': 'not-toggled'
     })
 </script>
 
 <template>
     <label for="burgerToggle" class="burger-label">
         <input type="checkbox" name="burgerToggle" id="" v-model="isToggled">
-        <div class="burger" :class="[colour, burgerToggled]" @click="isToggled = !isToggled">
+        <div class="burger" :class="[colour, burgerToggled]" @click="toggleBurger()">
             <div v-for="i in 3" :class="colour"></div>
         </div>
     </label>

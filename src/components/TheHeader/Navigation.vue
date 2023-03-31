@@ -1,11 +1,13 @@
 <script setup lang="ts">
-    import { computed, watch, ref} from 'vue'
+    import { computed } from 'vue'
+    import HeaderLogo from './HeaderLogo.vue';
 
     // imports other vue components 
     import AppButton from '../AppButton.vue';
     import ButtonTwitter from '../icons/ButtonTwitter.vue'
     import ButtonFacebook from '../icons/ButtonFacebook.vue'
     import ButtonInstagram from '../icons/ButtonInstagram.vue'
+    import DevSelect from './DevSelect.vue';
 
     // Defines props in TypeScript
     /**
@@ -27,21 +29,22 @@
             required: true
         }
     })
-    
+
     // Computed property, should theoretically react if any element inside changes
     const navStyle = computed(() => {
         return (props.isToggled) ? 'toggled': '';
     })
-    // computed(() => {
-    //     let pageQuery = 'nav-' + props.page.substring(1)
-    //     let elem = document.getElementById(pageQuery)
-    //     elem?.classList.add('activePage')
-    // })
 
+    const secondaryColour = computed(() => {
+        return (props.colour == 'primary') ? 'secondary' : 'primary';
+    })
 </script>
 
 <template>
     <nav :class="[navStyle, colour]">
+        <div class="logo-container">
+            <HeaderLogo class="logo" :colour="secondaryColour"></HeaderLogo>
+        </div>
         <ul class="routes">
             <li id="nav-home">
                 <RouterLink to="/">Map</RouterLink>
@@ -52,11 +55,11 @@
                 <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
             </li>
             <li id="nav-discover">
-                <RouterLink to="/test-icen">Discover (Test-Icen)</RouterLink>
+                <RouterLink to="/test-icen">Discover (Test Icen)</RouterLink>
                 <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
             </li>
             <li id="nav-contact-us">
-                <RouterLink to="/test-kie">Contact Us (Test-Kie)</RouterLink>
+                <RouterLink to="/contact-us">Contact Us</RouterLink>
                 <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
             </li>
             <li id="nav-donate">
@@ -67,12 +70,10 @@
                 <RouterLink to="/templates">Templates</RouterLink>
                 <font-awesome-icon :icon="['fas', 'chevron-right']" class="right"/>
             </li>
-            <!-- <li>
-                <RouterLink to="/test">Test</RouterLink>
-            </li> -->
         </ul>
 
         <div class="other">
+            <DevSelect class="dev-select"></DevSelect>
             <AppButton class="btn">Book</AppButton>
             <div class="social-media-btns">
                 <ButtonTwitter></ButtonTwitter>
@@ -91,6 +92,8 @@
         @include conditional-text-alt('.right');
         @include conditional-text('.btn');
         @include conditional-bg-alt('.btn');
+        @include conditional-bg-alt('.dev-select');
+
 
         position: fixed;
         padding-top: clamp(50px, 6vh, 200px);
@@ -184,5 +187,16 @@
 
     li:has(.router-link-active) {
         opacity: 1;
+    }
+
+    
+    .logo-container {
+        @include flex;
+        align-items: center;
+        justify-content: flex-start;
+        position: absolute;
+        top: 0;
+        padding-inline: clamp($margin-width-mobile, 5vw, 50px);
+        height: clamp(70px, 15vw, 90px);
     }
 </style>
