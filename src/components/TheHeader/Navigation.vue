@@ -92,7 +92,6 @@
         @include conditional-text-alt('.right');
         @include conditional-text('.btn');
         @include conditional-bg-alt('.btn');
-        @include conditional-bg-alt('.dev-select');
 
 
         position: fixed;

@@ -22,18 +22,12 @@
     </select>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     select {
         width: 100%;
         height: 2.5em;
         outline: none;
         border-radius: 10px;
-        background: none;
-
-        option {
-            background: none;
-            min-height: 2em;
-        }
-        // padding: 1em;
+        background-color: $clr-primary;
     }
 </style>
