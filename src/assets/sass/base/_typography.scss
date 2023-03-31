@@ -1,6 +1,17 @@
 html {
     font-family: $font-primary;
 }
+
+.text-h-giant {
+    font-size: clamp(55px, 5vmax, 150px);
+    font-weight: 700;
+}
+
+.text-h-big-boy {
+    font-size: clamp(30px, 5vmax, 90px);
+    font-weight: 700;
+}
+
     // Heading 1
 h1, .text-h1 {
     font-size: clamp(16px, 2.5vmax, 20px);
@@ -36,7 +47,6 @@ h3, .text-h3 {
 // Body Text
 .body, p {
     font-size: clamp(14px, 1.085vw, 12px);
-    // font-size: clamp(10px, 1.085vw, 12px);
     font-weight: 400;
     margin-block: 1rem;
 }
