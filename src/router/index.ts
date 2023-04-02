@@ -64,6 +64,11 @@ const router = createRouter({
       component: () => import('../views/Shop/CatalogueItem.vue')
     },
     {
+      path: '/shop/catalogue/liked',
+      name: 'shop-catalogue-liked',
+      component: () => import('../views/Shop/CatalogueLiked.vue')
+    },
+    {
       path: '/donate',
       name: 'donate',
       component: () => import('../views/DonateView.vue')
