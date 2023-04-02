@@ -37,60 +37,68 @@ const props = defineProps({
 
 <!-- Scoped Styling -->
 <style scoped lang="scss">
-.cards-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 1rem;
-}
+    .cards-container {
+        padding: 10px;
+    }
+    .card {
+        position: relative;
+        height: 0;
+        padding-bottom: 100%;
+    }
+    .card-info {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background-color: $clr-primary;
+        padding-block: 0;
+        padding-inline: 1.5rem;
+    }
+    // Images
+    .card-image{
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        border-radius: 20px;
+        width: 100%;
+        vertical-align: middle;
+    }
+    .card-image:hover{
+        box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+        filter: brightness(80%);
+        cursor: pointer;
+    }
+    .card:hover .card-info{
+        height: 6rem;
+        transform: translateY(0);
+        cursor: pointer;
+        border-top: 3px dashed $clr-primary;
+    }
 
-.card {
-  display: inline-block;
-  width: 100%;
-  box-sizing: border-box;
-  position: relative;
-}
+    // Moved styling to a container here
+    .card-info-container {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 0;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        // background-color: #fff;
+        color: $clr-text;
+        // padding: 0 1.5rem;
+        border-radius: 0px 0px 20px 20px;
+        overflow: hidden; /* hide content that overflows */
+        transition: height 0.3s ease-in-out; /* animate height change */
+    }
 
-.card-image {
-  width: 100%;
-  height: 0;
-  padding-bottom: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-}
-
-.card-info-container {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 0;
-  overflow: hidden;
-  transition: height 0.3s ease-in-out;
-}
-
-.card:hover .card-info-container {
-  height: 50px;
-}
-
-.card-info {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #fff;
-  color: $clr-text;
-  width: 100%;
-  height: 100%;
-  padding: 0 20px;
-  box-sizing: border-box;
-}
-
-// .card-info.left {
-//   justify-content: flex-start;
-// }
-
-// .card-info.right {
-//   justify-content: flex-end;
-// }
-
+    .card:hover .card-info-container {
+        height: 6rem;
+        transform: translateY(0);
+        cursor: pointer;
+        border-top: 3px dashed $clr-primary;
+    }
 </style>
