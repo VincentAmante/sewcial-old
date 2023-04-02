@@ -7,6 +7,7 @@
     import ButtonLikedPage from '@/components/icons/ButtonLikedPage.vue';
     import IconHeart from '@/components/icons/IconHeart.vue';
     import IconCreditCard from '@/components/icons/IconCreditCard.vue';
+    import IconFilter from '@/components/icons/IconFilter.vue';
     import IconPlus from '@/components/icons/IconPlus.vue';
     import IconUser from '@/components/icons/IconUser.vue';
     import IconChevronLeft from '@/components/icons/IconChevronLeft.vue';
@@ -43,6 +44,7 @@
                     <IconCreditCard class="icon"></IconCreditCard>
                     <IconChevronLeft class="icon"></IconChevronLeft>
                     <IconChevronRight class="icon"></IconChevronRight>
+                    <IconFilter class="icon"></IconFilter>
                 </div>
                 </SpeechBubble>
                 <!-- Component with a prop, the one above uses a default -->
