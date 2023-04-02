@@ -15,7 +15,7 @@
 
 <!-- Card -->
 <template>
-    <div class="cards" onclick="location.href='html/image.html'">
+    <div class="cards-container" onclick="location.href='html/image.html'">
         <div class="card">
           <div class="card-image" :class="available" :style="{ backgroundImage: `url(${image})` }">
             <div class = "sold-text"><h1>SOLD</h1></div>
@@ -37,7 +37,7 @@
 
 <!-- Scoped Styling -->
 <style scoped lang="scss">
-.cards {
+.cards-container {
     padding: .75em;
     margin:5px;
   

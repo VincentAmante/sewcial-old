@@ -80,8 +80,10 @@ import TemplateHoverCard from '@/components/TemplateHoverCard.vue';
                 </div>
             </div>
             <TemplateHoverCard :image="'https://i.pinimg.com/originals/81/fb/e1/81fbe1c31719a0bd6258fec7a34ad20c.jpg'">
-                <template #text>
+                <template #item-name>
                     <h1>ITEM NAME</h1>
+                </template>
+                <template #owner-name>
                     <h3>OWNER'S NAME</h3>
                 </template>
             </TemplateHoverCard>
