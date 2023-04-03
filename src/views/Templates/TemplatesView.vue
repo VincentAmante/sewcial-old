@@ -21,9 +21,6 @@ import TemplateHoverCard from '@/components/TemplateHoverCard.vue';
             <p class="text">Lorem ipsum dolor sit amet consectetur. At purus maecenas nunc egestas sed. Tempor adipiscing venenatis praesent nisi tincidunt. Orci enim tristique aenean eu ac. Vel vestibulum imperdiet scelerisque dignissim in sagittis non dolor senectus. Sapien sodales tortor elementum suspendisse non mauris scelerisque. </p>
         </div>
 
-        <!-- Right sticker -->
-        <!-- <img class="img-2" src="@/assets/images/Sticker_2.png" width="150" height="175" alt=""> -->
-
         <!-- Featured section -->
         <section class="featured">
             <h2>Featured</h2>
@@ -71,12 +68,6 @@ import TemplateHoverCard from '@/components/TemplateHoverCard.vue';
                 <div class="filter-options">
                     <IconFilterVue />
                     <p>Filter</p>
-                    <!-- <select name="filter" id="filter">
-                        <option value="newest">Newest</option>
-                        <option value="oldest">Oldest</option>
-                        <option value="most-liked">Most Liked</option>
-                        <option value="least-liked">Least Liked</option>
-                    </select> -->
                 </div>
             </div>
             <TemplateHoverCard :image="'https://i.pinimg.com/originals/81/fb/e1/81fbe1c31719a0bd6258fec7a34ad20c.jpg'">
@@ -162,13 +153,15 @@ main{
     justify-content: space-between;
     align-items: center;
     margin-top: 1em;
-
     .filter-options{
         display: flex;
         align-items: center;
         gap: 0.5em;
         cursor: pointer;
         text-transform: uppercase;
+        background-color: rgba($color: #FFFAE0, $alpha: 0.2);
+        border-radius: 10px;
+        padding-inline: 15px;
     }
 }
 .featured{
