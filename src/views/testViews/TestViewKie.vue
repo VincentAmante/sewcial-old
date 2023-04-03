@@ -115,7 +115,6 @@
                 <Pagination :total-items="100" :items-per-page="10" :current-page="1">
                 </Pagination>
             </div>
-
         </div>
     </main>
 </template>

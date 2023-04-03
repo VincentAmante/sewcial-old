@@ -39,6 +39,11 @@ const router = createRouter({
       component: () => import('../views/testViews/TestViewNehan.vue')
     },
     {
+      path: '/events',
+      name: 'events',
+      component: () => import('../views/Events/EventsView.vue')
+    },
+    {
       path: '/events/booking',
       name: 'events-booking',
       component: () => import('../views/Events/BookingView.vue')
@@ -62,6 +67,11 @@ const router = createRouter({
       path: '/shop/catalogue/item',
       name: 'shop-catalogue-item',
       component: () => import('../views/Shop/CatalogueItem.vue')
+    },
+    {
+      path: '/shop/catalogue/liked',
+      name: 'shop-catalogue-liked',
+      component: () => import('../views/Shop/CatalogueLiked.vue')
     },
     {
       path: '/donate',

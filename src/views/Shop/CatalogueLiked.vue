@@ -1,47 +1,45 @@
-<script setup lang="ts">
-    import SpeechBubble from '@/components/SpeechBubble.vue';
-    import DropdownTab from '@/components/DropdownTab.vue';
-    import CatalogueCard from '@/components/CatalogueCard.vue';
+<script setup lang = "ts">
+    import TiltedHeading from '@/components/TiltedHeading.vue';
     import IconFilterBlue from '@/components/icons/IconFilterBlue.vue';
+    import CatalogueCard from '@/components/CatalogueCard.vue';
     import Pagination from '@/components/Pagination.vue';
 </script>
 
 <template>
     <main>
         <div class = "container">
-            <img class = "head-img" src="https://via.placeholder.com/600x500" />
-            <div class = "head-text">
-                <h1>NEW COLLECTION</h1>
-                <h1>Lorem ipsum sit aset dolor</h1>
-                <p>I got a condo in Manhattan, baby girl what’s happenin’?</p>
-                <SpeechBubble class = "speech">
-                    <p class = "button">VIEW LIMITED EDITION</p>
-                </SpeechBubble>
+            <!-- Left sticker -->
+            <img class="elements-left" src="@/assets/images/Sticker_1.png" width="190" height="250" alt="">
+
+            <!-- Page Heading -->
+            <div class="heading-container">
+                <div class="page-heading">
+                    <TiltedHeading>
+                        your liked
+                    </TiltedHeading>
+                    <h1 class="text-h-big-boy main-heading">Products</h1>
+                </div>
+            </div>
+
+            <!-- Right sticker -->
+            <div class = "sticker-position">
+                <img class="elements-right" src="@/assets/images/Sticker_2.png" width="150" height="175" alt="">
             </div>
         </div>
-        
-        <div class = "catalogue-container">
+
+        <!-- Browse section -->
+        <section class="browse-container">
             <!-- Filters -->
-            <div class = "filters-dropdown">
-                <IconFilterBlue></IconFilterBlue>
-                <p>FILTER</p>
+            <div class="filter">
+                <p>400 ITEMS</p>
+
+                <div class="filter-dropdown">
+                    <IconFilterBlue />
+                    <p>Filter</p>
+                </div>
             </div>
-            <div class = "filters-container">
-                <p>HIDE FILTERS</p>
-                <DropdownTab>
-                    <h1>SHOP BY</h1>
-                </DropdownTab>
-                <DropdownTab>
-                    <h1>STYLE</h1>
-                </DropdownTab>
-                <DropdownTab>
-                    <h1>PRICE</h1>
-                </DropdownTab>
-                <button>
-                    <p class = "button">APPLY FILTERS</p>
-                </button>
-            </div>
-            <!-- Catalogue Items -->
+
+            <!-- Template Grid -->
             <div class = "grid-container">
                 <div class = "catalogue-grid">
                     <CatalogueCard :image="'https://i.pinimg.com/564x/e1/cf/a1/e1cfa1a284fb717a0ef3023d7ee3e924.jpg'">
@@ -91,7 +89,7 @@
                     </CatalogueCard>
                 </div>
             </div>
-        </div>
+        </section>
         <!-- Paginate -->
         <div class = "paginate">
                 <Pagination :total-items="9" :items-per-page="6" :current-page="1"></Pagination>
@@ -100,109 +98,114 @@
 </template>
 
 <!-- Styling -->
-<style scoped lang = "scss">
-    .container {
-        display: flex;
-        flex-direction: column;
-        border-bottom: 4px dashed $clr-secondary;
+<style scoped lang="scss">
 
-        @include media (mobile) {
-            flex-direction: row;
-        }
+//Heading
+.container {
+    .heading-container {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    padding-block: 2em;
 
-        .head-img {
-            width: 100%;
-            height: auto;
-
-            @include media (mobile) {
-                width: 50%;
-            }
-        }
-
-        .head-text {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            margin-inline:auto;
-            margin-block: 2em;
-            align-content: center;
-            color: $clr-secondary;
-
-            h1 {
-                margin-block: 5px;
-            }
-
-            
-        }
+    @include media(tablet) {
+        padding-block: 5em;
     }
 
-    .catalogue-container {
+    .main-heading{
+        text-transform: capitalize;
+        color: $clr-secondary;
+        position: relative;
+        margin: -20px 0 0 15px;
+
+        @include media(tablet) {
+            margin: -30px 0 0 50px;
+        }
+    }
+}
+
+// Stickers
+
+.sticker-position {
+    display: none;
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    left: 90%;
+    top: 18%; 
+
+    @include media(desktop) {
+        display: flex;
+        overflow: hidden;
+    }
+ }
+
+.elements-left {
+    display: none;
+    position: absolute;
+    right: 90%;
+    top: 13%;
+
+    @include media(desktop) {
+        display: flex;
+    }
+}
+}
+
+// Products
+.browse-container {
+    color: $clr-primary;
     display: flex;
     flex-direction: column;
-
-    .filters-dropdown {
+    border-top: 4px dashed $clr-secondary;
+    .filter {
         display: flex;
         flex-direction: row;
-        align-items: center;
-        margin-left: auto;
-        margin-top: 1.5em;
+        justify-content: space-between;
+        padding-top: 3em;
+        margin-inline: 2em;
+        color: $clr-secondary;
 
-        p {
-            color: $clr-secondary;
-            margin-right: 4em;
-            margin-left: 2em;
-        }
-    }
-
-    .filters-container {
-        width: 30%;
-        border-right: 4px dashed $clr-secondary;
-        display: flex;
-        flex-direction: column;
-        align-content: center;
-        padding: 3em;
-        display: none;
-
-        p {
-            color: $clr-accent-1;
+        @include media (tablet) {
+            margin-inline: 4em;
         }
 
-        button {
-            background-color: $clr-accent-1;
-            border-radius: 10px;
-            border: none;
-            color: $clr-primary;
+        @include media (desktop) {
+            margin-inline: 5em;
+        }
 
-            .button {
-                color: $clr-primary;
-            }
+        .filter-dropdown {
+            display:  flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5em;
         }
     }
 
     .grid-container {
-        display: flex;
-        align-content: center;
-        width: 100%;
+            display: flex;
+            align-content: center;
+            width: 100%;
 
-        .catalogue-grid {
-            display: grid;
-            grid-template-columns: 50% 50%;
-            margin-inline: auto;
-            align-self: center;
-            justify-content: center;
-            
-            @include media (mobile) {
+            .catalogue-grid {
+                display: grid;
+                grid-template-columns: 50% 50%;
+                margin-inline: auto;
+                align-self: center;
+                justify-content: center;
+                
+                @include media (mobile) {
                     grid-template-columns: 45% 45%;
                 }
+            }
 
             .grid-item {
                 height: 10%;
             }
         }
-    }
 
     @include media (desktop) {
-        flex-direction: row;
 
         .filters-dropdown {
             display: none;
@@ -221,11 +224,8 @@
         }
     }
 }
-
 .paginate {
-        margin-block: 2em;
-    }
-
-
+    margin-block: 2em;
+}
 
 </style>
