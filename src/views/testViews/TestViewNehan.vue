@@ -6,6 +6,7 @@
     import Incrementor from '@/components/Incrementor.vue';
     import EventField from '@/components/FormFields/EventField.vue';
     import TiltedHeading from '@/components/TiltedHeading.vue';
+    import Filter from '@/components/Filter.vue';
 
     import {ref} from 'vue';
     const incrementorVal = ref(0);
@@ -73,6 +74,7 @@
                 <TiltedHeading>
                     COMMUNITY
                 </TiltedHeading>
+                <p>---------------------------------------------------------------</p>
             </div>
         </div>
     </main>
