@@ -59,10 +59,15 @@
     // Content
     .card-info {
       flex-direction: column;
-      padding: 1rem;
+      padding: 1.8rem;
       text-align: left;
       h1, h3 {
-        margin: 0;
+        margin-block: 0.2em;
+      }
+
+      .disclaimer {
+        padding-top: 0.5em;
+        margin-block: 1.5em;
       }
     }
   
@@ -77,6 +82,7 @@
       width: 100%;
       vertical-align: middle;
       filter: brightness(90%);
+      // background-image: url(../assets/images/OpenMic.png);
     }
   }
   

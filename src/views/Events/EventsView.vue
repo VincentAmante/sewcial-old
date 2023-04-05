@@ -1,9 +1,10 @@
 <script setup lang = "ts">
-import { ref, watch, computed } from 'vue';
-import TiltedHeading from '@/components/TiltedHeading.vue';
-import EventsCard from '@/components/EventsCard.vue';
-import { DatePicker } from 'v-calendar';
-import StartTimePicker from '@/components/FormFields/StartTimePicker.vue';
+    import { ref, watch, computed } from 'vue';
+    import TiltedBubble from '@/components/TiltedBubble.vue';
+    import TiltedHeading from '@/components/TiltedHeading.vue';
+    import EventsCard from '@/components/EventsCard.vue';
+    import { DatePicker } from 'v-calendar';
+    import StartTimePicker from '@/components/FormFields/StartTimePicker.vue';
     import EndTimePicker from '@/components/FormFields/EndTimePicker.vue';
     import BookingPeopleCount from '@/components/FormFields/BookingPeopleCount.vue';
 
@@ -15,14 +16,22 @@ import StartTimePicker from '@/components/FormFields/StartTimePicker.vue';
 
 <template>
     <section class = "events-splash">
+        <!-- Left Sticker -->
+        <img class="splash-sticker-l" src="@/assets/images/Events_Stickers_L.png" width="190" height="250" alt="">
+
         <div class = "splash-heading">
             <p class = "text-h-giant">Sew...</p>
-            <TiltedHeading>booking</TiltedHeading>
+            <TiltedBubble>booking</TiltedBubble>
             <p class = "text-h-giant">a session?</p>
         </div>
 
+        <!-- Right Sticker -->
+        <div class = "splash-sticker-container">
+            <img class="splash-sticker-r" src="@/assets/images/Events_Stickers_R.png" width="150" height="175" alt="">
+        </div>
+
         <div class = "calendar">
-            <DatePicker v-model="date"/>
+            <DatePicker v-model="date" class = "date-picker"/>
             <div class="booking-input">
                 <div class = "time-picker">
                     <StartTimePicker :date="date" v-model="startTime"/>
@@ -54,15 +63,15 @@ import StartTimePicker from '@/components/FormFields/StartTimePicker.vue';
         <div class = "card-container">
         <div class = "grid-container">
             <div class = "card-grid">
-            <EventsCard :image="'https://i.pinimg.com/564x/e1/cf/a1/e1cfa1a284fb717a0ef3023d7ee3e924.jpg'">
+            <EventsCard :image="'src/assets/images/OpenMic.png'">
+                <template #event-name>OPEN MIC</template>
+                <template #date>Saturday, Your Mom</template>
+            </EventsCard>
+            <EventsCard :image="'src/assets/images/BoardGamesNight.png'">
                 <template #event-name>ITEM NAME</template>
                 <template #date>OWNER</template>
             </EventsCard>
-            <EventsCard :image="'https://i.pinimg.com/564x/e1/cf/a1/e1cfa1a284fb717a0ef3023d7ee3e924.jpg'">
-                <template #event-name>ITEM NAME</template>
-                <template #date>OWNER</template>
-            </EventsCard>
-            <EventsCard :image="'https://i.pinimg.com/564x/e1/cf/a1/e1cfa1a284fb717a0ef3023d7ee3e924.jpg'">
+            <EventsCard :image="'src/assets/images/CommunitySale.png'">
                 <template #event-name>ITEM NAME</template>
                 <template #date>OWNER</template>
             </EventsCard>
@@ -91,11 +100,61 @@ import StartTimePicker from '@/components/FormFields/StartTimePicker.vue';
         justify-items: center;
         margin-block: 3em;
 
+        @include media (tablet) {
+            flex-direction: row;
+            justify-content: center;
+            align-content: center;
+            gap: 2em;
+        }
+
+        .splash-sticker-l {
+            display: none;
+            position: absolute;
+            right: 92%;
+            top: 22%;
+            height: fit-content;
+
+            @include media (desktop) {
+                display: flex;
+            }
+        }
+
+        .splash-sticker-container {
+            display: none;
+            position: absolute;
+            right: 0%;
+            bottom: 0%;
+            left: 93%;
+            top: 25%; 
+            overflow: hidden;
+            height: fit-content;
+            
+            .splash-sticker-r {
+                height: auto;
+            }
+
+            @include media (desktop) {
+                display: flex;
+            }
+        }
+
         .splash-heading {
+            display: flex;
+            flex-direction: column;
             color: $clr-secondary;
+            margin-bottom: 3em;
+
+            p {
+                position: relative;
+                margin: -10px 0 0 15px;
+            }
         }
 
         .calendar {
+            display: flex;
+            flex-direction: column;
+            justify-items: center;
+            align-items: center;
             background-color: $clr-secondary;
             padding: 1.5em;
             border-radius: 10px;
@@ -110,6 +169,7 @@ import StartTimePicker from '@/components/FormFields/StartTimePicker.vue';
 
             .book-now {
                 border-top: 1px dashed $clr-primary;
+                width: 100%;
 
                 p {
                     font-weight: 700;
@@ -175,12 +235,44 @@ import StartTimePicker from '@/components/FormFields/StartTimePicker.vue';
     }
 
     .workshops {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+        
         .sticker-left {
             display: none;
+            position: relative;
+            right: 0%;
+            bottom: 0%;
+            left: -18%;
+            top: 0%; 
+            width: fit-content;
+
+            @include media (desktop) {
+                display: flex;
+            }
         }
 
         .sticker-container {
             display: none;
+            position: relative;
+            right: 0%;
+            bottom: 0%;
+            left: 75%;
+            top: 0%;
+
+            overflow: hidden;
+            height: fit-content;
+
+            @include media (desktop) {
+                display: flex;
+                overflow: hidden;
+            }
+
+            .sticker-right {
+                height: auto;
+            }
         }
     }
 </style>
