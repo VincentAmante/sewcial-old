@@ -32,7 +32,6 @@
 
         align-self: flex-start;
         
-        max-width: 40ch; //remove if not wide enough, was added for tests
         justify-content: space-between;
 
         .icon {
