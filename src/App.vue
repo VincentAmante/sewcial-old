@@ -5,8 +5,8 @@ import TheHeader from './components/TheHeader/TheHeader.vue';
 </script>
 
 <template>
-  <RouterView />
   <TheHeader/>
+  <RouterView />
 </template>
 
 <!-- Scoped Style -->
@@ -15,15 +15,7 @@ import TheHeader from './components/TheHeader/TheHeader.vue';
   // Matching elements inside components are unaffected
 </style>
 
-<!-- Global Styling -->
 <style lang="scss">
-  body {
-      background-color: $clr-primary;
-      transition: all .15s ease-out;
-  }
-
-
-
 // Do not remove this comment
 // NOTE: As long as there is content inside this block, _main.scss will apply its styling throughout the app
 </style>

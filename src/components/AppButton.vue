@@ -6,7 +6,7 @@
     </button>
 </template>
 
-<style lang="scss">
+<style scoped lang="scss">
     button {
         background-color: $clr-secondary;
         color: $clr-primary;
@@ -14,7 +14,6 @@
         padding-inline: 2em;
         border-radius: 25px;
         border: 0;
-        margin: 40px;
         cursor: pointer;
     }
 </style>

@@ -4,12 +4,6 @@
     
     // Variables passed to this component are props
     const props = defineProps({
-        alignment: {
-            type: String,
-            required: true,
-            default: 'left'
-        },
-
         image: {
           type: String,
           required: true
@@ -17,13 +11,21 @@
     })
 </script>
 
-<!-- Image Search Card -->
+<!-- Card -->
 <template>
     <div class="cards" onclick="location.href='html/image.html'">
         <div class="card">
           <div class="card-image" :style="{ backgroundImage: `url(${image})` }"></div>
-        <div class="card-info" :class="alignment">
-            <slot name="text"></slot>
+        <div class="card-info">
+            <h1>
+              <slot name="item-name"></slot>
+            </h1>
+            <h3>
+              <slot name="owner"></slot>
+            </h3>
+            <p>
+              <slot name="description"></slot>
+            </p>
             <DownloadButton></DownloadButton>
         </div>
         </div>
@@ -33,26 +35,28 @@
 <!-- Scoped Styling -->
 <style scoped lang="scss">
 .cards {
-    padding: .75em;
-    margin:5px;
-    width: 50%;
-  
+    margin: 10px;
+    
     .card {
       flex-direction: column;
       color: $clr-text;
       background-color: $clr-primary;
-      width: 100%; // change this depending on the thign
-      border-radius: 20px;
-      box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-      transition: transform 0.5s;
-      -webkit-transition: transform 0.5s;
+      width: 180px; // change this depending on the thign
+      height: 300px;
+      border-radius: 15px;
+
+      @include media(desktop) {
+        width: 260px;
+        height: 370px;
+      }
   
       &:hover {
         cursor: pointer;
-        transform: scale(1.1);
-        -webkit-transform: scale(1.1);
+        box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+        
         .card-image {
-          opacity: 1;
+          filter: brightness(100%);
+
         }
       }
     }
@@ -61,10 +65,10 @@
     .card-info {
       flex-direction: column;
       padding: 1rem;
-      text-align: left;
+      justify-content: center;
 
-      &:deep(h1 h3){
-        margin:0;
+      h1, h3 {
+        margin: 0;
       }
     }
   
@@ -75,9 +79,11 @@
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
-      border-radius: 20px 20px 0px 0px;
+      border-radius: 15px 15px 0px 0px;
       width: 100%;
       vertical-align: middle;
+      filter: brightness(80%);
+
     }
   }
   

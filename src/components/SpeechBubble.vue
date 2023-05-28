@@ -24,10 +24,10 @@
 <!-- Scoped Styling -->
 <style scoped lang="scss">
     .speech-bubble {
-        border-radius: 25px;
+        border-radius: 20px;
         color: $clr-primary;
         margin: 5px;
-        padding: .75em;
+        padding: .35em;
         padding-inline: 1.75em;
         width: fit-content;
         position: relative;

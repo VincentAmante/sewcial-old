@@ -14,7 +14,7 @@
 
 <!-- Template with default text and icon -->
 <template lang="">
-    <div class="speech-bubble" :class="alignment">
+    <div class="liked" :class="alignment">
         <p>LIKED!</p>
         <IconHeart class="icon"></IconHeart>
     </div>
@@ -22,14 +22,14 @@
 
 <!-- Scoped Styling -->
 <style scoped lang="scss">
-    .speech-bubble {
-        border-radius: 25px;
+    .liked {
+        border-radius: 20px;
         color: $clr-primary;
         background-color: $clr-accent-2;
         margin: 5px;
-        padding: .75em;
+        padding: .35em;
         padding-inline: 1.75em;
-        width: 100%; //adjusts according to the size of container
+        width: 80%; //adjusts according to the size of container
         position: relative;
 
         display: flex;
